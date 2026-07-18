@@ -1,0 +1,19 @@
+# Virtual environment
+.venv/
+
+# Pipeline outputs (large data, figures, reports)
+outputs/*
+!outputs/.gitkeep
+
+# Internal planning notes
+Causal_WeatherGraph_最终补实验计划.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store

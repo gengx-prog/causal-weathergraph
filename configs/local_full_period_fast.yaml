@@ -1,0 +1,56 @@
+data:
+  root: /home/vipuser/Data
+  max_time_steps: null
+  time_stride: 1
+  spatial_subsample: null
+  variables:
+    - temperature
+    - humidity
+    - wind
+    - cloud_cover
+
+preprocess:
+  remove_monthly_climatology: true
+  use_first_difference: false
+  standardize: true
+  max_nan_ratio_per_node: 0.2
+  interpolation_limit: 6
+  rolling_anomaly_window: 31
+
+regions:
+  method: latlon_bins
+  n_regions: 64
+  random_seed: 42
+
+regimes:
+  use_season: true
+  seasons:
+    - DJF
+    - JJA
+  use_humidity_state: true
+  use_cloud_extreme: true
+  include_low_humidity: false
+  high_quantile: 0.8
+  low_quantile: 0.2
+
+causal:
+  method: granger
+  max_lag: 3
+  alpha: 0.05
+  fdr_method: benjamini_hochberg
+  candidate_k_nearest: 2
+  include_intra_region_edges: true
+  include_spatial_transport_edges: true
+  wind_aligned_candidates: false
+  correlation_prescreen_top_k: null
+  controls:
+    include_target_own_lags: true
+    include_target_region_all_vars: false
+  bootstrap:
+    enabled: false
+    n_bootstrap: 20
+    block_length: 128
+
+visualization:
+  top_k_edges: 100
+  use_cartopy_if_available: false

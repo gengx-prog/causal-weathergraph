@@ -1,0 +1,14 @@
+numpy
+pandas
+xarray
+netCDF4
+zarr
+scipy
+scikit-learn
+statsmodels
+networkx
+matplotlib
+pyyaml
+tqdm
+joblib
+tigramite>=5.2,<6
