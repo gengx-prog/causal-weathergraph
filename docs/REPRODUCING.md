@@ -7,6 +7,10 @@ Use CPython 3.13.7 and `python -m pip install -r requirements-test.txt` in a new
 virtual environment. In PowerShell, replace `python` below with
 `& .\.venv\Scripts\python.exe` if that environment is not activated.
 
+For GitHub Actions, first read [the execution status and remedies](GITHUB_EXECUTION.md).
+It distinguishes verified workflows, the earlier corrected packaging failure,
+raw-data resource limits and optional prototype models that are not included.
+
 ## 1. Check the checkout without meteorological downloads
 
 ```bash

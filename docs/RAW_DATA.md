@@ -15,6 +15,11 @@ across every variable, level, resolution and year. The
 [source guide](RAW_DATA_SOURCES.md) identifies the official product links,
 DOIs, versions, coverage and applicable data licences.
 
+On GitHub Actions, use the tested ERA5/CERES sample workflow described in
+[the execution status](GITHUB_EXECUTION.md). The configured standard runners
+cannot hold this entire archive and its extracted copy; the full-archive
+commands below are for machines with the stated free disk space.
+
 ## Choose the required dataset
 
 Run commands from the repository root using the Python environment described

@@ -78,13 +78,16 @@ publishing these files does not reclassify exploratory analyses as preregistered
 confirmation. Independent audit scripts and older sensitivity runners may
 retain historical local paths and require an explicit path adaptation to rerun.
 
-The release does not include all raw ERA5 or CERES downloads, native-resolution
-fields, download sessions, provider credentials, trained prototype models, logs,
-caches, or every historical analysis directory. Reproducing acquisition,
-conservative regridding, the WHEC index from raw grids, and physical-control
-preparation from source fields still requires the original source archives
-identified by the manifests. Small processed inputs and output checks do not
-replace those raw-data stages.
+These three processed-input assets exclude raw meteorological fields, download
+sessions, provider credentials, trained prototype models, logs, caches, and some
+historical analysis directories. Retained original ERA5/CERES acquisitions,
+including native-resolution fields, are now supplied in the separate
+[raw-data release](RAW_DATA.md). Reproducing conservative remapping, the WHEC
+index from raw grids, and physical-control preparation still requires those
+source files and the appropriate historical processing steps. Small processed
+inputs and output checks do not execute those stages. See
+[GitHub execution limits and remedies](GITHUB_EXECUTION.md) before attempting
+the complete raw workflow.
 
 The intervention benchmark, weather-token forecasting pilot, transport
 consistency prototype, and cloud simulator are separate exploratory projects.

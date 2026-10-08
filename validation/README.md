@@ -39,6 +39,17 @@ The automatic workflow checks Windows and Ubuntu; the manual paper workflow
 can reproduce `core` or `all` from the public release. Local execution and
 GitHub runner results are separate evidence.
 
+The later [GitHub `all` execution](https://github.com/gengx-prog/causal-weathergraph/actions/runs/37772222786)
+at code commit `fe9a312` completed all four analysis jobs on Ubuntu: 10 core
+tables, four tables for each CERES setting and six WHEC tables passed. The
+WHEC design hash, periods and decisions also passed. The largest observed
+absolute numeric difference was about `3.41e-11`; the analysis jobs took about
+342 seconds in total, excluding installation and downloads. The
+[committed per-table receipt and runner environment](github-paper-all-20261008.json)
+preserve this result beyond the Actions artifact retention period. See
+[GitHub execution status and remedies](../docs/GITHUB_EXECUTION.md) for running
+instructions, the corrected earlier manifest failure and remaining scope limits.
+
 ## Historical raw-data archive
 
 The later [raw-data publication](../docs/RAW_DATA.md) adds 1,100 scientific

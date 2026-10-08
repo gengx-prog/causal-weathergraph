@@ -93,16 +93,21 @@ Those skips do not verify the omitted model artifacts. The smoke run uses only
 one repetition per scenario and validates command execution and output formation;
 it does not reproduce the paper's formal repetition counts or scientific results.
 Full reproduction additionally needs the inputs and paths described in the
-[reproduction guide](../revision/REPRODUCE.md).
+[portable reproduction guide](REPRODUCING.md).
 
-The October 8 clean Windows validation installed this profile successfully and
-reported no broken dependencies. The latest recorded unit run passed **112 tests**
+The earlier October 8 clean Windows installation check installed this profile
+successfully and reported no broken dependencies. That unit run passed **112 tests**
 and skipped **13** optional production-artifact checks, with zero failures or
 errors. The synthetic smoke run completed both null scenarios (12 summary rows)
 and all five graph scenarios (30 summary rows). The JSON validation receipt
 preserves the initial 106-test run as well as the subsequent 125-test run after
 portable cloud-input checks were added. These counts describe the recorded
 checkout; later test additions can change them.
+
+The subsequent raw-data publication passed **173 tests**, with the same **13**
+optional model-dependent skips, on local Windows and both GitHub runner platforms.
+See [the current execution status](GITHUB_EXECUTION.md) for actual Actions links,
+supported analysis workflows and remedies for excluded workloads.
 
 ## Recording another machine
 

@@ -6,6 +6,15 @@ Start with the **[portable reproduction guide](docs/REPRODUCING.md)**. It includ
 Windows/Linux installation, archived original submission and review comments,
 real experimental inputs, full-table comparison commands, and test limitations.
 
+**Can this run on GitHub?** Yes. The `all` analysis workflow passed all **24
+reference tables** on Ubuntu using archived processed inputs; CPU tests and
+ERA5/CERES sample downloads passed on both Windows and Ubuntu. Open
+**[Actions → Paper reproduction from archived inputs](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/paper-reproduction.yml)
+→ Run workflow → main → all** to run the paper analyses. The
+**[execution status, known limitations and remedies](docs/GITHUB_EXECUTION.md)**
+records the evidence, the corrected earlier manifest failure, missing optional
+models, and why the complete raw archive needs a larger workspace.
+
 - [Observed local hardware, Python and dependency versions](docs/ENVIRONMENT.md)
 - [Versioned experimental inputs and evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008.1)
 - [Historical ERA5/CERES source files: 108.69 GB](docs/RAW_DATA.md) and [official data-source links](docs/RAW_DATA_SOURCES.md)

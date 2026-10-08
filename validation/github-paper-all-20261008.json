@@ -1,0 +1,383 @@
+{
+  "recorded_utc": "2026-10-08T11:56:30.056404+00:00",
+  "status": "passed",
+  "code_commit": "fe9a3125bd5ab05a1480f2fc6d14cf9693e1d677",
+  "github_run_id": 37772222786,
+  "github_run_url": "https://github.com/gengx-prog/causal-weathergraph/actions/runs/37772222786",
+  "workflow": "Paper reproduction from archived inputs",
+  "workflow_input": {
+    "experiment": "all"
+  },
+  "artifact_name": "paper-reproduction-all-ubuntu-py3137",
+  "summary": {
+    "completed_jobs": 4,
+    "csv_tables_passed": 24,
+    "whec_metadata_passed": true,
+    "analysis_runner_hashes_match_tested_git_blobs": true,
+    "analysis_elapsed_seconds": 342.3594076800001,
+    "largest_absolute_numeric_difference": 3.410605131648481e-11
+  },
+  "artifact_integrity": {
+    "status": "passed",
+    "repository_files_verified": 58,
+    "zip_crc_checks": 2,
+    "release_files_verified": 459,
+    "errors": [],
+    "scope": "File integrity only; this does not rerun scientific experiments."
+  },
+  "comparison_report": {
+    "started_utc": "2026-10-08T11:47:52.824412+00:00",
+    "python": "3.13.7 (main, Aug 15 2025, 01:44:29) [GCC 13.3.0]",
+    "experiment": "all",
+    "input_integrity": [
+      {
+        "asset": "core-inputs.zip",
+        "files_verified": 16
+      },
+      {
+        "asset": "extended-inputs.zip",
+        "files_verified": 21
+      },
+      {
+        "asset": "experiment-evidence.zip",
+        "files_verified": 422
+      }
+    ],
+    "comparison_tolerance": {
+      "rtol": 1e-07,
+      "atol": 1e-10
+    },
+    "jobs": [
+      {
+        "module": "revision.run_three_stage",
+        "options": [
+          "--input",
+          "{data_root}/inputs/region_trainfit.npz",
+          "--symmetric-candidates",
+          "{data_root}/graph_nulls/candidates_symmetric_core.csv",
+          "--screen-reference",
+          "{data_root}/holdout_aligned/discovery_edges.csv"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 185.490122744,
+        "runner_sha256": "f7102d7129b13e9cce82d83dee016ff76e725ec412db3ee9d3639fa73deb475c",
+        "comparisons": [
+          {
+            "file": "stage1_residual_acf_summary.csv",
+            "rows": 8,
+            "columns": 8,
+            "max_absolute_numeric_difference": 4.300000026186135e-15,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_direction_asymmetry.csv",
+            "rows": 12,
+            "columns": 10,
+            "max_absolute_numeric_difference": 5.560829574591253e-14,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_full_var_discovery.csv",
+            "rows": 3816,
+            "columns": 19,
+            "max_absolute_numeric_difference": 1.0480505352461478e-13,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_full_var_eval_all.csv",
+            "rows": 3816,
+            "columns": 19,
+            "max_absolute_numeric_difference": 5.806466418789569e-14,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_full_var_eval_cds.csv",
+            "rows": 3816,
+            "columns": 19,
+            "max_absolute_numeric_difference": 8.93729534823251e-14,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_full_var_eval_wb2.csv",
+            "rows": 3816,
+            "columns": 19,
+            "max_absolute_numeric_difference": 6.317169010117141e-14,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_full_var_summary.csv",
+            "rows": 24,
+            "columns": 6,
+            "max_absolute_numeric_difference": 4.0245584642661925e-16,
+            "status": "passed"
+          },
+          {
+            "file": "symmetric_matched_pairs.csv",
+            "rows": 7632,
+            "columns": 11,
+            "max_absolute_numeric_difference": 3.1086244689504383e-13,
+            "status": "passed"
+          },
+          {
+            "file": "three_stage_all_candidates.csv",
+            "rows": 2574,
+            "columns": 72,
+            "max_absolute_numeric_difference": 2.074362903670135e-11,
+            "status": "passed"
+          },
+          {
+            "file": "three_stage_summary.csv",
+            "rows": 7,
+            "columns": 29,
+            "max_absolute_numeric_difference": 9.020562075079397e-16,
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "module": "revision.run_ceres_cloud_substitution",
+        "options": [
+          "--climatology",
+          "month",
+          "--inputs",
+          "{data_root}/inputs",
+          "--ceres-npz",
+          "{data_root}/ceres_cloud_substitution/ceres_cloud_6h_64x32.npz",
+          "--era5-cloud-npz",
+          "{data_root}/ceres_cloud_substitution/era5_cloud_6h_64x32_2017_2025.npz",
+          "--symmetric-candidates",
+          "{data_root}/graph_nulls/candidates_symmetric_core.csv"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 52.58463238600001,
+        "runner_sha256": "c3bbb9bf3bff6972d5d175aaef0e44a9075e71649b448c1e923510b7884cc8af",
+        "comparisons": [
+          {
+            "file": "product_agreement_month.csv",
+            "rows": 3,
+            "columns": 11,
+            "max_absolute_numeric_difference": 4.440892098500626e-16,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_direction_month.csv",
+            "rows": 24,
+            "columns": 12,
+            "max_absolute_numeric_difference": 3.730349362740526e-14,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_summary_month.csv",
+            "rows": 24,
+            "columns": 11,
+            "max_absolute_numeric_difference": 1.1102230246251565e-15,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_tests_month.csv",
+            "rows": 30528,
+            "columns": 22,
+            "max_absolute_numeric_difference": 8.337774914934926e-14,
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "module": "revision.run_ceres_cloud_substitution",
+        "options": [
+          "--climatology",
+          "month_hour",
+          "--inputs",
+          "{data_root}/inputs",
+          "--ceres-npz",
+          "{data_root}/ceres_cloud_substitution/ceres_cloud_6h_64x32.npz",
+          "--era5-cloud-npz",
+          "{data_root}/ceres_cloud_substitution/era5_cloud_6h_64x32_2017_2025.npz",
+          "--symmetric-candidates",
+          "{data_root}/graph_nulls/candidates_symmetric_core.csv"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 52.447665939000046,
+        "runner_sha256": "c3bbb9bf3bff6972d5d175aaef0e44a9075e71649b448c1e923510b7884cc8af",
+        "comparisons": [
+          {
+            "file": "product_agreement_month_hour.csv",
+            "rows": 3,
+            "columns": 11,
+            "max_absolute_numeric_difference": 5.551115123125783e-16,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_direction_month_hour.csv",
+            "rows": 24,
+            "columns": 12,
+            "max_absolute_numeric_difference": 2.4091839634365897e-14,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_summary_month_hour.csv",
+            "rows": 24,
+            "columns": 11,
+            "max_absolute_numeric_difference": 1.1102230246251565e-15,
+            "status": "passed"
+          },
+          {
+            "file": "substitution_tests_month_hour.csv",
+            "rows": 30528,
+            "columns": 22,
+            "max_absolute_numeric_difference": 8.149037000748649e-14,
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "module": "revision.run_whec_test",
+        "options": [
+          "--artifact-root",
+          "{data_root}",
+          "--era5-cloud-npz",
+          "{data_root}/ceres_cloud_substitution/era5_cloud_6h_64x32_2017_2025.npz"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 51.83698661100004,
+        "runner_sha256": "8f194f34e9796656826824155c881db74601b6ff68d95c7497c8c604bb626430",
+        "comparisons": [
+          {
+            "file": "whec_band_endpoints.csv",
+            "rows": 108,
+            "columns": 9,
+            "max_absolute_numeric_difference": 1.3955503419538218e-13,
+            "status": "passed"
+          },
+          {
+            "file": "whec_block_tests.csv",
+            "rows": 2772,
+            "columns": 17,
+            "max_absolute_numeric_difference": 3.410605131648481e-11,
+            "status": "passed"
+          },
+          {
+            "file": "whec_ceres_check.csv",
+            "rows": 2376,
+            "columns": 13,
+            "max_absolute_numeric_difference": 2.0539125955565396e-14,
+            "status": "passed"
+          },
+          {
+            "file": "whec_ceres_summary.csv",
+            "rows": 48,
+            "columns": 8,
+            "max_absolute_numeric_difference": 1.890154699424329e-14,
+            "status": "passed"
+          },
+          {
+            "file": "whec_summary.csv",
+            "rows": 24,
+            "columns": 23,
+            "max_absolute_numeric_difference": 3.9898639947466563e-16,
+            "status": "passed"
+          },
+          {
+            "file": "whec_tests_per_lag.csv",
+            "rows": 1188,
+            "columns": 64,
+            "max_absolute_numeric_difference": 1.7924217665665765e-11,
+            "status": "passed"
+          }
+        ],
+        "metadata_comparison": {
+          "file": "manifest.json",
+          "fields": [
+            "design_sha256",
+            "periods",
+            "decision"
+          ],
+          "verdicts": {
+            "humidity": "supported",
+            "cloud_cover": "supported"
+          },
+          "status": "passed"
+        }
+      }
+    ],
+    "planned_jobs": 4,
+    "completed_jobs": 4,
+    "status": "passed",
+    "scope": "Rerun from archived processed inputs; raw acquisition and preprocessing are not rerun."
+  },
+  "runner_environment": {
+    "schema_version": 1,
+    "collected_at_utc": "2026-10-08T11:46:47.184004+00:00",
+    "record_scope": "current_interpreter_and_machine_at_collection_time",
+    "privacy": "Allowlisted fields only; excludes hostname, username, paths, serials, network identifiers and credentials.",
+    "python": {
+      "version": "3.13.7",
+      "implementation": "CPython",
+      "compiler": "GCC 13.3.0",
+      "is_virtual_environment": false,
+      "include_system_site_packages": null
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.17.0-1022-azure",
+      "version": "#22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026",
+      "architecture": "x86_64"
+    },
+    "cpu_and_memory": {
+      "model": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+      "physical_cores": 2,
+      "logical_processors": 4,
+      "ram_bytes": 16765378560,
+      "ram_gib": 15.61
+    },
+    "nvidia_devices": [],
+    "torch_runtime": {
+      "installed": false
+    },
+    "packages": {
+      "numpy": "2.4.2",
+      "pandas": "3.0.0",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "statsmodels": "0.14.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.10.8",
+      "PyYAML": "6.0.3",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.4",
+      "zarr": "3.1.5",
+      "tigramite": "5.2.10.1",
+      "psutil": "7.2.2",
+      "requests": "2.32.5",
+      "threadpoolctl": "3.6.0",
+      "ortools": "9.15.6755",
+      "pytest": "9.1.1",
+      "joblib": "1.5.3",
+      "tqdm": "4.67.3",
+      "torch": null,
+      "cdsapi": null,
+      "h5netcdf": null,
+      "pyarrow": null,
+      "python-docx": null,
+      "bibtexparser": null,
+      "pylatexenc": null,
+      "pip": "26.2.1",
+      "setuptools": null
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "2",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "NUMEXPR_NUM_THREADS": "2",
+      "PYTHONHASHSEED": null,
+      "PYTHONUTF8": "1"
+    },
+    "limitations": [
+      "Missing optional tools or packages are recorded as null or an empty list.",
+      "Hardware inventory is best effort; GPU inventory lists NVIDIA devices exposed by nvidia-smi.",
+      "This is an observation of the current environment, not evidence of a historical run."
+    ]
+  },
+  "normalization": "Only the GitHub runner input-directory prefix in command options is replaced with {data_root}; results, hashes, timing and environment values are preserved.",
+  "scope": "Actual Ubuntu GitHub Actions rerun of core, both CERES climatology settings and WHEC using archived processed inputs. Does not rerun raw acquisition/preprocessing, full calibration benchmarks or independent prototypes."
+}
