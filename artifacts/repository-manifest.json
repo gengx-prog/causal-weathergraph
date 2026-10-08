@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Archived manuscript, reviews, supplementary files and editable manuscript sources; original bytes preserved.",
+  "scope": "Git-tracked manuscript, reviews, supplementary files and editable manuscript sources; original bytes preserved; local LaTeX build caches excluded.",
   "files": [
     {
       "path": "manuscript/original_submission/INS-D-26-9116_original_submission.pdf",
@@ -26,96 +26,6 @@
       "path": "manuscript/reviews_20261008/Reviewer_1_Report.docx",
       "bytes": 17882,
       "sha256": "acf446130a8a672ae28dbce34ce313b8d21833a6f57c80d87ddc3be00533565f"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.aux",
-      "bytes": 35012,
-      "sha256": "2586dc93adc93c936a314c39698d685b3800663daf324a9c2247fd2b326b60f3"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.bbl",
-      "bytes": 21394,
-      "sha256": "8b5e0364d7f30f50212cddd3ff59d4fa5047f2cbbc506c4716b5a44671960da5"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.blg",
-      "bytes": 1383,
-      "sha256": "fc5cb28d9b3d8c02ae1f320d9ad46825828cb5f24fab17ce836b5e832f4d8a98"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.log",
-      "bytes": 78938,
-      "sha256": "04c3af4b5973412166ccbb4f96f01e29cb96545f1da30530944b2f911af38182"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.out",
-      "bytes": 8415,
-      "sha256": "5d1c28811dbba9261026a7f370a8b0749f7ca7a136bfff89ab7085adb340e4af"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.pdf",
-      "bytes": 6526183,
-      "sha256": "7b0cafe6c05c2900b74a893349eaedfd1ec162cace28d5077dcaa40200182bf8"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_marked.spl",
-      "bytes": 37,
-      "sha256": "6764afeaf3de8d695e92601c3048705bf62c3729bf3e122bf499f7fdd8c75c97"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.aux",
-      "bytes": 19613,
-      "sha256": "74c565fd0018ae6a8077086b86f871e9979e090e7ed5bd7d74461e74221d857b"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.bbl",
-      "bytes": 11412,
-      "sha256": "cb6cc0bae4349502a653312c099bf95ab9125ddbf5886d6b2d8ed68f6849ef7e"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.blg",
-      "bytes": 1246,
-      "sha256": "c524f475bfd65f121f17636b22966a5e4d23e0af423d3340faf7d3a90d7d8cf5"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.log",
-      "bytes": 32040,
-      "sha256": "fb2a61251ba6d1214f0300d5d1ce95a67220e78c877d7884b3e25e577f3f5845"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.out",
-      "bytes": 7665,
-      "sha256": "64e8201a029ea981240e633fcb9354fc97601f9bb0698ce01aa56f96bb89c042"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.pdf",
-      "bytes": 887859,
-      "sha256": "381a82d7abf20bd1bc5519b59fc95d3c6073b597b56d064ddf034522c188220e"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_revised.spl",
-      "bytes": 37,
-      "sha256": "6764afeaf3de8d695e92601c3048705bf62c3729bf3e122bf499f7fdd8c75c97"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_supplementary.aux",
-      "bytes": 11560,
-      "sha256": "9e0e1f16bef2d7c4570b31b4022521bbfeab1afefc3ad5c275ccc56d665d2a83"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_supplementary.log",
-      "bytes": 26521,
-      "sha256": "da739959968d8bc900821f132d148b7dd02a3c149e04e53366a2a0a609c63f46"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_supplementary.out",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "manuscript/revision_v2_20261002/.build/Causal_WeatherGraph_supplementary.pdf",
-      "bytes": 283009,
-      "sha256": "8ad0d034b327fe5f7fd0b3794a1ac6315deae85e767e76b3a48a2fcc0dd9e84d"
     },
     {
       "path": "manuscript/revision_v2_20261002/.gitignore",

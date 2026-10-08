@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "release_tag": "reproducibility-20261008",
+  "release_tag": "reproducibility-20261008.1",
   "assets": [
     {
       "name": "core-inputs.zip",
       "bytes": 144546461,
       "sha256": "5957e7ae52c72788890f297281de0b78a23aeffb8b2b50306b7b1b3c78e7aeee",
-      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008/core-inputs.zip",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008.1/core-inputs.zip",
       "files": [
         {
           "path": "graph_nulls/candidates_symmetric_core.csv",
@@ -94,7 +94,7 @@
       "name": "extended-inputs.zip",
       "bytes": 1580107948,
       "sha256": "b8014dc3570213e597d6cc38b8f13b9f0a3266dbb96378ff81ce0c1cd95837f5",
-      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008/extended-inputs.zip",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008.1/extended-inputs.zip",
       "files": [
         {
           "path": "ceres_cloud_substitution/ceres_cloud_6h_64x32.npz",
@@ -207,7 +207,7 @@
       "name": "experiment-evidence.zip",
       "bytes": 73254848,
       "sha256": "9b86bf77ca64b92ece0d48888de777caafd891416026f350ca2fdd4e49a3eb08",
-      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008/experiment-evidence.zip",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/reproducibility-20261008.1/experiment-evidence.zip",
       "files": [
         {
           "path": "castle_response_aligned/compare_with_original.py",

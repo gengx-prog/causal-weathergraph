@@ -7,7 +7,7 @@ Windows/Linux installation, archived original submission and review comments,
 real experimental inputs, full-table comparison commands, and test limitations.
 
 - [Observed local hardware, Python and dependency versions](docs/ENVIRONMENT.md)
-- [Versioned experimental inputs and evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008)
+- [Versioned experimental inputs and evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008.1)
 - [Artifact coverage and download inventory](docs/ARTIFACTS.md)
 - [Review-to-evidence map](docs/REVIEW_EVIDENCE.md) and [executed validation](validation/README.md)
 - [Windows and Ubuntu automated checks](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reproducibility.yml)

@@ -11,7 +11,7 @@ below also includes the new input and artifact-validation checks.
 | Independent dependency installation and `pip check` | Passed | [Installation receipt](../environment/validation-clean-20261008.json) |
 | Final CPU unit/numerical/portability tests | 138 passed, 13 skipped, 0 failed | [JUnit](tests-20261008.xml) |
 | Small known-structure simulation | 2 null scenario repetitions, 5 graph scenario repetitions; 12 and 30 summary rows | [Clean environment receipt](../environment/validation-clean-20261008.json) |
-| Archived publication integrity | 76 repository files, 2 ZIP CRC checks, 459 released file hashes passed | [Integrity report](artifact-integrity.json) |
+| Archived publication integrity | 58 repository files, 2 ZIP CRC checks, 459 released file hashes passed | [Integrity report](artifact-integrity.json) |
 | Full core graph rerun from released inputs | 10 tables passed; about 134 seconds | [Per-table comparison](paper-reproduction-20261008.json) |
 | CERES monthly and month × UTC-hour reruns | 4 tables per setting passed; about 46 seconds each | [Per-table comparison](paper-reproduction-20261008.json) |
 | WHEC rerun | 6 tables passed; about 54 seconds; original design, periods and decisions match | [Per-table and decision comparison](paper-reproduction-20261008.json) |

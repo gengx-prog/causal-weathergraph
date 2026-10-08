@@ -1,6 +1,6 @@
 # Research artifacts and their scope
 
-The release tag is `reproducibility-20261008`. The
+The release tag is `reproducibility-20261008.1`. The
 [release manifest](../artifacts/release-manifest.json) lists every archive and
 every contained file with its byte count and SHA-256. ZIP entry paths are
 relative to the research `revision_outputs` directory. Extract the selected

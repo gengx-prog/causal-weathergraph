@@ -15,7 +15,7 @@ import shutil
 import zipfile
 
 
-RELEASE_TAG = "reproducibility-20261008"
+RELEASE_TAG = "reproducibility-20261008.1"
 BASE_URL = f"https://github.com/gengx-prog/causal-weathergraph/releases/download/{RELEASE_TAG}"
 MAX_ASSET_BYTES = 2_000_000_000
 MAX_SMALL_ARRAY_BYTES = 10_000_000

@@ -37,7 +37,7 @@ python scripts/verify_artifacts.py --data-root artifacts/data --asset core-input
 python scripts/reproduce.py --experiment core --data-root artifacts/data --output outputs/my-core-reproduction
 ```
 
-The versioned [release](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008)
+The versioned [release](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008.1)
 contains the actual 68,668 × 66 × 4 discovery-fitted regional series, the
 candidate graph, the screening reference, and the original result tables.
 The downloader verifies both the ZIP and every extracted file using
