@@ -1,5 +1,10 @@
 # Analyses supporting the revised manuscript
 
+For a fresh GitHub checkout, use the **[portable reproduction guide](../docs/REPRODUCING.md)**
+and **[recorded environment](../docs/ENVIRONMENT.md)**. The versioned release
+now supplies processed core, satellite and WHEC inputs. `scripts/reproduce.py`
+passes explicit paths and compares rerun CSVs with the archived evidence.
+
 Author: Xinchen Geng, University of Southern California.
 
 This directory contains the analysis code used during the revision of **Causal WeatherGraph: screen–confirm–replicate discovery of lagged wind–humidity–cloud dependencies in global atmospheric reanalysis**. The final manuscript and machine-readable results are linked from the [repository README](../README.md).

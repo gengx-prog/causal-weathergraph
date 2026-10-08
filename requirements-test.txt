@@ -1,0 +1,5 @@
+# Portable CPU validation profile, tested with CPython 3.13.
+# Historical workstation inventory is revision/environment.freeze.txt.
+# This profile does not require CUDA, PyTorch, ERA5/CERES downloads or credentials.
+-c environment/constraints-core-py313.txt
+-r revision/requirements.txt

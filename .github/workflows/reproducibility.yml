@@ -1,0 +1,120 @@
+name: Reproducibility checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python 3.13.7 / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    env:
+      PYTHONNOUSERSITE: "1"
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      NUMEXPR_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13.7"
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            revision/requirements.txt
+            requirements-test.txt
+            environment/constraints-core-py313.txt
+      - name: Verify included evidence and archives
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          Path("outputs").mkdir(exist_ok=True)
+          result = subprocess.run(
+              [sys.executable, "scripts/verify_artifacts.py"],
+              capture_output=True, text=True, encoding="utf-8", errors="replace",
+          )
+          log = result.stdout + result.stderr
+          Path("outputs/artifact-verification.txt").write_text(log, encoding="utf-8")
+          print(log)
+          result.check_returncode()
+      - name: Install tested CPU dependencies
+        run: python -m pip install -r requirements-test.txt
+      - name: Check dependency consistency
+        run: python -m pip check
+      - name: Record runner environment
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import json
+          import os
+          import platform
+          import subprocess
+          import sys
+
+          packages = json.loads(subprocess.check_output(
+              [sys.executable, "-m", "pip", "list", "--format=json"], text=True,
+          ))
+          record = {
+              "python": sys.version,
+              "platform": platform.platform(),
+              "machine": platform.machine(),
+              "cpu_count": os.cpu_count(),
+              "packages": packages,
+              "scope": "CPU unit checks and a one-repetition synthetic smoke run; not full paper replication",
+          }
+          Path("outputs/ci-environment.json").write_text(
+              json.dumps(record, indent=2), encoding="utf-8",
+          )
+          print(json.dumps(record, indent=2))
+      - name: Run unit and numerical checks (report skipped artifact tests)
+        run: python -m pytest tests -q -rs --junitxml=outputs/ci-tests.xml
+      - name: Run small synthetic experiment through the CLI
+        run: >-
+          python -m revision.run_simulations
+          --output outputs/ci-smoke
+          --stage all
+          --null-repetitions 1
+          --graph-repetitions 1
+          --n-null 256
+          --n-graph 1200
+      - name: Check smoke completion
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import json
+
+          status = json.loads(Path("outputs/ci-smoke/run_status.json").read_text(encoding="utf-8"))
+          assert status["null"]["completed_repetitions"] == 2, status
+          assert status["graph"]["completed_repetitions"] == 5, status
+          assert status["null"]["summary_rows"] > 0, status
+          assert status["graph"]["summary_rows"] > 0, status
+          print(json.dumps(status, indent=2))
+      - name: Upload test results, environment, and smoke receipts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: validation-${{ matrix.os }}-py3137
+          path: |
+            outputs/artifact-verification.txt
+            outputs/ci-environment.json
+            outputs/ci-tests.xml
+            outputs/ci-smoke/
+          if-no-files-found: warn
+          retention-days: 14

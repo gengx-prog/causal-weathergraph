@@ -1,5 +1,10 @@
 # Revision experiment reproduction
 
+> Historical research-workspace log. For a new clone, follow
+> [the portable reproduction guide](../docs/REPRODUCING.md), including the
+> tested independent environment and versioned data downloads. Absolute paths
+> and earlier execution statuses below are retained for provenance.
+
 ## Controlled intervention truth benchmark
 
 `revision/intervention_benchmark/README.md` describes the frozen lightweight

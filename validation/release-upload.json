@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-10-08T10:07:00.319108+00:00",
+  "release_tag": "reproducibility-20261008",
+  "status": "all GitHub-uploaded assets match local manifest",
+  "assets": [
+    {
+      "name": "core-inputs.zip",
+      "bytes": 144546461,
+      "sha256": "5957e7ae52c72788890f297281de0b78a23aeffb8b2b50306b7b1b3c78e7aeee",
+      "github_digest": "sha256:5957e7ae52c72788890f297281de0b78a23aeffb8b2b50306b7b1b3c78e7aeee",
+      "status": "verified"
+    },
+    {
+      "name": "extended-inputs.zip",
+      "bytes": 1580107948,
+      "sha256": "b8014dc3570213e597d6cc38b8f13b9f0a3266dbb96378ff81ce0c1cd95837f5",
+      "github_digest": "sha256:b8014dc3570213e597d6cc38b8f13b9f0a3266dbb96378ff81ce0c1cd95837f5",
+      "status": "verified"
+    },
+    {
+      "name": "experiment-evidence.zip",
+      "bytes": 73254848,
+      "sha256": "9b86bf77ca64b92ece0d48888de777caafd891416026f350ca2fdd4e49a3eb08",
+      "github_digest": "sha256:9b86bf77ca64b92ece0d48888de777caafd891416026f350ca2fdd4e49a3eb08",
+      "status": "verified"
+    }
+  ]
+}

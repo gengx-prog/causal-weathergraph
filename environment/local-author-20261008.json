@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "collected_at_utc": "2026-10-08T09:58:01.594173+00:00",
+  "record_scope": "current_interpreter_and_machine_at_collection_time",
+  "privacy": "Allowlisted fields only; excludes hostname, username, paths, serials, network identifiers and credentials.",
+  "python": {
+    "version": "3.13.7",
+    "implementation": "CPython",
+    "compiler": "MSC v.1944 64 bit (AMD64)",
+    "is_virtual_environment": true,
+    "include_system_site_packages": true
+  },
+  "os": {
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "architecture": "AMD64",
+    "caption": "Microsoft Windows 11 Home",
+    "build": "26200"
+  },
+  "cpu_and_memory": {
+    "model": "Intel(R) Core(TM) Ultra 9 275HX",
+    "physical_cores": 24,
+    "logical_processors": 24,
+    "ram_bytes": 68137205760,
+    "ram_gib": 63.46
+  },
+  "nvidia_devices": [
+    {
+      "model": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "driver_version": "610.88",
+      "memory_mib": 24463
+    }
+  ],
+  "torch_runtime": {
+    "installed": true,
+    "cuda_build": "12.8",
+    "cuda_available": true,
+    "cudnn_version": 91002
+  },
+  "packages": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.0",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "statsmodels": "0.14.6",
+    "networkx": "3.6.1",
+    "matplotlib": "3.10.8",
+    "PyYAML": "6.0.3",
+    "xarray": "2026.9.0",
+    "netCDF4": "1.7.4",
+    "zarr": null,
+    "tigramite": "5.2.10.1",
+    "psutil": "7.2.2",
+    "requests": "2.32.5",
+    "threadpoolctl": "3.6.0",
+    "ortools": "9.15.6755",
+    "pytest": "9.1.1",
+    "joblib": "1.5.3",
+    "tqdm": "4.67.3",
+    "torch": "2.10.0+cu128",
+    "cdsapi": "0.7.7",
+    "h5netcdf": null,
+    "pyarrow": "25.0.0",
+    "python-docx": "1.2.0",
+    "bibtexparser": "2.0.1",
+    "pylatexenc": "2.11",
+    "pip": "25.2",
+    "setuptools": "70.2.0"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "PYTHONHASHSEED": null,
+    "PYTHONUTF8": null
+  },
+  "limitations": [
+    "Missing optional tools or packages are recorded as null or an empty list.",
+    "Hardware inventory is best effort; GPU inventory lists NVIDIA devices exposed by nvidia-smi.",
+    "This is an observation of the current environment, not evidence of a historical run."
+  ]
+}

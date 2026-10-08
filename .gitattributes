@@ -11,3 +11,6 @@
 
 # Keep repository manuscript sources identical to the source ZIP.
 manuscript/** -text
+
+# The archived reviewer-comment JSON preserves its original CRLF bytes.
+manuscript/reviews_20261008/canonical_comments.json whitespace=cr-at-eol

@@ -1,0 +1,283 @@
+{
+  "started_utc": "2026-10-08T10:03:13.496813+00:00",
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "experiment": "all",
+  "input_integrity": [
+    {
+      "asset": "core-inputs.zip",
+      "files_verified": 16
+    },
+    {
+      "asset": "extended-inputs.zip",
+      "files_verified": 21
+    },
+    {
+      "asset": "experiment-evidence.zip",
+      "files_verified": 422
+    }
+  ],
+  "comparison_tolerance": {
+    "rtol": 1e-07,
+    "atol": 1e-10
+  },
+  "jobs": [
+    {
+      "module": "revision.run_three_stage",
+      "options": [
+        "--input",
+        "{data_root}\\inputs\\region_trainfit.npz",
+        "--symmetric-candidates",
+        "{data_root}\\graph_nulls\\candidates_symmetric_core.csv",
+        "--screen-reference",
+        "{data_root}\\holdout_aligned\\discovery_edges.csv"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 133.83284299995285,
+      "runner_sha256": "bce54102474f4a01bbdf0aed38deda822af735c89235cecbe78b6f3be9832ffe",
+      "comparisons": [
+        {
+          "file": "stage1_residual_acf_summary.csv",
+          "rows": 8,
+          "columns": 8,
+          "max_absolute_numeric_difference": 2.220446049250313e-16,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_direction_asymmetry.csv",
+          "rows": 12,
+          "columns": 10,
+          "max_absolute_numeric_difference": 1.942890293094024e-14,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_full_var_discovery.csv",
+          "rows": 3816,
+          "columns": 19,
+          "max_absolute_numeric_difference": 7.510658761589184e-14,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_full_var_eval_all.csv",
+          "rows": 3816,
+          "columns": 19,
+          "max_absolute_numeric_difference": 3.938516179857743e-14,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_full_var_eval_cds.csv",
+          "rows": 3816,
+          "columns": 19,
+          "max_absolute_numeric_difference": 4.0967229608668276e-14,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_full_var_eval_wb2.csv",
+          "rows": 3816,
+          "columns": 19,
+          "max_absolute_numeric_difference": 2.7644553313166398e-14,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_full_var_summary.csv",
+          "rows": 24,
+          "columns": 6,
+          "max_absolute_numeric_difference": 2.0122792321330962e-16,
+          "status": "passed"
+        },
+        {
+          "file": "symmetric_matched_pairs.csv",
+          "rows": 7632,
+          "columns": 11,
+          "max_absolute_numeric_difference": 1.3500311979441904e-13,
+          "status": "passed"
+        },
+        {
+          "file": "three_stage_all_candidates.csv",
+          "rows": 2574,
+          "columns": 72,
+          "max_absolute_numeric_difference": 1.976829810956815e-11,
+          "status": "passed"
+        },
+        {
+          "file": "three_stage_summary.csv",
+          "rows": 7,
+          "columns": 29,
+          "max_absolute_numeric_difference": 3.885780586188048e-16,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "module": "revision.run_ceres_cloud_substitution",
+      "options": [
+        "--climatology",
+        "month",
+        "--inputs",
+        "{data_root}\\inputs",
+        "--ceres-npz",
+        "{data_root}\\ceres_cloud_substitution\\ceres_cloud_6h_64x32.npz",
+        "--era5-cloud-npz",
+        "{data_root}\\ceres_cloud_substitution\\era5_cloud_6h_64x32_2017_2025.npz",
+        "--symmetric-candidates",
+        "{data_root}\\graph_nulls\\candidates_symmetric_core.csv"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 46.496305700042285,
+      "runner_sha256": "0696cf04b21701b73215809c4dc97570a528a58ae32414297a49803eacb4067a",
+      "comparisons": [
+        {
+          "file": "product_agreement_month.csv",
+          "rows": 3,
+          "columns": 11,
+          "max_absolute_numeric_difference": 0.0,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_direction_month.csv",
+          "rows": 24,
+          "columns": 12,
+          "max_absolute_numeric_difference": 1.579986141919676e-14,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_summary_month.csv",
+          "rows": 24,
+          "columns": 11,
+          "max_absolute_numeric_difference": 5.551115123125783e-16,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_tests_month.csv",
+          "rows": 30528,
+          "columns": 22,
+          "max_absolute_numeric_difference": 5.062616992290714e-14,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "module": "revision.run_ceres_cloud_substitution",
+      "options": [
+        "--climatology",
+        "month_hour",
+        "--inputs",
+        "{data_root}\\inputs",
+        "--ceres-npz",
+        "{data_root}\\ceres_cloud_substitution\\ceres_cloud_6h_64x32.npz",
+        "--era5-cloud-npz",
+        "{data_root}\\ceres_cloud_substitution\\era5_cloud_6h_64x32_2017_2025.npz",
+        "--symmetric-candidates",
+        "{data_root}\\graph_nulls\\candidates_symmetric_core.csv"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 45.81441490002908,
+      "runner_sha256": "0696cf04b21701b73215809c4dc97570a528a58ae32414297a49803eacb4067a",
+      "comparisons": [
+        {
+          "file": "product_agreement_month_hour.csv",
+          "rows": 3,
+          "columns": 11,
+          "max_absolute_numeric_difference": 0.0,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_direction_month_hour.csv",
+          "rows": 24,
+          "columns": 12,
+          "max_absolute_numeric_difference": 5.762057497804562e-14,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_summary_month_hour.csv",
+          "rows": 24,
+          "columns": 11,
+          "max_absolute_numeric_difference": 4.440892098500626e-16,
+          "status": "passed"
+        },
+        {
+          "file": "substitution_tests_month_hour.csv",
+          "rows": 30528,
+          "columns": 22,
+          "max_absolute_numeric_difference": 6.261657858885883e-14,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "module": "revision.run_whec_test",
+      "options": [
+        "--artifact-root",
+        "{data_root}",
+        "--era5-cloud-npz",
+        "{data_root}\\ceres_cloud_substitution\\era5_cloud_6h_64x32_2017_2025.npz"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 53.55044509994332,
+      "runner_sha256": "7319cdce1292ed7b8d7d01e5a15dbe3ec0d67b452612b962da30babbf5a793b7",
+      "comparisons": [
+        {
+          "file": "whec_band_endpoints.csv",
+          "rows": 108,
+          "columns": 9,
+          "max_absolute_numeric_difference": 1.0857981180834031e-13,
+          "status": "passed"
+        },
+        {
+          "file": "whec_block_tests.csv",
+          "rows": 2772,
+          "columns": 17,
+          "max_absolute_numeric_difference": 2.0463630789890885e-11,
+          "status": "passed"
+        },
+        {
+          "file": "whec_ceres_check.csv",
+          "rows": 2376,
+          "columns": 13,
+          "max_absolute_numeric_difference": 1.84297022087776e-14,
+          "status": "passed"
+        },
+        {
+          "file": "whec_ceres_summary.csv",
+          "rows": 48,
+          "columns": 8,
+          "max_absolute_numeric_difference": 1.4210854715202004e-14,
+          "status": "passed"
+        },
+        {
+          "file": "whec_summary.csv",
+          "rows": 24,
+          "columns": 23,
+          "max_absolute_numeric_difference": 9.974659986866641e-17,
+          "status": "passed"
+        },
+        {
+          "file": "whec_tests_per_lag.csv",
+          "rows": 1188,
+          "columns": 64,
+          "max_absolute_numeric_difference": 2.49190668100141e-11,
+          "status": "passed"
+        }
+      ],
+      "metadata_comparison": {
+        "file": "manifest.json",
+        "fields": [
+          "design_sha256",
+          "periods",
+          "decision"
+        ],
+        "verdicts": {
+          "humidity": "supported",
+          "cloud_cover": "supported"
+        },
+        "status": "passed"
+      }
+    }
+  ],
+  "scope": "Rerun from archived processed inputs; raw acquisition and preprocessing are not rerun.",
+  "status": "passed",
+  "metadata_check_note": "WHEC decision, periods and design checked independently after the completed CSV rerun using compare_whec_metadata.",
+  "planned_jobs": 4,
+  "completed_jobs": 4,
+  "path_presentation": "Input paths are rendered relative to {data_root}; calculations and measured results are unchanged.",
+  "integer_boolean_check": "All integer and Boolean CSV columns additionally verified with check_exact=True."
+}

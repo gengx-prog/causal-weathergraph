@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-08T10:00:15.056401+00:00",
+  "python_version": "3.13.7",
+  "scope": "Fresh isolated CPU installation, unit and numerical checks, one repetition per synthetic scenario; not full manuscript replication",
+  "installation": {
+    "command": "python -m pip install -r requirements-test.txt",
+    "exit_code": 0,
+    "virtual_environment_created_without_system_site_packages": true
+  },
+  "checks": [
+    {
+      "name": "pip_check",
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "elapsed_seconds": 0.445,
+      "summary": "No broken requirements found."
+    },
+    {
+      "name": "collect_environment",
+      "command": "python scripts/collect_environment.py --output environment/local-clean-20261008.json",
+      "exit_code": 0,
+      "elapsed_seconds": 2.29
+    },
+    {
+      "name": "pytest",
+      "command": "python -m pytest tests -q -rs --junitxml=outputs/local-clean-tests.xml",
+      "exit_code": 0,
+      "elapsed_seconds": 13.976,
+      "total": 106,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 13,
+      "passed": 93,
+      "skip_reason": "Optional production cloud-simulator artifacts are not included in this checkout."
+    },
+    {
+      "name": "synthetic_smoke",
+      "command": "python -m revision.run_simulations --output outputs/local-clean-smoke --stage all --null-repetitions 1 --graph-repetitions 1 --n-null 256 --n-graph 1200",
+      "exit_code": 0,
+      "elapsed_seconds": 4.154,
+      "run_status": {
+        "updated_utc": "2026-10-08T10:00:35.766589+00:00",
+        "null": {
+          "completed_repetitions": 2,
+          "summary_rows": 12
+        },
+        "graph": {
+          "completed_repetitions": 5,
+          "summary_rows": 30
+        }
+      }
+    },
+    {
+      "name": "pytest_after_portable_cloud_tests",
+      "executed_by": "parallel_repository_test_task",
+      "command": "python -m pytest tests -q -rs --junitxml=outputs/portable-cloud-tests.xml",
+      "exit_code": 0,
+      "junit_suite_seconds": 1.86,
+      "total": 125,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 13,
+      "passed": 112,
+      "skip_reason": "Optional production cloud-simulator artifacts are not included in this checkout.",
+      "evidence_source": "outputs/portable-cloud-tests.xml"
+    }
+  ],
+  "completed_at_utc": "2026-10-08T10:00:35.968875+00:00",
+  "all_checks_passed": true,
+  "isolation": {
+    "system_site_packages": false,
+    "user_site_enabled": false,
+    "all_installed_distributions_resolve_inside_virtual_environment": true
+  }
+}

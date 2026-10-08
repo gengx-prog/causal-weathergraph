@@ -49,18 +49,60 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def load_era5_cloud(extension_dir=None):
+def era5_cloud_input_paths(extension_dir=None, *, data_root=DATA, cloud_npz=None):
+    """Resolve the actual cloud inputs for both loading and manifest receipts."""
+    if cloud_npz is not None:
+        return {"era5_cloud_npz": Path(cloud_npz)}
+    return {
+        seg: (Path(extension_dir) if extension_dir is not None and seg == SEGMENTS[-1][0]
+              else Path(data_root) / seg) / "total_cloud_cover.nc"
+        for seg, _, _ in SEGMENTS
+    }
+
+
+def _validate_era5_cloud(cloud, timestamps):
+    """Check the portable percent-valued, south-to-north flattened grid contract.
+
+    The 1e-4 percentage-point tolerance permits floating-point boundary noise.
+    Values are checked, never clipped, to preserve the original experiment.
+    """
+    if cloud.dtype != np.dtype("float64"):
+        raise ValueError("ERA5 cloud_percent must have dtype float64 (percent units)")
+    if timestamps.dtype != np.dtype("datetime64[ns]") or timestamps.ndim != 1:
+        raise ValueError("ERA5 timestamps must be a one-dimensional datetime64[ns] array")
+    if cloud.ndim != 2 or cloud.shape != (len(timestamps), 2048) or not len(timestamps):
+        raise ValueError("ERA5 cloud_percent must have nonempty shape (n_times, 2048)")
+    if np.isnat(timestamps).any():
+        raise ValueError("ERA5 timestamps must not contain NaT")
+    six_hours = np.timedelta64(6, "h").astype("timedelta64[ns]").astype(np.int64)
+    ticks = timestamps.astype(np.int64)
+    if np.any(ticks % six_hours) or np.any(np.diff(ticks) != six_hours):
+        raise ValueError("ERA5 timestamps must be unique, ascending, and on a continuous 6-hour UTC calendar")
+    if not np.isfinite(cloud).all():
+        raise ValueError("ERA5 cloud_percent must contain only finite values")
+    tolerance = 1e-4
+    if cloud.min() < -tolerance or cloud.max() > 100.0 + tolerance:
+        raise ValueError("ERA5 cloud_percent must be in percent units within 0..100 (tolerance 1e-4)")
+    return cloud, timestamps
+
+
+def load_era5_cloud(extension_dir=None, *, data_root=DATA, cloud_npz=None):
+    paths = era5_cloud_input_paths(extension_dir, data_root=data_root, cloud_npz=cloud_npz)
+    if cloud_npz is not None:
+        with np.load(paths["era5_cloud_npz"], allow_pickle=False) as z:
+            if not {"cloud_percent", "timestamps"}.issubset(z.files):
+                raise ValueError("ERA5 cloud NPZ requires cloud_percent and timestamps arrays")
+            return _validate_era5_cloud(z["cloud_percent"], z["timestamps"])
     parts, times = [], []
     for seg, lo, hi in SEGMENTS:
-        folder = extension_dir if (extension_dir is not None and seg == SEGMENTS[-1][0]) else DATA / seg
-        with xr.open_dataset(folder / "total_cloud_cover.nc") as ds:
+        with xr.open_dataset(paths[seg]) as ds:
             key = next(k for k in ds.data_vars)
             da = ds[key].sel(time=slice(lo, hi)).transpose("time", "latitude", "longitude")
             if da.latitude.values[0] > da.latitude.values[-1]:
                 da = da.sortby("latitude")
             parts.append(np.asarray(da.values, dtype=np.float64).reshape(da.shape[0], -1) * 100.0)
             times.append(da.time.values.astype("datetime64[ns]"))
-    return np.concatenate(parts), np.concatenate(times)
+    return _validate_era5_cloud(np.concatenate(parts), np.concatenate(times))
 
 
 def standardize_window(x, months, by_hour=None):
@@ -83,6 +125,9 @@ def main():
     ap.add_argument("--output", type=Path, default=OUT / "ceres_cloud_substitution")
     ap.add_argument("--climatology", choices=["month", "month_hour"], default="month")
     ap.add_argument("--extension-dir", type=Path, help="Directory replacing the 2023-01-11--2025 CDS segment, e.g. the native-conservative route.")
+    ap.add_argument("--data-root", type=Path, default=DATA, help="Root containing the original ERA5 source segment directories.")
+    ap.add_argument("--era5-cloud-npz", type=Path, help="Portable ERA5 cloud_percent/timestamps archive; overrides source NetCDF paths.")
+    ap.add_argument("--symmetric-candidates", type=Path, default=OUT / "graph_nulls" / "candidates_symmetric_core.csv")
     ap.add_argument("--inputs", type=Path, default=OUT / "inputs", help="Directory with region_trainfit.npz and trainfit_parameters.npz.")
     ap.add_argument("--ceres-npz", type=Path, default=OUT / "ceres_cloud_substitution" / "ceres_cloud_6h_64x32.npz")
     args = ap.parse_args()
@@ -91,7 +136,7 @@ def main():
     start = time.perf_counter()
     with np.load(args.ceres_npz) as z:
         ceres, ct = z["cloud_percent"].reshape(len(z["timestamps"]), -1).astype(np.float64), z["timestamps"]
-    era, et = load_era5_cloud(args.extension_dir)
+    era, et = load_era5_cloud(args.extension_dir, data_root=args.data_root, cloud_npz=args.era5_cloud_npz)
     if not np.array_equal(ct, et):
         raise ValueError("CERES/ERA5 time mismatch")
     with np.load(args.inputs / "region_trainfit.npz") as z:
@@ -137,7 +182,7 @@ def main():
     arrays = {"era5": base.copy(), "ceres": base.copy()}
     arrays["era5"][:, :, 3] = regional(z_e, mapping)
     arrays["ceres"][:, :, 3] = regional(z_s, mapping)
-    sym = pd.read_csv(OUT / "graph_nulls" / "candidates_symmetric_core.csv")
+    sym = pd.read_csv(args.symmetric_candidates)
     sym = sym[(sym.source_var == "cloud_cover") | (sym.target_var == "cloud_cover")].reset_index(drop=True)
     cand_objs = [CandidateEdge(int(r.source_region), int(r.target_region), r.source_var, r.target_var, r.edge_type, float(r.distance_km)) for r in sym.itertuples()]
     tests = attach_specs(pd.concat([sym.assign(lag=l) for l in (1, 2, 3)], ignore_index=True), names, 66)
@@ -194,6 +239,11 @@ def main():
     manifest = {"created_utc": pd.Timestamp.now(tz="UTC").isoformat(), "climatology": tag, "n_window_times": int(len(t_keep)),
                 "first": str(t_keep[0]), "last": str(t_keep[-1]), "n_wb2_times": int(seg_wb2.sum()), "n_cds_times": int((~seg_wb2).sum()),
                 "ceres_input_sha256": sha256(args.ceres_npz), "inputs": str(args.inputs), "extension_dir": str(args.extension_dir) if args.extension_dir else None, "code_sha256": sha256(Path(__file__)),
+                "input_sha256": {**{name: sha256(path) for name, path in era5_cloud_input_paths(args.extension_dir, data_root=args.data_root, cloud_npz=args.era5_cloud_npz).items()},
+                                 "ceres_cloud_npz": sha256(args.ceres_npz),
+                                 "region_trainfit.npz": sha256(args.inputs / "region_trainfit.npz"),
+                                 "trainfit_parameters.npz": sha256(args.inputs / "trainfit_parameters.npz"),
+                                 "symmetric_candidates": sha256(args.symmetric_candidates)},
                 "elapsed_seconds": time.perf_counter() - start,
                 "notes": ["CERES hour boxes centred on each ERA5 analysis time; product and temporal-operator differences remain.",
                           "Both cloud products standardized identically on the common 2017-2025 window; sources are discovery-fitted ERA5 anomalies.",

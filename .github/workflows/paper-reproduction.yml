@@ -1,0 +1,96 @@
+name: Paper reproduction from archived inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      experiment:
+        description: "core: three-stage analysis; all: also CERES and WHEC"
+        required: true
+        default: core
+        type: choice
+        options:
+          - core
+          - all
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: Reproduce ${{ inputs.experiment }} / Ubuntu / Python 3.13.7
+    runs-on: ubuntu-24.04
+    timeout-minutes: ${{ inputs.experiment == 'all' && 45 || 30 }}
+    env:
+      EXPERIMENT: ${{ inputs.experiment }}
+      PYTHONNOUSERSITE: "1"
+      PYTHONUTF8: "1"
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      NUMEXPR_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13.7"
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            revision/requirements.txt
+            requirements-test.txt
+            environment/constraints-core-py313.txt
+      - name: Install tested CPU dependencies
+        run: python -m pip install -r requirements-test.txt
+      - name: Check dependency consistency
+        run: python -m pip check
+      - name: Record runner environment
+        run: python scripts/collect_environment.py --output outputs/paper-environment.json
+      - name: Download and verify versioned inputs from the release manifest
+        shell: python {0}
+        run: |
+          import os
+          import subprocess
+          import sys
+
+          asset = "all" if os.environ["EXPERIMENT"] == "all" else "core-inputs.zip"
+          subprocess.run(
+              [sys.executable, "scripts/download_artifacts.py", "--asset", asset],
+              check=True,
+          )
+      - name: Verify repository evidence and extracted inputs
+        shell: python {0}
+        run: |
+          import os
+          import subprocess
+          import sys
+
+          command = [
+              sys.executable, "scripts/verify_artifacts.py",
+              "--data-root", "artifacts/data",
+              "--report", "outputs/paper-artifact-verification.json",
+          ]
+          if os.environ["EXPERIMENT"] == "core":
+              command.extend(["--asset", "core-inputs.zip"])
+          subprocess.run(command, check=True)
+      - name: Rerun analyses and compare each reference CSV
+        run: >-
+          python scripts/reproduce.py
+          --experiment "$EXPERIMENT"
+          --output outputs/paper-reproduction
+      - name: Upload comparison receipts, logs, tables, and environment
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: paper-reproduction-${{ inputs.experiment }}-ubuntu-py3137
+          path: |
+            outputs/paper-environment.json
+            outputs/paper-artifact-verification.json
+            outputs/paper-reproduction/**/*.json
+            outputs/paper-reproduction/**/*.log
+            outputs/paper-reproduction/**/*.csv
+          if-no-files-found: warn
+          retention-days: 14

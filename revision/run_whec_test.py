@@ -30,7 +30,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 from revision.full_var_tests import build_design, adjust_bh  # noqa: E402
 from revision.prepare_inputs import sha256  # noqa: E402
-from revision.run_ceres_cloud_substitution import load_era5_cloud, standardize_window, regional  # noqa: E402
+from revision.run_ceres_cloud_substitution import DATA, era5_cloud_input_paths, load_era5_cloud, standardize_window, regional  # noqa: E402
 
 OUT = ROOT.parent / "revision_outputs"
 EXT = ROOT.parent / "supplementary_data" / "era5_primary_native" / "era5_cds_native_conservative_6h_64x32_850hPa_2023-01-11_2025"
@@ -144,17 +144,21 @@ def one_sided_same_sign(p_two, ref, new):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--output", type=Path, default=OUT / "whec_test")
+    ap.add_argument("--artifact-root", type=Path, default=OUT, help="Root containing inputs/, whec_index/, and ceres_cloud_substitution/.")
+    ap.add_argument("--data-root", type=Path, default=DATA, help="Root containing the original ERA5 source segment directories.")
+    ap.add_argument("--extension-dir", type=Path, default=EXT, help="Native-conservative ERA5 extension NetCDF directory.")
+    ap.add_argument("--era5-cloud-npz", type=Path, help="Portable ERA5 cloud_percent/timestamps archive; overrides source NetCDF paths.")
     args = ap.parse_args()
     start = time.perf_counter()
     design_path = args.output / "design.json"
     if sha256(design_path) != DESIGN_SHA:
         raise ValueError("design.json differs from the frozen design")
 
-    with np.load(OUT / "inputs" / "region_trainfit.npz") as z:
+    with np.load(args.artifact_root / "inputs" / "region_trainfit.npz") as z:
         data, names, ts, lat = z["data"], z["variable_names"].tolist(), pd.DatetimeIndex(z["timestamps"]), z["lat"]
-    with np.load(OUT / "inputs" / "region_trainfit_vectors.npz") as z:
+    with np.load(args.artifact_root / "inputs" / "region_trainfit_vectors.npz") as z:
         vec, vnames = z["data"], z["variable_names"].tolist()
-    with np.load(OUT / "whec_index" / "whec_regional.npz") as z:
+    with np.load(args.artifact_root / "whec_index" / "whec_regional.npz") as z:
         if not np.array_equal(pd.DatetimeIndex(z["timestamps"]).values, ts.values):
             raise ValueError("WHEC calendar differs")
         series = {"u": vec[:, :, vnames.index("u")], "v": vec[:, :, vnames.index("v")], "lin": z["lin"], "whec": z["whec"], "plac": z["placebo"]}
@@ -319,12 +323,12 @@ def main():
         decision[tv] = {"role": "primary" if tv == "cloud_cover" else "secondary", "E1": e1, "E2_family_A": e2, "verdict": verdict}
 
     # Secondary: CERES SYN1deg cloud replacing ERA5 cloud (as predictor and outcome) in window refits.
-    with np.load(OUT / "ceres_cloud_substitution" / "ceres_cloud_6h_64x32.npz") as z:
+    with np.load(args.artifact_root / "ceres_cloud_substitution" / "ceres_cloud_6h_64x32.npz") as z:
         ceres, ct = z["cloud_percent"].reshape(len(z["timestamps"]), -1).astype(np.float64), z["timestamps"]
-    era, et = load_era5_cloud(EXT)
+    era, et = load_era5_cloud(args.extension_dir, data_root=args.data_root, cloud_npz=args.era5_cloud_npz)
     if not np.array_equal(ct, et):
         raise ValueError("CERES/ERA5 time mismatch")
-    params = np.load(OUT / "inputs" / "trainfit_parameters.npz")
+    params = np.load(args.artifact_root / "inputs" / "trainfit_parameters.npz")
     mapping = params["node_to_region"]
     keep = np.isfinite(ceres).all(axis=1)
     win_t = pd.DatetimeIndex(ct)[keep]
@@ -367,7 +371,8 @@ def main():
     pd.DataFrame(csum).to_csv(args.output / "whec_ceres_summary.csv", index=False)
 
     manifest = {"created_utc": pd.Timestamp.now(tz="UTC").isoformat(), "design_sha256": DESIGN_SHA, "python": platform.python_version(),
-                "code_sha256": sha256(Path(__file__)), "inputs": {p: sha256(OUT / p) for p in ("inputs/region_trainfit.npz", "inputs/region_trainfit_vectors.npz", "whec_index/whec_regional.npz", "ceres_cloud_substitution/ceres_cloud_6h_64x32.npz")},
+                "code_sha256": sha256(Path(__file__)), "inputs": {p: sha256(args.artifact_root / p) for p in ("inputs/region_trainfit.npz", "inputs/region_trainfit_vectors.npz", "inputs/trainfit_parameters.npz", "whec_index/whec_regional.npz", "ceres_cloud_substitution/ceres_cloud_6h_64x32.npz")},
+                "era5_cloud_input_sha256": {name: sha256(path) for name, path in era5_cloud_input_paths(args.extension_dir, data_root=args.data_root, cloud_npz=args.era5_cloud_npz).items()},
                 "periods": {k: int(v.sum()) for k, v in periods.items()}, "condition_numbers": {k: v.cond for k, v in models.items()},
                 "fwl_vs_direct_max_abs_difference": fwl_check, "decision": decision, "elapsed_seconds": time.perf_counter() - start}
     (args.output / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")

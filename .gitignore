@@ -1,5 +1,9 @@
 # Virtual environment
 .venv/
+.venv-*/
+.pytest_cache/
+artifacts/data/
+artifacts/downloads/
 
 # Pipeline outputs (large data, figures, reports)
 outputs/*

@@ -59,7 +59,20 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", type=Path, default=OUT / "inputs" / "region_trainfit.npz")
     ap.add_argument("--output", type=Path, default=OUT / "three_stage")
+    ap.add_argument("--symmetric-candidates", type=Path,
+                    default=OUT / "graph_nulls" / "candidates_symmetric_core.csv",
+                    help="CSV defining the symmetric candidate family")
+    ap.add_argument("--screen-reference", type=Path,
+                    help="Optional discovery_edges.csv to verify the stage-1 screen; "
+                         "the historical reference is used with the default input")
     args = ap.parse_args()
+    reference = args.screen_reference
+    if reference is None and args.input.resolve() == (OUT / "inputs" / "region_trainfit.npz").resolve():
+        reference = OUT / "holdout_aligned" / "discovery_edges.csv"
+    for label, path in (("input", args.input), ("symmetric candidates", args.symmetric_candidates),
+                        ("screen reference", reference)):
+        if path is not None and not path.is_file():
+            ap.error(f"Missing {label} file: {path}")
     args.output.mkdir(parents=True, exist_ok=True)
     start = time.perf_counter()
     with np.load(args.input) as z:
@@ -67,7 +80,7 @@ def main():
         ts = pd.DatetimeIndex(z["timestamps"]); lat, lon = z["lat"], z["lon"]
     cand_objs = build_candidate_edges(names, lat, lon, {"candidate_k_nearest": 2})
     legacy = pd.DataFrame([c.to_dict() for c in cand_objs])
-    symmetric = pd.read_csv(OUT / "graph_nulls" / "candidates_symmetric_core.csv")
+    symmetric = pd.read_csv(args.symmetric_candidates)
     lg = attach_specs(pd.concat([legacy.assign(lag=l) for l in (1, 2, 3)], ignore_index=True), names, 66)
     sy = attach_specs(pd.concat([symmetric.assign(lag=l) for l in (1, 2, 3)], ignore_index=True), names, 66)
     assert len(lg) == 2574 and len(sy) == 3816
@@ -118,11 +131,13 @@ def main():
     screen = run_graph_discovery(data, names, cand_objs, {"discovery": disc_cal}, bandwidths=(64,))
     acf_cols = [c for c in screen.columns if c.startswith("residual_acf_")]
     screen[KEY + acf_cols].describe().to_csv(args.output / "stage1_residual_acf_summary.csv")
-    reference = OUT / "holdout_aligned" / "discovery_edges.csv"
-    if args.input.resolve() == (OUT / "inputs" / "region_trainfit.npz").resolve():
-        ref = pd.read_csv(reference).merge(screen[KEY + ["effect", "q_hac64_global"]], on=KEY, suffixes=("", "_new"))
+    if reference is not None:
+        ref = pd.read_csv(reference).merge(screen[KEY + ["effect", "q_hac64_global"]], on=KEY,
+                                          suffixes=("", "_new"), how="outer", validate="one_to_one", indicator=True)
+        if not ref["_merge"].eq("both").all():
+            raise ValueError("Stage-1 reference and computed screen have different candidate-lag keys")
         if not (np.allclose(ref.effect, ref.effect_new, atol=1e-12) and np.allclose(ref.q_hac64_global, ref.q_hac64_global_new, atol=1e-12)):
-            raise ValueError("Stage-1 screen does not reproduce holdout_aligned discovery results")
+            raise ValueError(f"Stage-1 screen does not reproduce discovery reference: {reference}")
     base = screen[KEY + ["edge_type", "distance_km", "effect", "p_hac64", "q_hac64_global", "partial_r2"]].rename(
         columns={"effect": "s1_effect", "p_hac64": "s1_p", "q_hac64_global": "s1_q", "partial_r2": "s1_partial_r2"})
     conf = var_tables["discovery"][KEY + ["effect", "p_hac64", "q_hac64_global", "partial_r2", "se_hac64"]].rename(
@@ -208,6 +223,8 @@ def main():
     pd.DataFrame(prow).to_csv(args.output / "symmetric_direction_asymmetry.csv", index=False)
 
     manifest = {"created_utc": pd.Timestamp.now(tz="UTC").isoformat(), "periods": diag, "input_sha256": sha256(args.input),
+                "symmetric_candidates_sha256": sha256(args.symmetric_candidates),
+                "screen_reference_sha256": sha256(reference) if reference is not None else None,
                 "code_sha256": {p: sha256(ROOT / p) for p in ("revision/run_three_stage.py", "revision/full_var_tests.py", "revision/inference.py", "revision/run_holdout.py")},
                 "python": platform.python_version(), "elapsed_seconds": time.perf_counter() - start, "peak_working_set_bytes": int(getattr(psutil.Process().memory_info(), "peak_wset", psutil.Process().memory_info().rss)), "cpu": platform.processor(),
                 "rules": {"stage1": "own-history HAC64 BH(2574) q<0.05 on 1979-2018 (holdout_aligned)",

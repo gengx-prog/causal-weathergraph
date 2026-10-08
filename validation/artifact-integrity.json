@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "repository_files_verified": 76,
+  "zip_crc_checks": 2,
+  "release_files_verified": 459,
+  "errors": [],
+  "scope": "File integrity only; this does not rerun scientific experiments."
+}

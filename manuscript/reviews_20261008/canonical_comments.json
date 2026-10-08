@@ -1,0 +1,258 @@
+{
+  "editor": [
+    {
+      "id": "ED-1",
+      "comment": "Please ensure that the total number of references does not exceed 50. In addition, self-citations and citations to any single journal or author should be limited to a maximum of three, except in clearly justified special cases."
+    },
+    {
+      "id": "ED-2",
+      "comment": "Please avoid citing references in large blocks. For example, citation formats such as [1,2], [1-4], or [1,2,3] should be avoided. Retain only the most relevant references and cite them individually where they directly support the specific statement."
+    },
+    {
+      "id": "ED-3",
+      "comment": "Please order the references according to their first citation sequence in the manuscript, rather than alphabetically."
+    },
+    {
+      "id": "ED-4",
+      "comment": "Please ensure that each highlight is within 80 characters."
+    },
+    {
+      "id": "ED-5",
+      "comment": "Please conduct a thorough English proofread to improve the overall clarity, grammar, and presentation of the manuscript. Please track all edits made during the revision process."
+    },
+    {
+      "id": "ED-6",
+      "comment": "Please carefully check the relevance of all references. If any reviewer requested citations that are not directly relevant to the topic of the paper, please do not include them."
+    }
+  ],
+  "reviewer1": [
+    {
+      "id": "R1-A1",
+      "comment": "the approximately 24-hour mean total pathway lag;"
+    },
+    {
+      "id": "R1-A2",
+      "comment": "the fact that humidity explains only part of Wind → Cloud Cover;"
+    },
+    {
+      "id": "R1-A3",
+      "comment": "one concrete finding about regime dependence;"
+    },
+    {
+      "id": "R1-A4",
+      "comment": "the persistence of substantial spatial-background dependence in matched controls; and"
+    },
+    {
+      "id": "R1-A5",
+      "comment": "a clearer statement that the reported discoveries are lagged observational predictive dependencies, obtained largely through linear methods and subject to spatial and temporal confounding."
+    },
+    {
+      "id": "R1-I1",
+      "comment": "add recent, topic-specific literature on space–time causal discovery and cloud-controlling factors;"
+    },
+    {
+      "id": "R1-I2",
+      "comment": "strengthen the atmospheric rationale for scalar wind speed, 850-hPa variables, and column cloud cover;"
+    },
+    {
+      "id": "R1-I3",
+      "comment": "discuss ERA5/reanalysis-specific limitations earlier;"
+    },
+    {
+      "id": "R1-I4",
+      "comment": "narrow and sharpen the novelty claim;"
+    },
+    {
+      "id": "R1-I5",
+      "comment": "explicitly state one primary objective and several secondary objectives at the end of the introduction; and"
+    },
+    {
+      "id": "R1-I6",
+      "comment": "distinguish hypotheses, validation analyses, and exploratory analyses."
+    },
+    {
+      "id": "R1-M1",
+      "comment": "The key weaknesses concern dependence-robust inference, incomplete bootstrap and null-model specifications, incomplete reporting of sampling and regime sizes, unclear multiple-testing scope, and the absence of an independent holdout validation."
+    },
+    {
+      "id": "R1-M2",
+      "comment": "incomplete bootstrap and null-model specifications"
+    },
+    {
+      "id": "R1-M3",
+      "comment": "incomplete bootstrap and null-model specifications"
+    },
+    {
+      "id": "R1-M4",
+      "comment": "incomplete reporting of sampling and regime sizes"
+    },
+    {
+      "id": "R1-M5",
+      "comment": "unclear multiple-testing scope"
+    },
+    {
+      "id": "R1-M6",
+      "comment": "the absence of an independent holdout validation."
+    },
+    {
+      "id": "R1-M7",
+      "comment": "The validity of the equations and the results related to it, should be verified properly before final submission."
+    },
+    {
+      "id": "R1-P1",
+      "comment": "Make all axes, legends, color scales, and units readable at journal-column width."
+    },
+    {
+      "id": "R1-P2",
+      "comment": "Define whether “edge count” means edge–lag tests, unique directed edges, or unique region–variable edges."
+    },
+    {
+      "id": "R1-P3",
+      "comment": "Use consistent terminology for “significant edges,” “significant hypotheses,” and “unique edges.”"
+    },
+    {
+      "id": "R1-P4",
+      "comment": "Report sample size in every regime figure."
+    },
+    {
+      "id": "R1-P5",
+      "comment": "Avoid comparing raw counts across regimes without showing rates or uncertainty."
+    },
+    {
+      "id": "R1-P6",
+      "comment": "Use consistent decimal precision."
+    },
+    {
+      "id": "R1-P7",
+      "comment": "Explain whether mean lags are calculated over significant hypotheses, unique edges, or chains."
+    },
+    {
+      "id": "R1-P8",
+      "comment": "Include the exact denominator whenever a fraction or ratio is reported."
+    },
+    {
+      "id": "R1-P9",
+      "comment": "Clearly mark exploratory versus confirmatory analyses."
+    },
+    {
+      "id": "R1-P10",
+      "comment": "Provide supplementary machine-readable tables containing all edge-level results, including region IDs, variables, lags, coefficients, p-values, q-values, partial R2, and stability."
+    },
+    {
+      "id": "R1-D1",
+      "comment": "consolidate redundant tables;"
+    },
+    {
+      "id": "R1-D2",
+      "comment": "move detailed robustness tables to supplementary material;"
+    },
+    {
+      "id": "R1-D3",
+      "comment": "redesign the main figures around maps, distributions, forest plots, and empirical nulls;"
+    },
+    {
+      "id": "R1-D4",
+      "comment": "add confidence intervals and effect-size distributions;"
+    },
+    {
+      "id": "R1-D5",
+      "comment": "formally quantify regime, latitude, mediation, and null-model contrasts; and"
+    },
+    {
+      "id": "R1-D6",
+      "comment": "strengthen dependence-aware and held-out sensitivity analyses."
+    },
+    {
+      "id": "R1-REF1",
+      "comment": "Add a targeted set of recent 2024–2026 references."
+    },
+    {
+      "id": "R1-O1",
+      "comment": "Scientific contribution: Potentially novel and important, primarily as a methodological and reproducibility contribution rather than as a fundamentally new atmospheric mechanism.\n\nEducational value: The paper has meaningful educational value because it demonstrates how to formulate, constrain, validate, and cautiously interpret directed dependency analyses in complex observational systems."
+    },
+    {
+      "id": "R1-T1",
+      "comment": "The main concern is not misconduct suggested by the manuscript; it is the need to ensure that the paper’s causal language, statistical claims, data provenance, AI disclosure, and computational documentation are fully auditable."
+    },
+    {
+      "id": "R1-T2",
+      "comment": "statistical claims"
+    },
+    {
+      "id": "R1-T3",
+      "comment": "data provenance"
+    },
+    {
+      "id": "R1-T4",
+      "comment": "AI disclosure"
+    },
+    {
+      "id": "R1-T5",
+      "comment": "computational documentation"
+    },
+    {
+      "id": "R1-L1",
+      "comment": "more direct"
+    },
+    {
+      "id": "R1-L2",
+      "comment": "less repetitive"
+    },
+    {
+      "id": "R1-L3",
+      "comment": "more cautious in its causal language."
+    }
+  ],
+  "reviewer2": [
+    {
+      "id": "R2-1",
+      "comment": "(1) The validity of significance testing under strong temporal dependence requires further assessment. Section 3.7 applies conventional OLS-based F-tests while controlling only three target-history lags in the principal model. Including these lags does not establish that residual autocorrelation and heteroskedasticity have been adequately addressed. Year-block bootstrap intervals for selected strong edges cannot establish calibration of the full discovery procedure. Please report residual diagnostics and reassess significance using inference procedures appropriate for serial dependence. Simulations with known dependency structures should evaluate the empirical false-discovery rate. Section 3.8 should also distinguish FDR control within each regime–target-variable group from any claim of control across the complete collection of 18,018 tests."
+    },
+    {
+      "id": "R2-2",
+      "comment": "(2) The candidate graph and nearly saturated discoveries complicate the interpretation of pathway recovery and stability. Section 3.5 explicitly permits Wind→Humidity and Humidity→Cloud while excluding their reverse directions from the principal search space. Consequently, the orientation of the central pathway is partly imposed rather than discovered. Furthermore, Table 11 reports that 857 of 858 candidate edges are significant in at least one regime or lag. Under such saturation, high graph overlap across periods or candidate-neighborhood settings may provide limited evidence of structural specificity. The significant proportions for physical and distance-matched random candidates are also relatively close, at 0.792 and 0.743. Please evaluate bidirectional candidates under comparable spatial constraints and quantify pathway enrichment and graph overlap against repeated null graphs preserving relevant density, degree, and distance characteristics. The manuscript should clearly separate prior-imposed structure from information contributed by the observations."
+    },
+    {
+      "id": "R2-3",
+      "comment": "(3) Regime definitions may introduce endogenous selection into the comparisons. Section 3.6 defines humidity and cloud regimes using contemporaneous spatial averages that include the response variable being analyzed. Differences between regime-specific graphs may therefore reflect response-dependent selection or truncation, in addition to genuine changes in atmospheric coupling. Matching sample sizes addresses differences in statistical power but does not resolve this concern. Please include regime definitions based on appropriately preceding information or external circulation classifications, and directly test differences in source effects across regimes. In addition, Sections 4.3 and 5.1 interpret stronger global DJF relationships as stronger dependence under winter conditions. Because DJF corresponds to opposite seasons across hemispheres, this interpretation requires separate Northern and Southern Hemisphere analyses."
+    },
+    {
+      "id": "R2-4",
+      "comment": "(4) Path composition and lag summaries do not yet establish a propagation or mediation mechanism. Section 3.9 constructs Wind–Humidity–Cloud chains by joining significant edges, but two predictive associations do not by themselves demonstrate transmission through the intermediate variable. The humidity-adjustment diagnostic uses humidity in the target region, whereas the enumerated chains can involve a different intermediate region. It therefore does not directly validate the cross-region pathways being counted. The mean coefficient attenuation of only 3.69% in the all-sample regime also warrants caution. Moreover, mean edge lags near two time steps and chain lags near four time steps are close to what approximately uniform detection over the tested one-to-three-lag range would produce. The shift toward mean lags around six when the maximum lag is extended to twelve raises a related search-window concern. Please evaluate specific intermediate regions with temporally consistent pathway models and assess lag-specific predictive contributions with uncertainty estimates. Physical transport interpretations would also benefit from wind-vector or moisture-flux diagnostics, since scalar wind speed does not encode transport direction."
+    },
+    {
+      "id": "R2-5",
+      "comment": "(5) PCMCI confirmation is not independent validation, and the methodological contribution needs stronger benchmarking. Section 4.8 selects the strongest stable edges using the complete 1979–2025 record and then evaluates them with PCMCI on the overlapping 2019–2025 segment. The reported confirmation of 50 out of 60 edges demonstrates agreement between procedures on selected relationships, but does not constitute independent temporal validation or establish accuracy across the full graph. Please use an earlier period for discovery and parameter selection, reserving a later period exclusively for evaluation. Validation should include ordinary significant edges and unselected candidates, not only the strongest discoveries. The framework should also be compared with multivariable Granger, PCMCI, and existing regime-dependent approaches under comparable conditions. Known-structure simulations, component ablations, and runtime and memory measurements would help establish the specific benefits of the proposed framework."
+    }
+  ],
+  "reviewer3": [
+    {
+      "id": "R3-1",
+      "comment": "Regime-dependent causal discovery has already been studied by Regime-PCMCI, and recent work such as CaStLe addresses scalable space-time causal discovery through locality constraints in Earth-system data. The contribution here appears to lie mainly in combining physics-guided candidate restriction, manually defined atmospheric regimes, large-scale ERA5 analysis, and a layered validation chain. The authors should explain more precisely what new causal discovery capability is added beyond these prior approaches and include direct methodological comparisons."
+    },
+    {
+      "id": "R3-2",
+      "comment": "The true directed graph of the real ERA5 data is unavailable. A method paper needs evaluation where the causal structure is known. PCMCI is applied only to 60 preselected top stable edges from 2019 to 2025, with 50 confirmed, so this is a selective confirmation rather than a full method comparison. Synthetic or semi-synthetic spatio-temporal benchmarks with known direction, lag, and graph structure should be added, together with precision, recall, F1, SHD, or related graph-recovery measures and comparisons with relevant causal discovery baselines."
+    },
+    {
+      "id": "R3-3",
+      "comment": "The main estimator uses OLS nested F-tests with three target-history lags (as defined in Section 3.7, Eqs. (21)-(25)). However, FDR correction does not correct p-values that are themselves distorted by residual serial dependence. The block-bootstrap analysis in Section 3.10 uses only 20 replicates for stability selection. Residual autocorrelation should be diagnosed, and the authors should consider block-bootstrap, HAC, or other dependence-aware inference for the main edge tests."
+    },
+    {
+      "id": "R3-4",
+      "comment": "The regime construction can condition on the current outcome variable. High-humidity and high-cloud regimes are defined from contemporaneous humidity and cloud indices, and the regime mask is applied to the response time t. Thus, for relations such as H_{t-l} --> C_t, the high-cloud analysis conditions directly on a quantity derived from C_t. Matched sample sizes do not address this selection issue. Sensitivity analyses using lagged or otherwise externally defined regime indicators are needed."
+    },
+    {
+      "id": "R3-5",
+      "comment": "Wind is reduced to scalar speed w, which contains no transport direction. However, cross-region W-->H edges are interpreted in terms of moisture transport. The authors should either incorporate vector wind information or narrow this interpretation."
+    },
+    {
+      "id": "R3-6",
+      "comment": "The falsification results raise a substantive directionality issue. In Table 8, forward H-->C has a significant ratio of 0.740, whereas C-->H reaches 0.801, and future-to-past Humidity to Cloud Cover also remains strong. It indicates that the direction of the humidity-cloud relation is not cleanly identified under the current controls. The main interpretation should reflect this more directly, and additional conditioning on common atmospheric drivers would be useful."
+    },
+    {
+      "id": "R3-7",
+      "comment": "The very high discovery rate needs a stricter null calibration. The main analysis reports 14274 significant tests out of 18018, or 0.792. More importantly, the distance-matched random graph still has a significant ratio of 0.743 in Table 6. This small separation suggests that spatial dependence accounts for much of the raw significance. Together with the very small median partial R^2 values in Table 17, this study would benefit from an empirical-null comparison or an effect-size criterion in addition to q<0.05."
+    }
+  ]
+}

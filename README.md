@@ -1,5 +1,30 @@
 # Causal WeatherGraph
 
+## Reproducibility package — October 8, 2026
+
+Start with the **[portable reproduction guide](docs/REPRODUCING.md)**. It includes
+Windows/Linux installation, archived original submission and review comments,
+real experimental inputs, full-table comparison commands, and test limitations.
+
+- [Observed local hardware, Python and dependency versions](docs/ENVIRONMENT.md)
+- [Versioned experimental inputs and evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008)
+- [Artifact coverage and download inventory](docs/ARTIFACTS.md)
+- [Review-to-evidence map](docs/REVIEW_EVIDENCE.md) and [executed validation](validation/README.md)
+- [Windows and Ubuntu automated checks](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reproducibility.yml)
+
+After installing `requirements-test.txt` in a new Python 3.13.7 environment:
+
+```bash
+python scripts/verify_artifacts.py
+python -m pytest tests -q -rs
+python scripts/download_artifacts.py --asset core-inputs.zip
+python scripts/reproduce.py --experiment core --output outputs/my-core-reproduction
+```
+
+The release provides processed research inputs and recorded results. Raw ERA5
+and CERES provider archives are separate; synthetic CI checks and raw-data
+preprocessing are distinct from reproduction from the archived inputs.
+
 **Causal WeatherGraph: screen–confirm–replicate discovery of lagged wind–humidity–cloud dependencies in global atmospheric reanalysis**
 
 **Author: Xinchen Geng**
@@ -69,7 +94,7 @@ The pipeline:
 Use Python 3.10+.
 
 ```bash
-cd /home/vipuser/论文2026_516/Causal/causal-weathergraph
+cd causal-weathergraph
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
