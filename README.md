@@ -8,6 +8,7 @@ real experimental inputs, full-table comparison commands, and test limitations.
 
 - [Observed local hardware, Python and dependency versions](docs/ENVIRONMENT.md)
 - [Versioned experimental inputs and evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008.1)
+- [Historical ERA5/CERES source files: 108.69 GB](docs/RAW_DATA.md) and [official data-source links](docs/RAW_DATA_SOURCES.md)
 - [Artifact coverage and download inventory](docs/ARTIFACTS.md)
 - [Review-to-evidence map](docs/REVIEW_EVIDENCE.md) and [executed validation](validation/README.md)
 - [Windows and Ubuntu automated checks](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reproducibility.yml)
@@ -21,9 +22,12 @@ python scripts/download_artifacts.py --asset core-inputs.zip
 python scripts/reproduce.py --experiment core --output outputs/my-core-reproduction
 ```
 
-The release provides processed research inputs and recorded results. Raw ERA5
-and CERES provider archives are separate; synthetic CI checks and raw-data
-preprocessing are distinct from reproduction from the archived inputs.
+The processed-input release provides the fast route to the recorded results.
+The separate [raw-data release](https://github.com/gengx-prog/causal-weathergraph/releases/tag/raw-data-20261008)
+archives the 1,100 ERA5/WB2 and CERES scientific source/input files actually
+acquired for the paper. Download selected datasets using the [raw-data guide](docs/RAW_DATA.md).
+Synthetic CI checks, raw-data preprocessing, and reproduction from processed
+inputs have distinct validation scopes.
 
 **Causal WeatherGraph: screen–confirm–replicate discovery of lagged wind–humidity–cloud dependencies in global atmospheric reanalysis**
 
@@ -45,7 +49,7 @@ The October 2, 2026 revision package (finalized October 3) is available below. T
 | LaTeX source for all three documents | [ZIP](manuscript/submission_20261002/6_LaTeX_source.zip) |
 | Highlights | [Text](manuscript/submission_20261002/7_Highlights.txt) |
 
-Editable manuscript sources and figure assets are in [`manuscript/revision_v2_20261002/`](manuscript/revision_v2_20261002/). The revision analyses, including the screen–confirm–replicate framework, CERES cloud substitution and wind–humidity eddy convergence (WHEC) index and tests, are in [`revision/`](revision/README.md). Supplementary data contain the reported edge-level results; raw ERA5 and CERES fields must be obtained from their source archives.
+Editable manuscript sources and figure assets are in [`manuscript/revision_v2_20261002/`](manuscript/revision_v2_20261002/). The revision analyses, including the screen–confirm–replicate framework, CERES cloud substitution and wind–humidity eddy convergence (WHEC) index and tests, are in [`revision/`](revision/README.md). Supplementary data contain the reported edge-level results; the retained ERA5 and CERES acquisition subsets are available through the [raw-data archive guide](docs/RAW_DATA.md), with official provider links and original file hashes.
 
 The following sections describe the original exploratory pipeline. For the analyses supporting the revised manuscript, start with the [revision guide](revision/README.md).
 

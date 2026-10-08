@@ -5,6 +5,9 @@ and **[recorded environment](../docs/ENVIRONMENT.md)**. The versioned release
 now supplies processed core, satellite and WHEC inputs. `scripts/reproduce.py`
 passes explicit paths and compares rerun CSVs with the archived evidence.
 
+The [historical raw-data archive](../docs/RAW_DATA.md) additionally contains the
+retained ERA5/WB2 and CERES acquisitions, with [official sources and citations](../docs/RAW_DATA_SOURCES.md).
+
 Author: Xinchen Geng, University of Southern California.
 
 This directory contains the analysis code used during the revision of **Causal WeatherGraph: screen–confirm–replicate discovery of lagged wind–humidity–cloud dependencies in global atmospheric reanalysis**. The final manuscript and machine-readable results are linked from the [repository README](../README.md).

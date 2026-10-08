@@ -4,6 +4,8 @@
 .pytest_cache/
 artifacts/data/
 artifacts/downloads/
+raw-data/
+raw-data-downloads/
 
 # Pipeline outputs (large data, figures, reports)
 outputs/*

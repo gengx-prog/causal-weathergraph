@@ -75,9 +75,10 @@ in percent, with hashes of its parent NetCDF files. It preserves the original
 loader's values and time order. CERES, regional vectors, WHEC series and fitted
 preprocessing parameters are archived inputs; this workflow does **not** rerun
 raw-data acquisition, conservative remapping, preprocessing, or WHEC index
-construction. Those stages need the original provider fields and the source
-manifests in the release. See [artifact coverage](ARTIFACTS.md) and the historical
-[data-source notes](../revision/data_sources.md).
+construction. The retained original study inputs and provider subsets are now
+available in the separate [raw-data archive](RAW_DATA.md), with [official source
+links](RAW_DATA_SOURCES.md). See [artifact coverage](ARTIFACTS.md) for the
+processed-input scope.
 
 ## Review the paper and original comments
 

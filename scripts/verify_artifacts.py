@@ -43,10 +43,37 @@ def check_records(root, records):
     return checked, errors
 
 
+def select_assets(manifest, names=None, datasets=None, *, default_all=False):
+    """Validate an explicit selection; large raw collections have no implicit download."""
+    assets = manifest["assets"]
+    if names and datasets:
+        raise ValueError("Choose either --asset or --dataset, not both")
+    if datasets:
+        known = {asset.get("dataset_id") for asset in assets if asset.get("dataset_id")}
+        unknown = set(datasets) - known
+        if unknown:
+            raise ValueError(f"Unknown dataset {sorted(unknown)}; choose from {sorted(known)}")
+        return [asset for asset in assets if asset.get("dataset_id") in datasets]
+    known = {asset["name"] for asset in assets}
+    if not names:
+        if default_all:
+            return assets
+        if "core-inputs.zip" not in known:
+            raise ValueError("This manifest requires --dataset ID or --asset NAME/all; use --list to inspect download sizes")
+        names = ["core-inputs.zip"]
+    if set(names) == {"all"}:
+        return assets
+    if not set(names) <= known:
+        raise ValueError(f"Unknown asset; choose from {sorted(known)} or all")
+    return [asset for asset in assets if asset["name"] in names]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", type=Path, help="Extracted release files, e.g. artifacts/data")
     parser.add_argument("--asset", action="append", help="Release asset name; repeat to verify selected assets")
+    parser.add_argument("--dataset", action="append", help="Dataset identifier in the selected manifest; repeat as needed")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "artifacts/release-manifest.json")
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     manifest = json.loads((ROOT / "artifacts/repository-manifest.json").read_text(encoding="utf-8"))
@@ -66,17 +93,17 @@ def main():
                 errors.append(f"Invalid ZIP: {record['path']}")
     release_count = 0
     if args.data_root:
-        release = json.loads((ROOT / "artifacts/release-manifest.json").read_text(encoding="utf-8"))
-        known = {asset["name"] for asset in release["assets"]}
-        if args.asset and not set(args.asset) <= known:
-            parser.error(f"Unknown asset; choose from {sorted(known)}")
-        for asset in release["assets"]:
-            if not args.asset or asset["name"] in args.asset:
-                n, failures = check_records(args.data_root, asset["files"])
-                release_count += n
-                errors.extend(failures)
-    elif args.asset:
-        parser.error("--asset requires --data-root")
+        release = json.loads(args.manifest.read_text(encoding="utf-8"))
+        try:
+            selected = select_assets(release, args.asset, args.dataset, default_all=True)
+        except ValueError as exc:
+            parser.error(str(exc))
+        for asset in selected:
+            n, failures = check_records(args.data_root, asset["files"])
+            release_count += n
+            errors.extend(failures)
+    elif args.asset or args.dataset:
+        parser.error("--asset/--dataset requires --data-root")
     result = {"status": "passed" if not errors else "failed", "repository_files_verified": count,
               "zip_crc_checks": zip_count, "release_files_verified": release_count, "errors": errors,
               "scope": "File integrity only; this does not rerun scientific experiments."}

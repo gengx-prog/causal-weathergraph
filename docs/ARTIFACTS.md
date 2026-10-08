@@ -1,5 +1,9 @@
 # Research artifacts and their scope
 
+This page describes the processed-input release. The subsequently published
+[raw-data archive](RAW_DATA.md) adds the 1,100 historical ERA5/WB2 and CERES
+scientific source/input files and their [official source links](RAW_DATA_SOURCES.md).
+
 The release tag is `reproducibility-20261008.1`. The
 [release manifest](../artifacts/release-manifest.json) lists every archive and
 every contained file with its byte count and SHA-256. ZIP entry paths are

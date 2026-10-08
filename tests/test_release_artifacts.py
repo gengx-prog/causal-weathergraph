@@ -140,7 +140,7 @@ def test_unlisted_archive_entry_is_rejected_before_extraction(tmp_path, artifact
     assert not destination.exists()
 
 
-def test_existing_partial_file_is_not_overwritten(tmp_path, artifact_tools):
+def test_interrupted_extraction_restarts_and_verifies_final_file(tmp_path, artifact_tools):
     _, download = artifact_tools
     archive, asset, contents = make_archive(tmp_path)
     destination = tmp_path / "extracted"
@@ -148,10 +148,9 @@ def test_existing_partial_file_is_not_overwritten(tmp_path, artifact_tools):
     partial = target.with_name(target.name + ".part")
     partial.parent.mkdir(parents=True)
     partial.write_bytes(b"unfinished prior download")
-    with pytest.raises(FileExistsError):
-        download.extract_verified(archive, asset, destination)
-    assert partial.read_bytes() == b"unfinished prior download"
-    assert not target.exists()
+    download.extract_verified(archive, asset, destination)
+    assert not partial.exists()
+    assert target.read_bytes() == contents[next(iter(contents))]
 
 
 def test_downloader_rejects_bad_archive_hash_before_extraction(tmp_path, artifact_tools, monkeypatch):
@@ -163,8 +162,12 @@ def test_downloader_rejects_bad_archive_hash_before_extraction(tmp_path, artifac
     (manifest_dir / "release-manifest.json").write_text(
         json.dumps({"assets": [asset]}), encoding="utf-8")
     monkeypatch.setattr(download, "ROOT", tmp_path)
-    monkeypatch.setattr(download.urllib.request, "urlopen",
-                        lambda *_args, **_kwargs: io.BytesIO(archive.read_bytes()))
+    def response(*_args, **_kwargs):
+        stream = io.BytesIO(archive.read_bytes())
+        stream.status = 200
+        stream.headers = {}
+        return stream
+    monkeypatch.setattr(download.urllib.request, "urlopen", response)
     monkeypatch.setattr(sys, "argv", ["download_artifacts.py"])
     with pytest.raises(ValueError, match="Downloaded asset failed integrity verification"):
         download.main()

@@ -9,6 +9,10 @@
 *.py text eol=lf
 *.sh text eol=lf
 
+# Keep the raw release inventory identical to its downloadable copy.
+artifacts/raw-data-manifest.json text eol=lf
+artifacts/RAW_SHA256SUMS.txt text eol=lf
+
 # Keep repository manuscript sources identical to the source ZIP.
 manuscript/** -text
 

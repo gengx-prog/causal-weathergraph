@@ -1,0 +1,110 @@
+name: Public raw-data download and checksum checks
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-public-sample:
+    name: Raw sample / ${{ matrix.os }} / Python 3.13.7
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    env:
+      PYTHONNOUSERSITE: "1"
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13.7"
+          architecture: x64
+      - name: Record environment and verification scope
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import json
+          import platform
+          import sys
+
+          Path("outputs").mkdir(exist_ok=True)
+          record = {
+              "python": sys.version,
+              "platform": platform.platform(),
+              "machine": platform.machine(),
+              "dependencies": "Python standard library only",
+              "datasets": ["source-metadata", "era5-cds-legacy", "ceres-201901-pilot"],
+              "scope": "Public release download and file checksum verification only; no raw-data preprocessing or scientific analysis rerun",
+          }
+          Path("outputs/raw-sample-environment.json").write_text(
+              json.dumps(record, indent=2) + "\n", encoding="utf-8",
+          )
+          print(json.dumps(record, indent=2))
+      - name: Download public source metadata, ERA5, and CERES samples
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import json
+          import subprocess
+          import sys
+
+          command = [
+              sys.executable, "scripts/download_artifacts.py",
+              "--manifest", "artifacts/raw-data-manifest.json",
+              "--dataset", "source-metadata",
+              "--dataset", "era5-cds-legacy",
+              "--dataset", "ceres-201901-pilot",
+              "--output", "outputs/raw-sample",
+          ]
+          result = subprocess.run(
+              command, capture_output=True, text=True,
+              encoding="utf-8", errors="replace",
+          )
+          log = json.dumps(command) + "\n" + result.stdout + result.stderr
+          Path("outputs/raw-sample-download.txt").write_text(log, encoding="utf-8")
+          print(log)
+          result.check_returncode()
+      - name: Verify the extracted sample against the published manifest
+        shell: python {0}
+        run: |
+          from pathlib import Path
+          import json
+          import subprocess
+          import sys
+
+          command = [
+              sys.executable, "scripts/verify_artifacts.py",
+              "--manifest", "artifacts/raw-data-manifest.json",
+              "--dataset", "source-metadata",
+              "--dataset", "era5-cds-legacy",
+              "--dataset", "ceres-201901-pilot",
+              "--data-root", "outputs/raw-sample",
+              "--report", "outputs/raw-sample-verification.json",
+          ]
+          result = subprocess.run(
+              command, capture_output=True, text=True,
+              encoding="utf-8", errors="replace",
+          )
+          log = json.dumps(command) + "\n" + result.stdout + result.stderr
+          Path("outputs/raw-sample-verification.txt").write_text(log, encoding="utf-8")
+          print(log)
+          result.check_returncode()
+      - name: Upload checksum report, command logs, and environment
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: raw-sample-${{ matrix.os }}-py3137
+          path: |
+            outputs/raw-sample-verification.json
+            outputs/raw-sample-environment.json
+            outputs/raw-sample-download.txt
+            outputs/raw-sample-verification.txt
+          if-no-files-found: warn
+          retention-days: 14

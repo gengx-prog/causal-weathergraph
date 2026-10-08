@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-10-08T10:49:43.807065+00:00",
+  "status": "passed",
+  "release_tag": "raw-data-20261008",
+  "python": "3.13.7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "environment_record": "docs/ENVIRONMENT.md",
+  "manifest": {
+    "path": "artifacts/raw-data-manifest.json",
+    "sha256": "4eaaf853a00f6bc1f33ce953b38f79df7b0d8a0f4da86872a0aaaa9d8293c94f"
+  },
+  "inventory": {
+    "scientific_netcdf_files": 1100,
+    "scientific_bytes": 108693362733,
+    "metadata_files": 8,
+    "source_files": 1108,
+    "source_bytes": 108694398587,
+    "archives": 79,
+    "archive_bytes": 108694666057,
+    "largest_archive_bytes": 1796034191,
+    "archive_size_ceiling_exclusive": 1800000000
+  },
+  "packaging": {
+    "archive_members_read_back_and_sha256_verified": 1108,
+    "archive_sha256_records": 79,
+    "all_build_receipts_match_manifest": true,
+    "scientific_files_matching_historical_acquisition_sha256": 1023,
+    "scientific_files_with_new_publication_sha256_only": 77,
+    "method": "Allowlisted source bytes were streamed into ZIP_STORED archives, compared with available acquisition hashes, and independently read back from every archive member before finalizing its build receipt."
+  },
+  "netcdf_headers": {
+    "era5_files_readable_and_endpoint_times_decoded": 1073,
+    "ceres_files_readable": 27,
+    "failures": 0,
+    "scope": "Headers and timestamps only; not a full numeric-value or scientific-result audit."
+  },
+  "unit_tests": {
+    "passed": 173,
+    "skipped": 13,
+    "failures": 0,
+    "errors": 0,
+    "junit": "validation/raw-data-tests-20261008.xml",
+    "skip_reason": "13 tests require separately trained artifacts of the cloud interface prototype."
+  },
+  "offline_restore": {
+    "datasets": [
+      "source-metadata",
+      "era5-cds-legacy",
+      "ceres-201901-pilot"
+    ],
+    "archive_bytes": 222536291,
+    "result": {
+      "status": "passed",
+      "repository_files_verified": 58,
+      "zip_crc_checks": 2,
+      "release_files_verified": 85,
+      "errors": [],
+      "scope": "File integrity only; this does not rerun scientific experiments."
+    }
+  },
+  "scope": "Local inventory, byte integrity, packaging, downloader tests and an 85-file offline restore. Does not assert a full raw preprocessing or scientific analysis rerun. GitHub server digest and public runner verification are separate release receipts."
+}
