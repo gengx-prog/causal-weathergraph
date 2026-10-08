@@ -17,3 +17,18 @@ __pycache__/
 # OS
 Thumbs.db
 .DS_Store
+
+# LaTeX build intermediates (PDF deliverables are retained)
+*.aux
+*.blg
+*.log
+*.out
+*.spl
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Earlier local publication helpers; the current source package is self-contained
+/revision/paper_figures/
+/revision/build_data_source_catalog.py
+/revision/data_sources_manifest.json

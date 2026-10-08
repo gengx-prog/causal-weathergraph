@@ -1,0 +1,19 @@
+{
+  "protocol_date": "2026-09-29",
+  "status": "locked_before_new_experiment_results",
+  "interpretation": "Retrospective revision experiments; 2019-2025 has previously been examined and is not a pristine prospective holdout.",
+  "discovery_period": ["1979-01-01", "2018-12-31"],
+  "evaluation_period": ["2019-01-01", "2025-12-31"],
+  "preprocessing_fit": "Discovery period only for monthly climatology, anomaly mean/std, state quantiles and all effect-based selections.",
+  "main_variables": ["temperature", "humidity", "wind", "cloud_cover"],
+  "additional_variables": ["u", "v", "qu", "qv"],
+  "max_source_lag": 3,
+  "target_history": 3,
+  "hac": {"kernel": "Bartlett", "primary_bandwidth": 64, "sensitivity_bandwidths": [32,128], "time_unit": "six-hour calendar steps", "mask_handling": "zero score contributions for excluded calendar rows, never compress time"},
+  "alpha": 0.05,
+  "multiple_testing": ["within regime and target variable", "global across each explicitly defined experiment family"],
+  "state_sensitivity": {"lag_steps": 4, "quantiles": [0.2,0.8], "warning": "Lagged states precede tested 1-3 step source terms but are not guaranteed exogenous."},
+  "seed": 20260929,
+  "editorial": {"max_references": 50, "max_self_citations": 3, "max_per_author": 3, "max_per_journal": 3, "exceptions": "Require a clearly justified documented case; never infer exemption.", "citation_style": "Individual relevant citations at supporting statements, ordered by first appearance; avoid combined numeric citations and ranges.", "highlight_max_characters": 80, "english_proofread": true, "track_all_edits": true, "response_file_required": true},
+  "completion_rule": "An experiment is complete only with executed results, verified checks, provenance and limitations. Unrun or limited-scope components remain explicitly open."
+}

@@ -1,0 +1,5 @@
+Screen–confirm–replicate framework for lagged dependency graphs in reanalysis
+Eddy wind–humidity convergence improves held-out midlatitude cloud prediction
+Confirmed edges replicate at 49% and 43% in two held-out periods, controls 8–9%
+Humidity-to-cloud exceeds its reverse; CERES cloud confirms it for 2017–2023
+No support for chain enrichment, uniform winter strengthening or cloud regimes

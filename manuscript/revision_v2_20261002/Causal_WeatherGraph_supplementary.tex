@@ -1,0 +1,571 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx,adjustbox}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Xinchen Geng}}
+\renewcommand{\thetable}{S\arabic{table}}
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\begin{center}
+{\large\bfseries Supplementary Material}\\[4pt]
+{\bfseries Causal WeatherGraph: screen--confirm--replicate discovery of lagged wind--humidity--cloud dependencies in global atmospheric reanalysis}\\[4pt]
+Xinchen Geng, University of Southern California
+\end{center}
+
+\noindent This document contains Supplementary Tables S1--S17 and a description of the machine-readable Supplementary Data. Tables S2--S6, S9 and S10 report the full-record screening stage (1979--2025 climatology, own-history OLS $F$-tests with BH within regime $\times$ target-variable families); they document the reproducibility of the screen and are not evidence of structural specificity, which is assessed by the confirmation and replication stages in the main text. Tables S2--S6, S9 and S10 (panels A and C--E) reproduce analyses of the original submission, which used the earlier, interpolated 2023--2025 continuation (Table S1, panel A); rerunning the full-record regime screen on the re-acquired record changes the significance of 670 of its 18,018 tests (3.7\%) and the number significant from 14,274 to 14,308.
+
+\section*{S1. Data provenance}
+
+\begin{table}[htbp]
+\centering
+\caption{Same-date comparison of two CDS acquisition routes with the WeatherBench~2 conservative product on 152 timestamps (2022 January, April, July and October days 1--7; 2023 January days 1--10). Panel A: fields requested on the CDS 5.625$^\circ$ grid, which interpolates, as used for 2023--2025 in the original submission. Panel B: native 0.25$^\circ$ fields regridded with the WeatherBench~2 first-order conservative scheme, as used for 2023-01-11 to 2025-12-31 in this revision. Grid values are compared in physical units and as discovery-standardized anomalies; regional values are the 66 regional means of standardized anomalies that enter the regressions.}
+\label{tab:s1}
+\scriptsize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Grid, physical units} & Grid & \multicolumn{3}{c}{Regional, standardized} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-4}\cmidrule(lr){5-7}
+Variable & Mean CDS$-$WB2 & RMSE & Correlation & Mean CDS$-$WB2 & RMSE & Correlation \\
+\midrule
+\multicolumn{7}{@{}l}{\textit{A. CDS 5.625$^\circ$ interpolation (original submission)}} \\
+Temperature $T$ & -0.057 K & 0.982 & 0.949 & -0.012 & 0.080 & 0.991 \\
+Specific humidity $q$ & -0.010 g\,kg$^{-1}$ & 0.841 & 0.874 & -0.026 & 0.141 & 0.963 \\
+Wind speed $W$ & +0.685 m\,s$^{-1}$ & 2.025 & 0.869 & +0.198 & 0.243 & 0.954 \\
+Zonal wind $u$ & +0.003 m\,s$^{-1}$ & 2.012 & 0.909 & -0.004 & 0.125 & 0.967 \\
+Meridional wind $v$ & +0.010 m\,s$^{-1}$ & 1.649 & 0.914 & +0.008 & 0.107 & 0.979 \\
+Total cloud cover $C$ & +0.119 \% & 18.382 & 0.802 & +0.010 & 0.199 & 0.907 \\
+\midrule
+\multicolumn{7}{@{}l}{\textit{B. Native 0.25$^\circ$ fields, conservative regridding (this revision)}} \\
+Temperature $T$ & $+4.1\times10^{-6}$ K & $5.6\times10^{-5}$ & 1.000 & $+3.7\times10^{-6}$ & $1.3\times10^{-5}$ & 1.000 \\
+Specific humidity $q$ & $+2.7\times10^{-8}$ g\,kg$^{-1}$ & $4.9\times10^{-6}$ & 1.000 & $-2.2\times10^{-7}$ & $1.4\times10^{-5}$ & 1.000 \\
+Wind speed $W$ & $+4.1\times10^{-7}$ m\,s$^{-1}$ & $1.9\times10^{-5}$ & 1.000 & $+1.2\times10^{-7}$ & $1.5\times10^{-6}$ & 1.000 \\
+Zonal wind $u$ & $-2.2\times10^{-7}$ m\,s$^{-1}$ & $1.8\times10^{-5}$ & 1.000 & $-4.8\times10^{-8}$ & $1.1\times10^{-6}$ & 1.000 \\
+Meridional wind $v$ & $+5.7\times10^{-8}$ m\,s$^{-1}$ & $1.9\times10^{-5}$ & 1.000 & $+3.7\times10^{-8}$ & $1.6\times10^{-6}$ & 1.000 \\
+Total cloud cover $C$ & $+2.5\times10^{-5}$ \% & $8.5\times10^{-5}$ & 1.000 & $+1.3\times10^{-6}$ & $1.9\times10^{-6}$ & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{S2. Robustness of the screening stage}
+
+\begin{table}[htbp]
+\centering
+\caption{Historical-period screening (own-history OLS, full-record climatology).}
+\label{tab:s2}
+\scriptsize
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+Period & Time range & Significant ratio & WH edges & HC edges & WC edges & WHC chains & Overlap with full graph \\
+\midrule
+P1 & 1979-1989 & 0.734 & 428 & 407 & 421 & 2,700 & 0.910 \\
+P2 & 1990-1999 & 0.714 & 428 & 391 & 411 & 2,647 & 0.901 \\
+P3 & 2000-2009 & 0.724 & 424 & 390 & 427 & 2,650 & 0.910 \\
+P4 & 2010-2018 & 0.715 & 406 & 388 & 418 & 2,531 & 0.906 \\
+P5 & 2019-2025 & 0.678 & 390 & 365 & 386 & 2,261 & 0.883 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Candidate-neighbourhood expansion.}
+\label{tab:s3}
+\scriptsize
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+k & Candidate edges & Tested edges & Significant ratio & Unique significant edges & WH edges & HC edges & WHC chains & Recovered k=2 edges \\
+\midrule
+2 & 858 & 18,018 & 0.792 & 857 & 3,260 & 3,079 & 22,202 & 857 \\
+4 & 1,386 & 29,106 & 0.746 & 1,379 & 4,956 & 4,926 & 54,351 & 857 \\
+6 & 1,914 & 40,194 & 0.697 & 1,892 & 6,400 & 6,655 & 95,871 & 857 \\
+8 & 2,442 & 51,282 & 0.672 & 2,403 & 7,804 & 8,376 & 148,573 & 857 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Preprocessing variants.}
+\label{tab:s4}
+\scriptsize
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+Setting & Significant ratio & WH edges & HC edges & WC edges & WHC chains & WHC chain overlap \\
+\midrule
+P1\_monthly & 0.792 & 3,260 & 3,079 & 3,260 & 22,202 & 1.000 \\
+P2\_monthly\_diff & 0.874 & 3,535 & 3,630 & 3,444 & 27,922 & 0.856 \\
+P3\_diff\_only & 0.878 & 3,546 & 3,676 & 3,442 & 28,468 & 0.858 \\
+P4\_rolling & 0.852 & 3,517 & 3,427 & 3,415 & 26,472 & 0.854 \\
+P5\_monthly\_regionstd & 0.784 & 3,180 & 3,141 & 3,168 & 22,131 & 0.883 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Regionalization variants.}
+\label{tab:s5}
+\scriptsize
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+Setting & Method & Actual regions & Significant ratio & WH edges & HC edges & WC edges & WHC chains & Midlatitude strongest \\
+\midrule
+R32 & latlon\_bins & 32 & 0.785 & 1,491 & 1,498 & 1,573 & 10,245 & no \\
+R64 & latlon\_bins & 66 & 0.792 & 3,260 & 3,079 & 3,260 & 22,202 & yes \\
+R128 & latlon\_bins & 128 & 0.822 & 6,460 & 6,488 & 6,358 & 47,309 & yes \\
+K64 & kmeans\_sphere & 64 & 0.791 & 3,035 & 3,161 & 3,159 & 21,766 & yes \\
+K128 & kmeans\_sphere & 128 & 0.804 & 6,075 & 6,474 & 6,359 & 44,219 & yes \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section*{S3. Regime screening, external states and resampling}
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive regime screening: chain statistics, graph distances and matched-sample sensitivity. These quantities compare separately selected graphs and are not tests of state dependence.}
+\label{tab:s6}
+\scriptsize
+\par\smallskip\noindent\textit{A. Lag-resolved wind--humidity--cloud chains}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Regime & WHC chains & Intermediate humidity regions & Mean total lag & Mean chain score \\
+\midrule
+all & 3,746 & 66 & 3.983 & 0.468 \\
+DJF & 3,215 & 66 & 3.976 & 0.578 \\
+JJA & 2,998 & 66 & 3.963 & 0.553 \\
+high\_humidity & 2,442 & 62 & 3.939 & 0.551 \\
+normal\_humidity & 3,522 & 65 & 3.988 & 0.486 \\
+high\_cloud & 2,612 & 65 & 3.962 & 0.499 \\
+normal\_cloud & 3,667 & 66 & 3.972 & 0.468 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{B. Jaccard distances between regime graphs}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Comparison & Jaccard distance & Union edges & Intersection edges \\
+\midrule
+DJF vs JJA & 0.107 & 851 & 760 \\
+high\_humidity vs normal\_humidity & 0.106 & 840 & 751 \\
+high\_cloud vs normal\_cloud & 0.087 & 841 & 768 \\
+all vs DJF & 0.075 & 856 & 792 \\
+all vs JJA & 0.065 & 851 & 796 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{C. Matched-sample sensitivity}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+Comparison & High samples & Normal samples & Original Jaccard & Matched Jaccard mean & Matched Jaccard SD & Mean edge-count difference \\
+\midrule
+high humidity vs normal humidity & 13,734 & 41,200 & 0.106 & 0.119 & 0.006 & -0.75 \\
+high cloud vs normal cloud & 13,734 & 54,934 & 0.087 & 0.111 & 0.007 & 15.50 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Ni\~no-3.4 state contrasts in 2019--2025 (36 discovery-selected region pairs, lags 1--3, HAC bandwidth 64). Entries are medians over pairs and lags of the signed and absolute slope differences, without and with the six physical controls taken at $t-4$ to $t-6$.}
+\label{tab:s7}
+\scriptsize
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+& & \multicolumn{2}{c}{Own history} & \multicolumn{3}{c}{Own history + physical controls} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}
+Contrast & Edge type & Median $\Delta\beta$ & Median $|\Delta\beta|$ & Median $\Delta\beta$ & Median $|\Delta\beta|$ & Median SE \\
+\midrule
+High $-$ middle & $W\rightarrow H$ & +0.0038 & 0.0078 & +0.0041 & 0.0068 & 0.0080 \\
+High $-$ middle & $H\rightarrow C$ & -0.0001 & 0.0101 & -0.0008 & 0.0147 & 0.0134 \\
+High $-$ middle & $W\rightarrow C$ & +0.0067 & 0.0092 & +0.0054 & 0.0073 & 0.0121 \\
+\multicolumn{7}{@{}l}{\quad Sign changes after adding physical controls: 30 of 108 contrasts} \\
+\midrule
+Low $-$ middle & $W\rightarrow H$ & -0.0002 & 0.0089 & -0.0018 & 0.0097 & 0.0070 \\
+Low $-$ middle & $H\rightarrow C$ & -0.0006 & 0.0061 & +0.0081 & 0.0141 & 0.0135 \\
+Low $-$ middle & $W\rightarrow C$ & -0.0006 & 0.0144 & -0.0002 & 0.0078 & 0.0107 \\
+\multicolumn{7}{@{}l}{\quad Sign changes after adding physical controls: 24 of 108 contrasts} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Calendar-preserving block bootstrap for twelve fixed edge--regime models (200 replicates per block length). Lagged design rows are formed on the original calendar before blocks are resampled, so no lag spans a block boundary. Intervals are percentile 95\% intervals; the last column is the share of positive replicates at block length 128.}
+\label{tab:s8}
+\scriptsize
+\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lllrrlllr@{}}
+\toprule
+Regime & Regions & Edge & Lag & Median $\beta$ & Block 64 & Block 128 & Block 256 & Positive \\
+\midrule
+all & 0$\rightarrow$0 & $W\rightarrow H$ & 1 & +0.0048 & [+0.0032, +0.0066] & [+0.0031, +0.0063] & [+0.0031, +0.0063] & 1.000 \\
+all & 0$\rightarrow$0 & $H\rightarrow C$ & 1 & +0.0256 & [+0.0220, +0.0290] & [+0.0219, +0.0283] & [+0.0221, +0.0294] & 1.000 \\
+all & 22$\rightarrow$22 & $W\rightarrow H$ & 1 & +0.0001 & [-0.0012, +0.0015] & [-0.0009, +0.0016] & [-0.0014, +0.0017] & 0.595 \\
+all & 22$\rightarrow$22 & $H\rightarrow C$ & 1 & +0.0347 & [+0.0312, +0.0383] & [+0.0309, +0.0389] & [+0.0300, +0.0401] & 1.000 \\
+all & 44$\rightarrow$44 & $W\rightarrow H$ & 1 & -0.0069 & [-0.0088, -0.0053] & [-0.0084, -0.0050] & [-0.0088, -0.0052] & 0.000 \\
+all & 44$\rightarrow$44 & $H\rightarrow C$ & 1 & -0.0172 & [-0.0206, -0.0135] & [-0.0203, -0.0136] & [-0.0208, -0.0125] & 0.000 \\
+high humidity & 0$\rightarrow$0 & $W\rightarrow H$ & 1 & +0.0008 & [-0.0027, +0.0042] & [-0.0025, +0.0042] & [-0.0025, +0.0044] & 0.685 \\
+high humidity & 0$\rightarrow$0 & $H\rightarrow C$ & 1 & +0.0260 & [+0.0190, +0.0315] & [+0.0198, +0.0341] & [+0.0193, +0.0340] & 1.000 \\
+high humidity & 22$\rightarrow$22 & $W\rightarrow H$ & 1 & +0.0023 & [-0.0003, +0.0053] & [-0.0003, +0.0054] & [-0.0005, +0.0054] & 0.960 \\
+high humidity & 22$\rightarrow$22 & $H\rightarrow C$ & 1 & +0.0231 & [+0.0153, +0.0317] & [+0.0138, +0.0317] & [+0.0132, +0.0333] & 1.000 \\
+high humidity & 44$\rightarrow$44 & $W\rightarrow H$ & 1 & -0.0056 & [-0.0102, -0.0014] & [-0.0098, -0.0013] & [-0.0105, -0.0012] & 0.000 \\
+high humidity & 44$\rightarrow$44 & $H\rightarrow C$ & 1 & -0.0138 & [-0.0205, -0.0060] & [-0.0207, -0.0067] & [-0.0213, -0.0066] & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The original stability analysis drew 20 block-bootstrap replicates from the list of valid times of each regime. For non-contiguous regimes this concatenated separated dates and rebuilt lags across the joins; its stability counts are therefore not reproduced here and are superseded by the calendar-preserving resampling in Table~S8 and, inferentially, by the held-out replication of the main text.
+
+\section*{S4. Earlier screening controls}
+
+\begin{table}[htbp]
+\centering
+\caption{Graph null models, enrichment and directional falsification for the full-record screen.}
+\label{tab:s9}
+\scriptsize
+\par\smallskip\noindent\textit{A. Random candidate controls (single draws)}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Edge set & Tested edges & Significant edges & Significant ratio & Mean absolute coefficient & Mean effect score \\
+\midrule
+physical\_candidates & 18,018 & 14,274 & 0.792 & 0.0228 & 0.2446 \\
+random\_edges & 18,018 & 9,235 & 0.513 & 0.0186 & 0.1814 \\
+distance\_matched\_random & 18,018 & 13,392 & 0.743 & 0.0208 & 0.2200 \\
+variable\_preserved\_random & 18,018 & 8,244 & 0.458 & 0.0189 & 0.1813 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{B. Enrichment under variable-preserved randomization}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Edge type & True significant ratio & Random-region significant ratio & Enrichment \\
+\midrule
+Wind $\rightarrow$ Humidity & 0.784 & 0.444 & 1.77 \\
+Humidity $\rightarrow$ Cloud Cover & 0.741 & 0.440 & 1.68 \\
+Wind $\rightarrow$ Cloud Cover & 0.784 & 0.406 & 1.93 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{C. Directionality and pseudo-time controls}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Test & Edge type & Tested edges & Significant edges & Significant ratio & Mean effect score \\
+\midrule
+forward & Wind $\rightarrow$ Humidity & 4,158 & 3,247 & 0.781 & 0.207 \\
+reverse & Humidity $\rightarrow$ Wind & 4,158 & 2,655 & 0.639 & 0.123 \\
+time\_shuffled & Wind $\rightarrow$ Humidity & 4,158 & 0 & 0.000 & 0.000 \\
+circular\_shift & Wind $\rightarrow$ Humidity & 4,158 & 1,498 & 0.360 & 0.115 \\
+forward & Humidity $\rightarrow$ Cloud Cover & 4,158 & 3,076 & 0.740 & 0.284 \\
+reverse & Cloud $\rightarrow$ Humidity & 4,158 & 3,332 & 0.801 & 0.189 \\
+time\_shuffled & Humidity $\rightarrow$ Cloud Cover & 4,158 & 1 & 0.000 & 0.063 \\
+circular\_shift & Humidity $\rightarrow$ Cloud Cover & 4,158 & 1,585 & 0.381 & 0.120 \\
+forward & Wind $\rightarrow$ Cloud Cover & 4,158 & 3,258 & 0.784 & 0.242 \\
+time\_shuffled & Wind $\rightarrow$ Cloud Cover & 4,158 & 0 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Latitude bands, long lags, humidity adjustment, effect sizes and PCMCI agreement for the full-record screen.}
+\label{tab:s10}
+\scriptsize
+\par\smallskip\noindent\textit{A. Latitude-band chain statistics}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Latitude band & WHC chains & Stable WHC chains & Mean total lag & Mean chain score \\
+\midrule
+tropical & 6,017 & 1,201 & 3.985 & 0.451 \\
+midlatitude & 9,612 & 3,628 & 3.983 & 0.642 \\
+polar & 6,573 & 888 & 3.941 & 0.375 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{B. Long-lag screen with maximum lag 12 (all-time regime, own-history OLS, BH within target-variable families; recomputed with the revision code on the re-acquired record)}\par\smallskip
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Edge type & Significant & Peak lag & Mean lag & Median lag & Lag 1 & Lags 2--3 & Lags 4--8 & Lags 9--12 \\
+\midrule
+Wind $\rightarrow$ Humidity & 1,683 & 4 & 6.11 & 6.0 & 0.092 & 0.190 & 0.434 & 0.284 \\
+Humidity $\rightarrow$ Cloud Cover & 1,744 & 4 & 6.20 & 6.0 & 0.092 & 0.179 & 0.432 & 0.296 \\
+Wind $\rightarrow$ Cloud Cover & 1,829 & 2 & 6.33 & 6.0 & 0.089 & 0.182 & 0.415 & 0.315 \\
+Humidity $\rightarrow$ Humidity & 1,317 & 3 & 6.33 & 6.0 & 0.087 & 0.179 & 0.424 & 0.310 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\noindent\textit{C. Coefficient change of wind$\rightarrow$cloud after adding target-region humidity}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+Regime & WC edges & Mean direct beta & Mean beta after controlling Humidity & Mean reduction & Reduction > 30\% & Reduction > 50\% \\
+\midrule
+all & 520 & -0.00156 & -0.00143 & 0.0369 & 0.206 & 0.117 \\
+DJF & 436 & -0.00293 & -0.00191 & 0.0729 & 0.211 & 0.108 \\
+JJA & 482 & -0.00150 & -0.00218 & 0.0330 & 0.199 & 0.100 \\
+high\_humidity & 429 & -0.00157 & -0.00140 & 0.1045 & 0.182 & 0.091 \\
+normal\_humidity & 492 & -0.00163 & -0.00126 & 0.0873 & 0.215 & 0.118 \\
+high\_cloud & 391 & -0.00098 & -0.00069 & 0.1090 & 0.192 & 0.079 \\
+normal\_cloud & 510 & -0.00155 & -0.00137 & 0.0358 & 0.198 & 0.102 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{D. Target-region multivariable adjustment and effect sizes}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+Edge type & Principal significant & Adjusted significant & Original retained & Recovery & Median $|\beta|$ & Median partial $R^2$ & Top-edge block CI exclusion \\
+\midrule
+Wind $\rightarrow$ Humidity & 503 & 490 & 439 & 0.873 & 0.0138 & 0.00117 & 10/10 \\
+Humidity $\rightarrow$ Cloud Cover & 488 & 483 & 407 & 0.834 & 0.0207 & 0.00090 & 10/10 \\
+Wind $\rightarrow$ Cloud Cover & 520 & 487 & 428 & 0.823 & 0.0176 & 0.00084 & 10/10 \\
+\bottomrule
+\end{tabular}%
+}
+\par\smallskip\noindent\textit{E. PCMCI agreement for 60 selected strong edges, 2019--2025}\par\smallskip
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Edge type & Granger top edges & PCMCI confirmed & Confirmed ratio & Mean absolute partial correlation & Status \\
+\midrule
+Wind $\rightarrow$ Humidity & 20 & 18 & 0.900 & 0.0867 & confirmed \\
+Humidity $\rightarrow$ Cloud Cover & 20 & 16 & 0.800 & 0.0426 & confirmed \\
+Wind $\rightarrow$ Cloud Cover & 20 & 16 & 0.800 & 0.0815 & confirmed \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section*{S5. Additional results for the revised analyses}
+
+\begin{table}[htbp]
+\centering
+\caption{Three-stage results with month $\times$ UTC-hour anomalies (diurnal cycle removed), with the monthly-climatology results for comparison.}
+\label{tab:s11}
+\scriptsize
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& \multicolumn{5}{c}{Month $\times$ UTC-hour climatology} & \multicolumn{2}{c}{Monthly climatology} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-8}
+Edge type & Screened & Confirmed & Replicated & Rate & Control rate & Replicated & Rate \\
+\midrule
+$W\rightarrow H$ & 455 & 291 & 117 & 0.402 & 0.083 & 117 & 0.360 \\
+$H\rightarrow C$ & 460 & 291 & 122 & 0.419 & 0.122 & 133 & 0.425 \\
+$W\rightarrow C$ & 469 & 288 & 96 & 0.333 & 0.052 & 113 & 0.363 \\
+$H\rightarrow H$ & 338 & 270 & 147 & 0.544 & 0.167 & 153 & 0.560 \\
+$T\rightarrow H$ & 178 & 164 & 133 & 0.811 & 0.206 & 137 & 0.801 \\
+$T\rightarrow C$ & 164 & 153 & 106 & 0.693 & 0.244 & 107 & 0.682 \\
+\midrule
+\textit{All} & 2,064 & 1,457 & 721 & 0.495 & 0.105 & 760 & 0.490 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Time-aligned path models $W_i(t-\ell_1-\ell_2)\rightarrow H_h(t-\ell_2)\rightarrow C_j(t)$ for 60 discovery-selected paths (20 per stratum), evaluated on 2019--2025 with frozen coefficients. Entries are the number of paths with positive held-out gain and, in parentheses, the median held-out $\Delta R^2$ ($\times10^{-4}$).}
+\label{tab:s12}
+\scriptsize
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+& \multicolumn{3}{c}{Baseline histories} & \multicolumn{3}{c}{+ six physical controls before the path source} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Stage & Strong & Ordinary & Unselected & Strong & Ordinary & Unselected \\
+\midrule
+$W_i\rightarrow H_h$ & 20 (5.18) & 18 (1.20) & 14 (0.13) & 19 (1.00) & 16 (0.26) & 15 (0.06) \\
+$H_h\rightarrow C_j\mid W_i$ & 19 (16.40) & 14 (0.98) & 15 (0.48) & 17 (5.32) & 13 (0.42) & 17 (2.30) \\
+$W_i\rightarrow C_j\mid H_h$ & 14 (1.67) & 16 (1.45) & 17 (0.37) & 14 (0.61) & 17 (0.59) & 14 (0.27) \\
+$W_i\rightarrow C_j$ total & 16 (1.47) & 17 (1.43) & 17 (0.49) & 16 (0.79) & 16 (0.54) & 15 (0.32) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Known-structure benchmark details (six variables, 4,096 steps, 50 replicates per scenario; 90 scored edge--lag hypotheses). FDP is the mean false-discovery proportion against the generating direct graph.}
+\label{tab:s13}
+\scriptsize
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Scenario & Method & Precision & Recall & F1 & SHD & FDP \\
+\midrule
+Weak AR & Own-history OLS & 0.493 & 1.000 & 0.654 & 6.68 & 0.507 \\
+ & Own-history HAC & 0.475 & 1.000 & 0.639 & 7.10 & 0.525 \\
+ & All-history OLS & 0.975 & 1.000 & 0.986 & 0.18 & 0.025 \\
+ & All-history HAC & 0.956 & 1.000 & 0.976 & 0.32 & 0.044 \\
+ & PCMCI & 0.959 & 1.000 & 0.978 & 0.30 & 0.041 \\
+\addlinespace
+Strong AR & Own-history OLS & 0.086 & 1.000 & 0.158 & 64.58 & 0.914 \\
+ & Own-history HAC & 0.085 & 1.000 & 0.157 & 65.02 & 0.915 \\
+ & All-history OLS & 0.945 & 1.000 & 0.970 & 0.40 & 0.055 \\
+ & All-history HAC & 0.940 & 1.000 & 0.966 & 0.46 & 0.060 \\
+ & PCMCI & 0.950 & 1.000 & 0.973 & 0.36 & 0.050 \\
+\addlinespace
+Observed driver & Own-history OLS & 0.077 & 0.990 & 0.143 & 71.80 & 0.923 \\
+ & Own-history HAC & 0.077 & 0.990 & 0.142 & 72.06 & 0.923 \\
+ & All-history OLS & 0.954 & 1.000 & 0.974 & 0.38 & 0.046 \\
+ & All-history HAC & 0.938 & 1.000 & 0.965 & 0.50 & 0.062 \\
+ & PCMCI & 0.924 & 1.000 & 0.956 & 0.64 & 0.076 \\
+\addlinespace
+Hidden driver & Own-history OLS & 0.077 & 0.990 & 0.143 & 71.80 & 0.923 \\
+ & Own-history HAC & 0.077 & 0.990 & 0.142 & 72.06 & 0.923 \\
+ & All-history OLS & 0.149 & 1.000 & 0.259 & 34.66 & 0.851 \\
+ & All-history HAC & 0.148 & 1.000 & 0.258 & 34.98 & 0.852 \\
+ & PCMCI & 0.145 & 1.000 & 0.252 & 35.90 & 0.855 \\
+\addlinespace
+Regime switching & Own-history OLS & 0.699 & 1.000 & 0.816 & 2.92 & 0.301 \\
+ & Own-history HAC & 0.680 & 1.000 & 0.801 & 3.24 & 0.320 \\
+ & All-history OLS & 0.955 & 1.000 & 0.976 & 0.32 & 0.045 \\
+ & All-history HAC & 0.921 & 1.000 & 0.957 & 0.58 & 0.079 \\
+ & PCMCI & 0.957 & 1.000 & 0.976 & 0.32 & 0.043 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Degree- and distance-preserving topology randomization. On the original symmetric support, fixing every node's type-specific in- and out-degree and the distance histogram admits only three (full record) or two (late versus early) feasible graphs, and the number of two-step chains equals $\sum_h d^{\mathrm{in}}_{WH}(h)\,d^{\mathrm{out}}_{HC}(h)$ for every feasible graph (651 and 627), so it cannot measure enrichment. Markov chains on an expanded support change few edges and did not mix adequately.}
+\label{tab:s14}
+\scriptsize
+\begin{tabular}{@{}p{0.29\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}@{}}
+\toprule
+Case & Feasible graphs, original support & Distinct sampled graphs, expanded support & Mean edges changed (\%) & Productive acceptance (\%) \\
+\midrule
+Full record, symmetric support & 3 & 778 & 4.30 & 0.016 \\
+2002--2025 versus 1979--2001 overlap & 2 & 781 & 4.13 & 0.017 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Agreement between ERA5 and CERES SYN1deg Edition~4.2 cloud anomalies (monthly climatology; regional column under month $\times$ UTC-hour climatology also shown). Correlations are medians over grid cells or over the 66 regions; the bias is the area-weighted mean of CERES minus ERA5 total cloud cover in percentage points.}
+\label{tab:s15}
+\scriptsize
+\begin{tabular}{@{}p{0.27\textwidth}rrrrrlrr@{}}
+\toprule
+& & \multicolumn{4}{c}{Grid-cell correlation} & \multicolumn{2}{c}{Regional correlation} & \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-8}
+Window & Times & All & Tropics & Midlat. & Polar & Monthly [range] & Diurnal & Bias \\
+\midrule
+2017--2025 & 13,147 & 0.759 & 0.798 & 0.814 & 0.567 & 0.763 [0.39, 0.91] & 0.768 & +3.83 \\
+2017-01-01 to 2023-01-10 (WB2 route) & 8,803 & 0.758 & 0.797 & 0.808 & 0.564 & 0.763 [0.37, 0.91] & 0.774 & +4.01 \\
+2023-01-11 to 2025-12-31 (CDS route) & 4,344 & 0.764 & 0.799 & 0.827 & 0.580 & 0.778 [0.38, 0.91] & 0.783 & +3.47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{S6. Wind--humidity eddy convergence}
+
+\begin{table}[htbp]
+\centering
+\caption{Pre-specified wind--humidity eddy convergence (WHEC) test: region-normalized frozen 1979--2018 block gains, that is, the percentage reduction of the held-out mean squared error when lags 1--3 of the test series are added to the dense VAR(3) with local $u$, $v$ and linear convergence, averaged over the 22 regions of each latitude band, with HAC (bandwidth 64) $z$-statistics. Endpoint E1 is the midlatitude cloud row and E2 the midlatitude-minus-tropical cloud row of the local family; the remote and placebo families are the controls.}
+\label{tab:s16}
+\scriptsize
+\begin{tabular}{@{}lllrrrr@{}}
+\toprule
+& & & \multicolumn{2}{c}{2019-01-01 to 2023-01-10} & \multicolumn{2}{c}{2023-01-11 to 2025-12-31} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Family & Target & Band statistic & Gain (\%) & $z$ & Gain (\%) & $z$ \\
+\midrule
+Local & Cloud & Tropical & 0.149 & 6.1 & 0.144 & 5.7 \\
+ &  & Midlatitude & 0.456 & 10.6 & 0.359 & 6.8 \\
+ &  & Polar & 0.501 & 10.8 & 0.623 & 12.0 \\
+ &  & Mid.\ $-$ trop. & 0.307 & 6.6 & 0.215 & 3.8 \\
+ &  & Mid.\ $-$ polar & $-$0.046 & $-$0.8 & $-$0.264 & $-$3.3 \\
+ &  & Polar $-$ trop. & 0.352 & 6.6 & 0.479 & 8.2 \\
+\addlinespace[2pt]
+Local & Humidity & Tropical & 1.502 & 18.1 & 1.226 & 16.4 \\
+ &  & Midlatitude & 5.070 & 32.9 & 4.661 & 23.5 \\
+ &  & Polar & 7.332 & 11.9 & 7.484 & 11.5 \\
+ &  & Mid.\ $-$ trop. & 3.568 & 22.4 & 3.435 & 15.8 \\
+ &  & Mid.\ $-$ polar & $-$2.262 & $-$3.4 & $-$2.822 & $-$4.1 \\
+ &  & Polar $-$ trop. & 5.830 & 9.2 & 6.258 & 9.3 \\
+\addlinespace[2pt]
+Remote & Cloud & Tropical & $-$0.005 & $-$0.7 & $-$0.002 & $-$0.3 \\
+ &  & Midlatitude & $-$0.001 & $-$0.2 & $-$0.011 & $-$1.8 \\
+ &  & Polar & 0.002 & 0.4 & $-$0.005 & $-$0.8 \\
+ &  & Mid.\ $-$ trop. & 0.003 & 0.4 & $-$0.009 & $-$0.9 \\
+ &  & Mid.\ $-$ polar & $-$0.003 & $-$0.4 & $-$0.007 & $-$0.8 \\
+ &  & Polar $-$ trop. & 0.007 & 0.8 & $-$0.002 & $-$0.2 \\
+\addlinespace[2pt]
+Remote & Humidity & Tropical & 0.006 & 1.0 & 0.013 & 1.8 \\
+ &  & Midlatitude & $-$0.008 & $-$1.2 & $-$0.002 & $-$0.3 \\
+ &  & Polar & $-$0.005 & $-$0.7 & 0.003 & 0.4 \\
+ &  & Mid.\ $-$ trop. & $-$0.013 & $-$1.6 & $-$0.015 & $-$1.5 \\
+ &  & Mid.\ $-$ polar & $-$0.003 & $-$0.3 & $-$0.005 & $-$0.5 \\
+ &  & Polar $-$ trop. & $-$0.011 & $-$1.2 & $-$0.011 & $-$1.0 \\
+\addlinespace[2pt]
+Placebo & Cloud & Tropical & $-$0.001 & $-$0.2 & 0.000 & 0.0 \\
+ &  & Midlatitude & $-$0.002 & $-$0.4 & $-$0.016 & $-$2.2 \\
+ &  & Polar & $-$0.007 & $-$1.5 & $-$0.016 & $-$2.5 \\
+ &  & Mid.\ $-$ trop. & $-$0.001 & $-$0.1 & $-$0.016 & $-$1.3 \\
+ &  & Mid.\ $-$ polar & 0.005 & 0.6 & 0.000 & 0.0 \\
+ &  & Polar $-$ trop. & $-$0.006 & $-$0.7 & $-$0.016 & $-$1.3 \\
+\addlinespace[2pt]
+Placebo & Humidity & Tropical & 0.011 & 1.2 & 0.023 & 2.3 \\
+ &  & Midlatitude & $-$0.004 & $-$0.7 & $-$0.005 & $-$0.8 \\
+ &  & Polar & $-$0.001 & $-$0.1 & 0.001 & 0.2 \\
+ &  & Mid.\ $-$ trop. & $-$0.015 & $-$1.3 & $-$0.028 & $-$2.4 \\
+ &  & Mid.\ $-$ polar & $-$0.003 & $-$0.3 & $-$0.006 & $-$0.7 \\
+ &  & Polar $-$ trop. & $-$0.012 & $-$1.1 & $-$0.022 & $-$1.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Local WHEC by latitude band (66 lag-specific hypotheses per band and target). Confirmed: hypotheses passing Stages~1 and~2 (positive coefficients in parentheses); Rep./pred.: confirmed hypotheses that replicate with the same sign and that give a significant frozen predictive gain; Positive gain: regions of 22 with a positive frozen block gain (median gain in \%); Wald: regions whose block Wald test in the held-out refit has BH $q<0.05$ over 66 regions; CERES: hypotheses with the discovery sign and $q<0.05$ in refits with CERES cloud as predictor and outcome.}
+\label{tab:s17}
+\scriptsize
+\begin{adjustbox}{max width=\textwidth}\begin{tabular}{@{}llrrrrrrrrrr@{}}
+\toprule
+& & & & \multicolumn{2}{c}{Rep./pred.} & \multicolumn{2}{c}{Positive gain} & \multicolumn{2}{c}{Wald} & \multicolumn{2}{c}{CERES} \\
+\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}
+Target & Band & Screened & Confirmed & 2019--23 & 2023--25 & 2019--23 & 2023--25 & 2019--23 & 2023--25 & 2017--23 & 2023--25 \\
+\midrule
+Cloud & Tropical & 44 & 30 (18) & 15 / 7 & 11 / 2 & 19 (0.108) & 17 (0.077) & 10 & 6 & 18 & 19 \\
+ & Midlatitude & 59 & 50 (31) & 28 / 9 & 20 / 10 & 22 (0.414) & 20 (0.331) & 18 & 15 & 24 & 6 \\
+ & Polar & 65 & 59 (38) & 43 / 23 & 35 / 21 & 22 (0.424) & 21 (0.590) & 21 & 18 & 22 & 16 \\
+\addlinespace[2pt]
+Humidity & Tropical & 65 & 56 (32) & 36 / 18 & 34 / 17 & 22 (1.266) & 21 (1.312) & 22 & 22 & -- & -- \\
+ & Midlatitude & 63 & 61 (37) & 51 / 42 & 53 / 40 & 22 (5.411) & 22 (4.129) & 22 & 22 & -- & -- \\
+ & Polar & 61 & 61 (40) & 52 / 43 & 54 / 45 & 22 (7.106) & 22 (7.407) & 22 & 22 & -- & -- \\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{table}
+
+
+\section*{S7. Supplementary Data}
+The machine-readable results are provided as comma-separated files.
+\begin{itemize}
+\item \texttt{S1\_three\_stage\_all\_candidates.csv}: all 2,574 edge--lag hypotheses with source and target regions and variables, lag, edge type, great-circle distance, Stage~1 and Stage~2 coefficients, $p$- and $q$-values and partial $R^2$, held-out coefficients, directional replication $q$-values, frozen predictive gains with HAC standard errors for each held-out segment, and the stage indicators.
+\item \texttt{S2\_symmetric\_full\_var\_<period>.csv}: dense VAR(3) tests of the 3,816 symmetric edge--lag hypotheses in each period, with coefficients, HAC standard errors, $p$- and $q$-values and partial $R^2$.
+\item \texttt{S3\_regime\_screening\_ols\_hac.csv}: the 18,018 full-record edge--lag--regime screening tests with OLS and HAC (bandwidths 32, 64, 128) inference, within-family and global BH $q$-values, effect sizes and residual autocorrelations.
+\item \texttt{S4\_ceres\_substitution\_tests.csv}: own-history and dense VAR(3) tests of the 2,544 symmetric cloud hypotheses with ERA5 and with CERES cloud, by segment.
+\item \texttt{S5a\_wb2\_cds\_route\_variables.csv} and \texttt{S5b\_wb2\_cds\_route\_regions.csv}: variable-level and region-level differences between the WeatherBench~2 product and fields requested on the coarse CDS grid on 152 identical timestamps; \texttt{S5c\_wb2\_native\_conservative\_route.csv}: the same comparison for native fields regridded conservatively, the route used for 2023--2025 in this revision.
+\item \texttt{S6a\_whec\_design.json}: the design of the wind--humidity eddy convergence test, frozen before any of its results were computed (SHA-256 \texttt{0507157c5a8ec0b2\ldots}).
+\item \texttt{S6b\_whec\_tests\_per\_lag.csv}: the 1,188 lag-specific WHEC, remote and placebo hypotheses with Stage~1--3 statistics; \texttt{S6c\_whec\_block\_tests.csv}: block Wald tests and frozen block gains by family, target, region and period; \texttt{S6d\_whec\_band\_endpoints.csv}: band means and differences of the normalized gains with HAC standard errors; \texttt{S6e\_whec\_ceres\_check.csv}: refits with ERA5 and with CERES cloud on 2017--2023 and 2023--2025.
+\end{itemize}
+Region identifiers refer to the 66 regions of the $6\times11$ latitude--longitude partition, numbered by latitude band from south to north and by longitude bin from $-180^\circ$ eastward; their centroids are listed in \texttt{S0\_regions.csv}.
+
+\end{document}

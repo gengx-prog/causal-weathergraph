@@ -1,6 +1,30 @@
 # Causal WeatherGraph
 
-**Regime-Aware Spatio-Temporal Causal Discovery for Global Atmospheric Dynamics**
+**Causal WeatherGraph: screen–confirm–replicate discovery of lagged wind–humidity–cloud dependencies in global atmospheric reanalysis**
+
+**Author: Xinchen Geng**
+
+University of Southern California · gengx@usc.edu
+
+## Revised manuscript and supporting files
+
+The October 2, 2026 revision package (finalized October 3) is available below. The PDFs were rebuilt on October 8 with Xinchen Geng as the sole author in both the visible byline and PDF metadata; the scientific content is unchanged.
+
+| File | Download |
+| --- | --- |
+| Clean manuscript | [PDF](manuscript/submission_20261002/1_Manuscript_clean.pdf) |
+| Manuscript with changes marked | [PDF](manuscript/submission_20261002/2_Manuscript_marked_changes.pdf) |
+| Supplementary material | [PDF](manuscript/submission_20261002/3_Supplementary_Material.pdf) |
+| Supplementary data and frozen WHEC design | [ZIP](manuscript/submission_20261002/4_Supplementary_Data.zip) |
+| Revision notes | [Chinese revision notes](manuscript/submission_20261002/5_修改说明_逐条对应.md) |
+| LaTeX source for all three documents | [ZIP](manuscript/submission_20261002/6_LaTeX_source.zip) |
+| Highlights | [Text](manuscript/submission_20261002/7_Highlights.txt) |
+
+Editable manuscript sources and figure assets are in [`manuscript/revision_v2_20261002/`](manuscript/revision_v2_20261002/). The revision analyses, including the screen–confirm–replicate framework, CERES cloud substitution and wind–humidity eddy convergence (WHEC) index and tests, are in [`revision/`](revision/README.md). Supplementary data contain the reported edge-level results; raw ERA5 and CERES fields must be obtained from their source archives.
+
+The following sections describe the original exploratory pipeline. For the analyses supporting the revised manuscript, start with the [revision guide](revision/README.md).
+
+## Original exploratory pipeline
 
 Causal WeatherGraph is a lightweight Python research codebase for discovering regime-dependent lagged directed dependencies in global atmospheric fields. The central scientific question is whether observational reanalysis time series contain robust evidence for a moisture transport pathway:
 
