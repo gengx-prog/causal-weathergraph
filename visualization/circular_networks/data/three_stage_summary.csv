@@ -1,0 +1,8 @@
+edge_type,tested,stage1_screened,stage2_confirmed,stage2_alone,s1_s2_same_sign,median_abs_s2_effect_confirmed,median_s2_partial_r2_confirmed,eval_wb2_same_sign,eval_wb2_replicated,eval_wb2_positive_gain,eval_wb2_predictive,eval_wb2_replicated_and_predictive,eval_wb2_negctrl_n,eval_wb2_negctrl_replicated,eval_cds_same_sign,eval_cds_replicated,eval_cds_positive_gain,eval_cds_predictive,eval_cds_replicated_and_predictive,eval_cds_negctrl_n,eval_cds_negctrl_replicated,eval_all_same_sign,eval_all_replicated,eval_all_positive_gain,eval_all_predictive,eval_all_replicated_and_predictive,eval_all_negctrl_n,eval_all_negctrl_replicated
+ALL,2574,2187,1550,1796,901,0.04474428409837378,0.0007839685374722359,1363,760,1165,459,416,1024,95,1339,667,1160,427,357,1024,80,1419,970,1220,649,609,1024,169
+humidity_to_cloud_cover,594,480,313,386,180,0.06037830839543067,0.0005535836441412236,285,133,230,74,64,281,28,278,124,238,72,53,281,19,292,183,249,116,106,281,48
+humidity_to_humidity,396,342,273,311,160,0.061775254674586715,0.0015265144608930484,243,153,223,83,74,123,17,242,142,224,88,71,123,16,256,194,235,131,123,123,29
+temperature_to_cloud_cover,198,166,157,186,81,0.10342056587649143,0.0015600648109598337,139,107,122,59,58,41,16,141,87,119,45,45,41,13,146,121,126,78,78,41,21
+temperature_to_humidity,198,185,171,183,93,0.11896758394926833,0.004607868456939858,164,137,148,104,103,27,8,158,121,142,106,101,27,7,163,146,149,122,119,27,12
+wind_to_cloud_cover,594,512,311,358,192,0.031894358179442146,0.0004389366708260746,270,113,223,65,52,283,12,260,92,211,50,37,283,9,280,156,224,93,78,283,28
+wind_to_humidity,594,502,325,372,195,0.019872573347460055,0.0004763649700308844,262,117,219,74,65,269,14,260,101,226,66,50,269,16,282,170,237,109,105,269,31

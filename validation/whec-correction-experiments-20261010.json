@@ -1,0 +1,94 @@
+{
+  "scope": "Real-input corrected test rerun; index construction is not rerun.",
+  "rtol": 1e-07,
+  "atol": 1e-10,
+  "reference_tables": {
+    "whec/whec_tests_per_lag.csv": {
+      "rows": 1188,
+      "columns": 64,
+      "max_absolute_numeric_difference": 9.419798274734603e-12,
+      "passed": true
+    },
+    "whec/whec_block_tests.csv": {
+      "rows": 2772,
+      "columns": 17,
+      "max_absolute_numeric_difference": 1.6825651982799172e-11,
+      "passed": true
+    },
+    "whec/whec_band_endpoints.csv": {
+      "rows": 108,
+      "columns": 9,
+      "max_absolute_numeric_difference": 8.720801858430605e-14,
+      "passed": true
+    },
+    "whec/whec_ceres_check.csv": {
+      "rows": 2376,
+      "columns": 13,
+      "max_absolute_numeric_difference": 1.5709655798445965e-14,
+      "passed": true
+    }
+  },
+  "reference_decisions_isolation_and_selected_checks_passed": true,
+  "independent_endpoint_recalculations": 108,
+  "full_reference_tables": {
+    "whec_band_endpoints.csv": {
+      "rows": 108,
+      "columns": 9,
+      "max_absolute_numeric_difference": 1.0030865027488289e-13,
+      "passed": true
+    },
+    "whec_block_tests.csv": {
+      "rows": 2772,
+      "columns": 17,
+      "max_absolute_numeric_difference": 1.546140993013978e-11,
+      "passed": true
+    },
+    "whec_ceres_check.csv": {
+      "rows": 2376,
+      "columns": 13,
+      "max_absolute_numeric_difference": 1.5987211554602254e-14,
+      "passed": true
+    },
+    "whec_ceres_summary.csv": {
+      "rows": 48,
+      "columns": 8,
+      "max_absolute_numeric_difference": 6.106226635438361e-15,
+      "passed": true
+    },
+    "whec_summary.csv": {
+      "rows": 24,
+      "columns": 23,
+      "max_absolute_numeric_difference": 0.0,
+      "passed": true
+    },
+    "whec_tests_per_lag.csv": {
+      "rows": 1188,
+      "columns": 64,
+      "max_absolute_numeric_difference": 2.110911445640795e-11,
+      "passed": true
+    }
+  },
+  "full_endpoint_series_equal": true,
+  "run": {
+    "code_sha256": "58e24b726875230a5825c2a9ff942872229ee59700b25abc1b62a0614024e6b9",
+    "inputs": {
+      "inputs/region_trainfit.npz": "d7acba521f315f0ab973e8fcfa71bf8f67a10130b30eb6871666b33704f3b841",
+      "inputs/region_trainfit_vectors.npz": "401b73719152965088d56b4e04c216c6df86e663372e8d8ecdb460466dc4aca3",
+      "inputs/trainfit_parameters.npz": "38c0207806590fb349c8d95f8ca9e6e540a95e7f67308e5fb0d573e18f66ab41",
+      "ceres_cloud_substitution/ceres_cloud_6h_64x32.npz": "153d8e15a3cb533b3b4f82432d7b6f78f7eb399b12bcc5c1497f8019c3049798"
+    },
+    "corrected_whec_index_sha256": "410024b59dd38f5cf0414e8a0496844e4b52d16c581c6dd7fa944f5cc0de24bb",
+    "correction_amendment_sha256": "cb4c0c0ae192ef4861ecd5b0186cb6c283c0d60f6f32fe9fe1c07da908efcd8f",
+    "periods": {
+      "discovery": 58437,
+      "eval_wb2": 5884,
+      "eval_cds": 4344,
+      "eval_all": 10228
+    },
+    "fwl_vs_direct_max_abs_difference": 2.361826012542423e-15,
+    "elapsed_seconds": 45.186667099998886,
+    "placebo_discovery_heldout_source_count": 0
+  },
+  "reference_archive_sha256": "0f27be6ebeabb1650cb937fa54b871b4f0610a2423e7692d539df890796e75ea",
+  "all_pass": true
+}

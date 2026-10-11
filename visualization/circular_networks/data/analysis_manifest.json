@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-03T04:50:54.912203+00:00",
+  "periods": {
+    "discovery": {
+      "n": 58437,
+      "first_response": "1979-01-01 18:00:00",
+      "last_response": "2018-12-31 18:00:00",
+      "condition_number": 218.19718764118096,
+      "dense_var_fit_and_test_seconds": 31.051427099999273
+    },
+    "eval_wb2": {
+      "n": 5884,
+      "first_response": "2019-01-01 00:00:00",
+      "last_response": "2023-01-10 18:00:00",
+      "condition_number": 308.1047278698167,
+      "dense_var_fit_and_test_seconds": 2.2751055999979144
+    },
+    "eval_cds": {
+      "n": 4344,
+      "first_response": "2023-01-11 00:00:00",
+      "last_response": "2025-12-31 18:00:00",
+      "condition_number": 421.4407060416163,
+      "dense_var_fit_and_test_seconds": 1.6114094000076875
+    },
+    "eval_all": {
+      "n": 10228,
+      "first_response": "2019-01-01 00:00:00",
+      "last_response": "2025-12-31 18:00:00",
+      "condition_number": 328.58161519039487,
+      "dense_var_fit_and_test_seconds": 3.4872313999949256
+    }
+  },
+  "input_sha256": "d7acba521f315f0ab973e8fcfa71bf8f67a10130b30eb6871666b33704f3b841",
+  "code_sha256": {
+    "revision/run_three_stage.py": "b16be09005d62e980ad2b8b7152383d6016e14417c881519b5064be957bde55e",
+    "revision/full_var_tests.py": "ac8071d9f7d13139fb513e6e47e877dac623ac53410e767ab2b34ccdea46d98d",
+    "revision/inference.py": "3b05592a6324188f4c73e838da70a52dab1728a345bcbd04ea35b763bd984855",
+    "revision/run_holdout.py": "357bde87b6fdfe169b66fa6516aed3aa993477b2d55f47e7d0d2db47c29ecdb6"
+  },
+  "python": "3.13.7",
+  "elapsed_seconds": 127.3991612999962,
+  "rules": {
+    "stage1": "own-history HAC64 BH(2574) q<0.05 on 1979-2018 (holdout_aligned)",
+    "stage2": "stage1 and dense VAR(3) HAC64 BH(2574) q<0.05 on 1979-2018",
+    "stage3_replicated": "stage2 and held-out dense VAR(3) refit: same sign, one-sided HAC64 p, BH within stage-2 family < 0.05",
+    "stage3_predictive": "stage2 and frozen 1979-2018 dense VAR(3) drop-one gain > 0 with one-sided HAC64 p, BH within stage-2 family < 0.05",
+    "negative_control": "same replication rule applied to hypotheses failing stage 2, BH within that family"
+  },
+  "interpretation": "Retrospective temporal holdout of previously examined years; conditional linear predictive dependence, not intervention effects."
+}

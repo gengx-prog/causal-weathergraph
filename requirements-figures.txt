@@ -1,0 +1,7 @@
+# Standalone figure-rendering profile observed with CPython 3.13.7.
+# Direct dependencies are pinned; transitive packages are resolved by pip.
+# This profile does not install statistical experiment runners.
+numpy==2.4.2
+pandas==3.0.0
+matplotlib==3.10.8
+PyMuPDF==1.28.2

@@ -1,0 +1,70 @@
+name: Experiment figure checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  experiment-figures:
+    name: Circular figures / ${{ matrix.os }} / Python 3.13.7
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    env:
+      PYTHONUTF8: "1"
+      PYTHONNOUSERSITE: "1"
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      NUMEXPR_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13.7"
+          cache: pip
+          cache-dependency-path: requirements-figures.txt
+      - name: Install standalone figure dependencies
+        run: python -m pip install -r requirements-figures.txt
+      - name: Check dependency consistency
+        run: python -m pip check
+      - name: Redraw isolated copies and check source values and vector exports
+        run: python scripts/verify_experiment_figures.py --output outputs/experiment-figure-checks
+      - name: Confirm tracked experiment figure sources were not changed
+        run: git diff --exit-code -- visualization
+      - name: Record the validation boundary
+        shell: python {0}
+        run: |
+          import os
+          from pathlib import Path
+
+          message = (
+              "These checks redraw circular networks and seasonal/state contrasts from "
+              "packaged tables and run numerical and vector-export assertions on isolated "
+              "copies. They do not refit statistical models or preprocessing. Export hashes "
+              "identify this runner's files; cross-platform PDF byte equality is not required."
+          )
+          print(message)
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as handle:
+              handle.write(message + "\n")
+      - name: Remove host metadata from exported records
+        if: always()
+        run: python scripts/sanitize_records.py --root outputs
+      - name: Upload figure checks, logs, environment and redraws
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: experiment-figures-${{ matrix.os }}-py3137
+          path: outputs/experiment-figure-checks/
+          if-no-files-found: warn
+          retention-days: 14

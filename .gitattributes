@@ -1,0 +1,17 @@
+# Stable experimental source and manifest bytes across operating systems.
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.npz binary
+*.npy binary
+*.gz binary
+*.py text eol=lf
+*.sh text eol=lf
+*.csv -text
+revision/whec_placebo_correction_20261009.json -text whitespace=cr-at-eol
+
+# Figure source values and provenance hashes preserve their original bytes.
+visualization/** -text -whitespace

@@ -1,0 +1,688 @@
+{
+  "checked_utc": "2026-10-11T02:46:17.280123+00:00",
+  "status": "passed",
+  "scope": "GitHub archive byte sizes and server SHA-256 digests compared with current experiment manifests; numerical checks are recorded separately.",
+  "assets_verified": 85,
+  "assets": [
+    {
+      "release_tag": "reproducibility-20261008.1",
+      "name": "core-inputs.zip",
+      "bytes": 144583135,
+      "sha256": "3615d62438aaa5a6a0d0b17f877609946e98c673daa657e7a6bb1e1e1a037a08",
+      "github_digest": "sha256:3615d62438aaa5a6a0d0b17f877609946e98c673daa657e7a6bb1e1e1a037a08",
+      "status": "verified"
+    },
+    {
+      "release_tag": "reproducibility-20261008.1",
+      "name": "extended-inputs.zip",
+      "bytes": 1578896832,
+      "sha256": "b0a416d0c2178f13459df77dd61ba9cfbef4816726f3a53fadb738b9258d393a",
+      "github_digest": "sha256:b0a416d0c2178f13459df77dd61ba9cfbef4816726f3a53fadb738b9258d393a",
+      "status": "verified"
+    },
+    {
+      "release_tag": "reproducibility-20261008.1",
+      "name": "experiment-evidence.zip",
+      "bytes": 73129251,
+      "sha256": "79c32574867a6674688b56ef8ac849ad8847147879b5be067390eeac9fff7134",
+      "github_digest": "sha256:79c32574867a6674688b56ef8ac849ad8847147879b5be067390eeac9fff7134",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-2019-extension-001.zip",
+      "bytes": 78560898,
+      "sha256": "e2fc184fcac55c3dd5c1aa19ce153862239f8186c02ccb046cc79e309a15e981",
+      "github_digest": "sha256:e2fc184fcac55c3dd5c1aa19ce153862239f8186c02ccb046cc79e309a15e981",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-201901-pilot-001.zip",
+      "bytes": 7295290,
+      "sha256": "3c6673b13b8c5d1f8fb5c3b516af108bcd42d6e146ac0d5bffd85dae79dd3bd7",
+      "github_digest": "sha256:3c6673b13b8c5d1f8fb5c3b516af108bcd42d6e146ac0d5bffd85dae79dd3bd7",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-001.zip",
+      "bytes": 1419931288,
+      "sha256": "2cddc5f6099a50f70f29daa68c5db7fba247453a8779d9398b31d7b60b2f8224",
+      "github_digest": "sha256:2cddc5f6099a50f70f29daa68c5db7fba247453a8779d9398b31d7b60b2f8224",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-002.zip",
+      "bytes": 946880070,
+      "sha256": "0eb791bf4e8797dea777896ec1119ef7145037861257a3bc7fa252f2b5583dfd",
+      "github_digest": "sha256:0eb791bf4e8797dea777896ec1119ef7145037861257a3bc7fa252f2b5583dfd",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-003.zip",
+      "bytes": 1125986120,
+      "sha256": "8c08651afd51c8d3654b436aa6d9dbffef1c5e0eca610d30493503de7d6d2708",
+      "github_digest": "sha256:8c08651afd51c8d3654b436aa6d9dbffef1c5e0eca610d30493503de7d6d2708",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-004.zip",
+      "bytes": 1144648808,
+      "sha256": "995934e6f0943af375ebb7fa8e050a00ffe40933150f2df122f0fee77f4be50f",
+      "github_digest": "sha256:995934e6f0943af375ebb7fa8e050a00ffe40933150f2df122f0fee77f4be50f",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-005.zip",
+      "bytes": 1125986120,
+      "sha256": "4a0f87f4cee7ef5f8f2fe51e03d927088aef66a336ab96e3fec242bf241eaa41",
+      "github_digest": "sha256:4a0f87f4cee7ef5f8f2fe51e03d927088aef66a336ab96e3fec242bf241eaa41",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-006.zip",
+      "bytes": 1144648808,
+      "sha256": "6594b6ee8cf1fbcca04e064ad26295a8cb9c973eb286a29aed4c545cec3f66db",
+      "github_digest": "sha256:6594b6ee8cf1fbcca04e064ad26295a8cb9c973eb286a29aed4c545cec3f66db",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-007.zip",
+      "bytes": 1125986120,
+      "sha256": "0123c76d0969266920561ccf4efd07066dd918a8437bf5b6f873cf6a3cfed78b",
+      "github_digest": "sha256:0123c76d0969266920561ccf4efd07066dd918a8437bf5b6f873cf6a3cfed78b",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-008.zip",
+      "bytes": 1144648808,
+      "sha256": "4797673902d0b33b853ea11361a285f8e2d40ebe1fcf3a1dd0c76afdaee9a723",
+      "github_digest": "sha256:4797673902d0b33b853ea11361a285f8e2d40ebe1fcf3a1dd0c76afdaee9a723",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-009.zip",
+      "bytes": 1132207016,
+      "sha256": "0d00226a11f228186c25858432e0018fa5ac47ce6c2f4487f438211c02081ae8",
+      "github_digest": "sha256:0d00226a11f228186c25858432e0018fa5ac47ce6c2f4487f438211c02081ae8",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-010.zip",
+      "bytes": 1144648808,
+      "sha256": "832fd3817f3480f3440f8b28a4a46c26d72ddb49faa531ad34ffb6509e83d001",
+      "github_digest": "sha256:832fd3817f3480f3440f8b28a4a46c26d72ddb49faa531ad34ffb6509e83d001",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-011.zip",
+      "bytes": 1125986120,
+      "sha256": "05442f26053019f7502d50c2e20214f4ed9a835eacea459652c56c36aaade0e9",
+      "github_digest": "sha256:05442f26053019f7502d50c2e20214f4ed9a835eacea459652c56c36aaade0e9",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-012.zip",
+      "bytes": 1144648808,
+      "sha256": "ba0598f7bae524864700061f0bf5e785c9b6b06e55f62c67b742abd99190e0be",
+      "github_digest": "sha256:ba0598f7bae524864700061f0bf5e785c9b6b06e55f62c67b742abd99190e0be",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-013.zip",
+      "bytes": 1125986120,
+      "sha256": "81cb242fcb3c10e0291d2207cf47e39965fc7d7515f64bb8158265cc2697af22",
+      "github_digest": "sha256:81cb242fcb3c10e0291d2207cf47e39965fc7d7515f64bb8158265cc2697af22",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-014.zip",
+      "bytes": 1144648808,
+      "sha256": "c20cb5ce4b7722f0babd56e44c01a7c62a1c20518738cfc21557b974a9e4d710",
+      "github_digest": "sha256:c20cb5ce4b7722f0babd56e44c01a7c62a1c20518738cfc21557b974a9e4d710",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-015.zip",
+      "bytes": 1125986120,
+      "sha256": "c62aa18f620d91c4327bec347e8f4faa5fed5a73a368d7add3a84a0f57c870a6",
+      "github_digest": "sha256:c62aa18f620d91c4327bec347e8f4faa5fed5a73a368d7add3a84a0f57c870a6",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-016.zip",
+      "bytes": 1144648808,
+      "sha256": "98b123eaf2184d26ad7d250776b252a19ac8e86be04e2f14e3367a3a8e716c06",
+      "github_digest": "sha256:98b123eaf2184d26ad7d250776b252a19ac8e86be04e2f14e3367a3a8e716c06",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-017.zip",
+      "bytes": 1132207016,
+      "sha256": "e34553138afb20e314331862ebe87b885ea4f0c7f2b9c7d1e0a5497a7c24ffcb",
+      "github_digest": "sha256:e34553138afb20e314331862ebe87b885ea4f0c7f2b9c7d1e0a5497a7c24ffcb",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-018.zip",
+      "bytes": 1144648808,
+      "sha256": "a681277fa58ba6629b292971927a3db57db305b02aa802a0b70af1d348fe233b",
+      "github_digest": "sha256:a681277fa58ba6629b292971927a3db57db305b02aa802a0b70af1d348fe233b",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-019.zip",
+      "bytes": 1125986120,
+      "sha256": "8ec00f71c3b5332e418aa006ea1da6841cbc65be3c14e3f4f4b0fb8b8dab7be5",
+      "github_digest": "sha256:8ec00f71c3b5332e418aa006ea1da6841cbc65be3c14e3f4f4b0fb8b8dab7be5",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-ceres-global-020.zip",
+      "bytes": 1144648808,
+      "sha256": "ec4f5fc2fc6259ef2b52345c6a02c1e77821948d299fcef7aac501f07df2d902",
+      "github_digest": "sha256:ec4f5fc2fc6259ef2b52345c6a02c1e77821948d299fcef7aac501f07df2d902",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-cds-legacy-001.zip",
+      "bytes": 215012306,
+      "sha256": "a66f9ad1ee6da11821fd8a8e34f11076aa64399caf4eadf360ac43309264db48",
+      "github_digest": "sha256:a66f9ad1ee6da11821fd8a8e34f11076aa64399caf4eadf360ac43309264db48",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-001.zip",
+      "bytes": 1796034191,
+      "sha256": "90bfbd7ceebfa7166511a6555fd15d73c131c9a04a73be8ffb4cf5b123c4d0ba",
+      "github_digest": "sha256:90bfbd7ceebfa7166511a6555fd15d73c131c9a04a73be8ffb4cf5b123c4d0ba",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-002.zip",
+      "bytes": 1695141647,
+      "sha256": "63ee169a294705f93716eff15392d960973121a44d7ec649ab432ebbc11236d6",
+      "github_digest": "sha256:63ee169a294705f93716eff15392d960973121a44d7ec649ab432ebbc11236d6",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-003.zip",
+      "bytes": 1693481689,
+      "sha256": "363d6295424b995418b55b9cf4b8e02318f7c53cc1b834bf68f70aaf5347f174",
+      "github_digest": "sha256:363d6295424b995418b55b9cf4b8e02318f7c53cc1b834bf68f70aaf5347f174",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-004.zip",
+      "bytes": 1580061719,
+      "sha256": "febcf5a91afa7cbfc19b349b85f3ded1d18002d906a013cfe555c5f07d8c329d",
+      "github_digest": "sha256:febcf5a91afa7cbfc19b349b85f3ded1d18002d906a013cfe555c5f07d8c329d",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-005.zip",
+      "bytes": 1438619292,
+      "sha256": "e9036f9735628ef6b4877a3613ad48b9baa4e696765ad9af6940a4cfe74c428a",
+      "github_digest": "sha256:e9036f9735628ef6b4877a3613ad48b9baa4e696765ad9af6940a4cfe74c428a",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-006.zip",
+      "bytes": 1463784141,
+      "sha256": "55fc73601a1d6b01e69c15464e10bead5d1f601d4f42ed312fb8931745ba15a2",
+      "github_digest": "sha256:55fc73601a1d6b01e69c15464e10bead5d1f601d4f42ed312fb8931745ba15a2",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-007.zip",
+      "bytes": 1443406055,
+      "sha256": "c4c6f1cab754759004e2d3f3e2a226cf1ec217ba3aa2d8f82f54152ebdbd8979",
+      "github_digest": "sha256:c4c6f1cab754759004e2d3f3e2a226cf1ec217ba3aa2d8f82f54152ebdbd8979",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-008.zip",
+      "bytes": 1437269690,
+      "sha256": "f031d25dd666f816dc4e46ab9e7f55b40514610ba8db03885c8808e1179efa9f",
+      "github_digest": "sha256:f031d25dd666f816dc4e46ab9e7f55b40514610ba8db03885c8808e1179efa9f",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-009.zip",
+      "bytes": 1432318519,
+      "sha256": "8810e0a6cce67acc78d5effc7650b8b17fdefc1df30c26818463b38a1b2c3141",
+      "github_digest": "sha256:8810e0a6cce67acc78d5effc7650b8b17fdefc1df30c26818463b38a1b2c3141",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-010.zip",
+      "bytes": 1464901692,
+      "sha256": "ccc91a65b2e1611621899fa9a1a4ac7cae29ccf055dfbe73c0ecae38d863c803",
+      "github_digest": "sha256:ccc91a65b2e1611621899fa9a1a4ac7cae29ccf055dfbe73c0ecae38d863c803",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-011.zip",
+      "bytes": 1452927462,
+      "sha256": "458a45a92e6c00c4e8dd0d8f9ca6c52c5ca1ea0ef350fa380ec87b227868aec4",
+      "github_digest": "sha256:458a45a92e6c00c4e8dd0d8f9ca6c52c5ca1ea0ef350fa380ec87b227868aec4",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-012.zip",
+      "bytes": 1423036359,
+      "sha256": "1be784db92c9bc3d1e4cc1b74d914777bf998cfc4263253c3572e4b8248e2604",
+      "github_digest": "sha256:1be784db92c9bc3d1e4cc1b74d914777bf998cfc4263253c3572e4b8248e2604",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-013.zip",
+      "bytes": 1442863520,
+      "sha256": "8b5f7e324bfee54d8fab4a54d601a7bdf9da18db41662296904cf3e53e857cf3",
+      "github_digest": "sha256:8b5f7e324bfee54d8fab4a54d601a7bdf9da18db41662296904cf3e53e857cf3",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-014.zip",
+      "bytes": 1474011322,
+      "sha256": "b69d9c089c1e256c9a09a8d1aaa461f0c05425353f6c73c0d08f263642b99cb9",
+      "github_digest": "sha256:b69d9c089c1e256c9a09a8d1aaa461f0c05425353f6c73c0d08f263642b99cb9",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-015.zip",
+      "bytes": 1679859118,
+      "sha256": "0d5bed13c69dba5d004eecbdafdb37bacf73d97e38fb06e6d34d6a4ffd4bc165",
+      "github_digest": "sha256:0d5bed13c69dba5d004eecbdafdb37bacf73d97e38fb06e6d34d6a4ffd4bc165",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-016.zip",
+      "bytes": 1653266661,
+      "sha256": "5197b454c1a06a3dcc96c7b6c24397dd72eaf2203b0b5999c76a3832d8b8dcc7",
+      "github_digest": "sha256:5197b454c1a06a3dcc96c7b6c24397dd72eaf2203b0b5999c76a3832d8b8dcc7",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-017.zip",
+      "bytes": 1679705933,
+      "sha256": "a66b17bebfce603e66f6c54dcaeb8ab0e431a14c48a2d74349a2a6c1bc0c2f6c",
+      "github_digest": "sha256:a66b17bebfce603e66f6c54dcaeb8ab0e431a14c48a2d74349a2a6c1bc0c2f6c",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-018.zip",
+      "bytes": 1667183219,
+      "sha256": "262fea90c6e20dd1ad80a0da68c9717557d8380c93ad4c00a577d608a6afb961",
+      "github_digest": "sha256:262fea90c6e20dd1ad80a0da68c9717557d8380c93ad4c00a577d608a6afb961",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-019.zip",
+      "bytes": 1680455192,
+      "sha256": "95375c447f54649f5bdad3353fcf0e19b7f758fe3a383ef94ea9efba6a3526fb",
+      "github_digest": "sha256:95375c447f54649f5bdad3353fcf0e19b7f758fe3a383ef94ea9efba6a3526fb",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-020.zip",
+      "bytes": 1653151491,
+      "sha256": "b0ad2129100484b1441f3f32c67f294e687dfc40b31ba76c5978aef2bd0a58a2",
+      "github_digest": "sha256:b0ad2129100484b1441f3f32c67f294e687dfc40b31ba76c5978aef2bd0a58a2",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-021.zip",
+      "bytes": 1683313207,
+      "sha256": "7c4d64a8e9589e6b0b611be108766e480732e53b804300cc2d37f84acdb2d366",
+      "github_digest": "sha256:7c4d64a8e9589e6b0b611be108766e480732e53b804300cc2d37f84acdb2d366",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-022.zip",
+      "bytes": 1678645601,
+      "sha256": "2500326c618eb2b65e196b00b1d66db3f2f110d924e585745c436b6b9553926a",
+      "github_digest": "sha256:2500326c618eb2b65e196b00b1d66db3f2f110d924e585745c436b6b9553926a",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-023.zip",
+      "bytes": 1680127696,
+      "sha256": "3982c9aa77a6fbcd2006d625a29d42e832bda8a7b12ced81424913b5af8a6fc0",
+      "github_digest": "sha256:3982c9aa77a6fbcd2006d625a29d42e832bda8a7b12ced81424913b5af8a6fc0",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-024.zip",
+      "bytes": 1761141294,
+      "sha256": "bdf92dd2a73819a58afe95bc0f8e7eb415514d7639c630154742348d05910094",
+      "github_digest": "sha256:bdf92dd2a73819a58afe95bc0f8e7eb415514d7639c630154742348d05910094",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-025.zip",
+      "bytes": 1762005957,
+      "sha256": "cd91e53875b56e99887e4dd706d9e074663939dcc2f836ab89f25fcd8918731e",
+      "github_digest": "sha256:cd91e53875b56e99887e4dd706d9e074663939dcc2f836ab89f25fcd8918731e",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-cds-026.zip",
+      "bytes": 1106462538,
+      "sha256": "97ad22bbab5ebb09e8cfdc1073da0b3391a9bd0941fca4f8189b93cf331c7c40",
+      "github_digest": "sha256:97ad22bbab5ebb09e8cfdc1073da0b3391a9bd0941fca4f8189b93cf331c7c40",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-wb2-001.zip",
+      "bytes": 1795737302,
+      "sha256": "797ae36a050f4d2bc0ca2dafa3e7f179a1093e2d893f2edae79e30eb9e89a41e",
+      "github_digest": "sha256:797ae36a050f4d2bc0ca2dafa3e7f179a1093e2d893f2edae79e30eb9e89a41e",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-controls-wb2-002.zip",
+      "bytes": 402099058,
+      "sha256": "e964456a857cbee9b26b572d17cbcf390a1d25e3a100acb9ab57a19762a0f45e",
+      "github_digest": "sha256:e964456a857cbee9b26b572d17cbcf390a1d25e3a100acb9ab57a19762a0f45e",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-gba-primary-001.zip",
+      "bytes": 112356857,
+      "sha256": "868acc0c5fc16415221919ff0f2b49acda51ed6fc768d67c5c5158bf93aab46e",
+      "github_digest": "sha256:868acc0c5fc16415221919ff0f2b49acda51ed6fc768d67c5c5158bf93aab46e",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-001.zip",
+      "bytes": 1402004075,
+      "sha256": "5386996bfb34824f7f028c67372696c76a7e61ff45d98c492b17df8262e1631b",
+      "github_digest": "sha256:5386996bfb34824f7f028c67372696c76a7e61ff45d98c492b17df8262e1631b",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-002.zip",
+      "bytes": 1752430254,
+      "sha256": "2b01108093565a6b953f395ea982205c879c62282bd0a8197766b227a5230e9b",
+      "github_digest": "sha256:2b01108093565a6b953f395ea982205c879c62282bd0a8197766b227a5230e9b",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-003.zip",
+      "bytes": 1753722989,
+      "sha256": "55430c511f8420d3965b135dd0787078b257e5663cf85ec8e3536d0e99d2ebd2",
+      "github_digest": "sha256:55430c511f8420d3965b135dd0787078b257e5663cf85ec8e3536d0e99d2ebd2",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-004.zip",
+      "bytes": 1782846868,
+      "sha256": "b462ff057f09c1931398ce1c05f34acf14bc6f412631164cfe43c3a4addacad1",
+      "github_digest": "sha256:b462ff057f09c1931398ce1c05f34acf14bc6f412631164cfe43c3a4addacad1",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-005.zip",
+      "bytes": 1749652041,
+      "sha256": "195a94749a249bd0940c43b73ac469b48116056e90f8e662cd12bc90ba6320ec",
+      "github_digest": "sha256:195a94749a249bd0940c43b73ac469b48116056e90f8e662cd12bc90ba6320ec",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-006.zip",
+      "bytes": 1750619345,
+      "sha256": "416ce2274b09ecbe5464be01c57f01218941e9ad47842d0ec2007da818afa1f5",
+      "github_digest": "sha256:416ce2274b09ecbe5464be01c57f01218941e9ad47842d0ec2007da818afa1f5",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-007.zip",
+      "bytes": 1722061760,
+      "sha256": "5b42ccf7c09d73c66ad0017a7fc09958a38767de13a2ec232a2a6a11ee8676ae",
+      "github_digest": "sha256:5b42ccf7c09d73c66ad0017a7fc09958a38767de13a2ec232a2a6a11ee8676ae",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-008.zip",
+      "bytes": 1752156246,
+      "sha256": "9b01fe918ca309feae6524d57f148fba4fa94dabad0bd416b943ec20723f1db4",
+      "github_digest": "sha256:9b01fe918ca309feae6524d57f148fba4fa94dabad0bd416b943ec20723f1db4",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-009.zip",
+      "bytes": 1760664584,
+      "sha256": "231e944efecfeef0b379b09e713695d4fdd761099b607ad1ae1e83ac5079f08d",
+      "github_digest": "sha256:231e944efecfeef0b379b09e713695d4fdd761099b607ad1ae1e83ac5079f08d",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-010.zip",
+      "bytes": 1784805963,
+      "sha256": "c8f2847f5bd76ce6eb133cf2f5347a87b15fa323269d9d3faf2f7c05b3448c0d",
+      "github_digest": "sha256:c8f2847f5bd76ce6eb133cf2f5347a87b15fa323269d9d3faf2f7c05b3448c0d",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-011.zip",
+      "bytes": 1756296143,
+      "sha256": "f7185e61c2cae5122d3f6433627ee0f25abe563155225d58e57ba14b3a1c7f9e",
+      "github_digest": "sha256:f7185e61c2cae5122d3f6433627ee0f25abe563155225d58e57ba14b3a1c7f9e",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-012.zip",
+      "bytes": 1760771628,
+      "sha256": "899d3d41b5c6edcc90f96c6b2685f79544d2a104a287fe54d692cf6abbfaf152",
+      "github_digest": "sha256:899d3d41b5c6edcc90f96c6b2685f79544d2a104a287fe54d692cf6abbfaf152",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-013.zip",
+      "bytes": 1689329354,
+      "sha256": "645fd54d80f013c36dc96a44be276ad3c8811f9a607d83c223e041987c3eadb0",
+      "github_digest": "sha256:645fd54d80f013c36dc96a44be276ad3c8811f9a607d83c223e041987c3eadb0",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-014.zip",
+      "bytes": 1753643265,
+      "sha256": "f7d50f9833dbd8376725f5dcc634b039e9dc0a929caf5d4780678558d6f68958",
+      "github_digest": "sha256:f7d50f9833dbd8376725f5dcc634b039e9dc0a929caf5d4780678558d6f68958",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-015.zip",
+      "bytes": 1754602888,
+      "sha256": "7085be77a697f164b96ab5c5073acc2c53e0db82a91c51835a7b198a8b675d91",
+      "github_digest": "sha256:7085be77a697f164b96ab5c5073acc2c53e0db82a91c51835a7b198a8b675d91",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-016.zip",
+      "bytes": 1784245485,
+      "sha256": "a715a892e420466a33f11398444953fdcaf49601d8e27a76e937361d952b7397",
+      "github_digest": "sha256:a715a892e420466a33f11398444953fdcaf49601d8e27a76e937361d952b7397",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-017.zip",
+      "bytes": 1751827970,
+      "sha256": "7103f1a07d131efb3092dc0f9946cd8e7b9319e536431db27817788808b94013",
+      "github_digest": "sha256:7103f1a07d131efb3092dc0f9946cd8e7b9319e536431db27817788808b94013",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-018.zip",
+      "bytes": 1762596166,
+      "sha256": "8df2d857c7c292623f2772a5dcdc3362e004b88d8be66860de52210281d6b4d9",
+      "github_digest": "sha256:8df2d857c7c292623f2772a5dcdc3362e004b88d8be66860de52210281d6b4d9",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-019.zip",
+      "bytes": 1714230566,
+      "sha256": "29ea52fbb408d92c053f9ebcb72ad7471052ec647e286471daaf9c81b3eb5ff1",
+      "github_digest": "sha256:29ea52fbb408d92c053f9ebcb72ad7471052ec647e286471daaf9c81b3eb5ff1",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-020.zip",
+      "bytes": 1778076428,
+      "sha256": "c7f11d64da721689ae242f18006fd4659bd925f2bef819419dd447cf64a71e5a",
+      "github_digest": "sha256:c7f11d64da721689ae242f18006fd4659bd925f2bef819419dd447cf64a71e5a",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-021.zip",
+      "bytes": 1770157636,
+      "sha256": "0494650fad050db54fc8855381be8cce3ad44213a39d78914e1cd46ab9b844cb",
+      "github_digest": "sha256:0494650fad050db54fc8855381be8cce3ad44213a39d78914e1cd46ab9b844cb",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-022.zip",
+      "bytes": 1669833013,
+      "sha256": "9091c09c940d37d18c5f5dbb681058193d1b84c4526d574159ee92ab82706216",
+      "github_digest": "sha256:9091c09c940d37d18c5f5dbb681058193d1b84c4526d574159ee92ab82706216",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-native-primary-023.zip",
+      "bytes": 707758726,
+      "sha256": "4ad5618ee086ce21813b71224cee7f0766ee918c5f01752bfe1cd1b5904b867a",
+      "github_digest": "sha256:4ad5618ee086ce21813b71224cee7f0766ee918c5f01752bfe1cd1b5904b867a",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-source-overlap-001.zip",
+      "bytes": 1437156628,
+      "sha256": "9f5967dd30f292e36e7101fd57650f41b746fd7bce5729bd7aad699af986b5c5",
+      "github_digest": "sha256:9f5967dd30f292e36e7101fd57650f41b746fd7bce5729bd7aad699af986b5c5",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-wb2-primary-001.zip",
+      "bytes": 1448557805,
+      "sha256": "a2372aec9cac528132443a7294941374e8229d935c3c6b12c92c18eb4a2da077",
+      "github_digest": "sha256:a2372aec9cac528132443a7294941374e8229d935c3c6b12c92c18eb4a2da077",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-era5-wb2-primary-002.zip",
+      "bytes": 595185118,
+      "sha256": "66dfad29eea2653431b9b075c3c43d86fe98460a6e71603d17a7bd1b7700f84c",
+      "github_digest": "sha256:66dfad29eea2653431b9b075c3c43d86fe98460a6e71603d17a7bd1b7700f84c",
+      "status": "verified"
+    },
+    {
+      "release_tag": "raw-data-20261008",
+      "name": "raw-source-metadata-001.zip",
+      "bytes": 46560,
+      "sha256": "1f9adbf39b6172c4aed6d418974ccf9aa055823be317b02afc89e6f6ea74d2ef",
+      "github_digest": "sha256:1f9adbf39b6172c4aed6d418974ccf9aa055823be317b02afc89e6f6ea74d2ef",
+      "status": "verified"
+    },
+    {
+      "release_tag": "revision-20261010",
+      "name": "experiment-results.zip",
+      "bytes": 49787692,
+      "sha256": "24429491a45ecab9bef39b1dee2f0d59839c0232bfa8c4a9742a093b2c3417d0",
+      "github_digest": "sha256:24429491a45ecab9bef39b1dee2f0d59839c0232bfa8c4a9742a093b2c3417d0",
+      "status": "verified"
+    },
+    {
+      "release_tag": "revision-20261010",
+      "name": "experiment-figures.zip",
+      "bytes": 3011937,
+      "sha256": "25bd056fe26e6e8494f647cbe4f6041f7375e532598b154eda707ec139de6585",
+      "github_digest": "sha256:25bd056fe26e6e8494f647cbe4f6041f7375e532598b154eda707ec139de6585",
+      "status": "verified"
+    },
+    {
+      "release_tag": "revision-20261010",
+      "name": "13_WHEC_amendment_inputs.zip",
+      "bytes": 210066817,
+      "sha256": "bd693fd8f24888fd3478e25bb9f1120755452381c30b5ce7866e9f55a0c0d464",
+      "github_digest": "sha256:bd693fd8f24888fd3478e25bb9f1120755452381c30b5ce7866e9f55a0c0d464",
+      "status": "verified"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "canvas_inches": [
+    7.6,
+    3.5
+  ],
+  "minimum_authored_font_pt": 10.4,
+  "minimum_font_pt_at_6_3_inches": 8.621052631578948,
+  "periods": {
+    "D": "1979–2018",
+    "E": "2019–2025"
+  },
+  "a_matrix_shape": [
+    3,
+    4
+  ],
+  "a_ring_order_inner_to_outer": [
+    [
+      "discovery",
+      "nh"
+    ],
+    [
+      "discovery",
+      "sh"
+    ],
+    [
+      "evaluation",
+      "nh"
+    ],
+    [
+      "evaluation",
+      "sh"
+    ]
+  ],
+  "a_unit": "Signed local winter-minus-summer slope contrast on the fitted regional-anomaly scale",
+  "a_display_unit": "10^-3 of the fitted slope; explicit scale cue on colorbar; color binds unscaled full-precision values",
+  "a_color_limits": [
+    -0.016,
+    0.016
+  ],
+  "b_interval": "Unchanged pointwise 95% calendar-HAC64",
+  "c_matrix_shape": [
+    6,
+    2
+  ],
+  "c_color_limits": [
+    0,
+    0.65
+  ],
+  "c_labels": "Exact significant-hypothesis numerators; denominators explicitly shown",
+  "uncertainty_moved_or_invented": false,
+  "magnitudes_encoded_by_radius": false,
+  "outside_canvas_text": [],
+  "records": [
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "value": 0.0036218301237965,
+      "display": "+3.62",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "value": -0.0148919182659959,
+      "display": "-14.89",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "value": 0.0084437620200729,
+      "display": "+8.44",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "value": -0.0146516194330903,
+      "display": "-14.65",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "value": -0.0010218587969026,
+      "display": "-1.02",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "value": -0.0062784168453436,
+      "display": "-6.28",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "value": 0.0008522680315682,
+      "display": "+0.85",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "value": -0.0070712686109276,
+      "display": "-7.07",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "value": 0.0008197789016818,
+      "display": "+0.82",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "value": 0.0026840994635421,
+      "display": "+2.68",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "value": -0.0019181097460837,
+      "display": "-1.92",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "value": 0.0048569823870208,
+      "display": "+4.86",
+      "display_multiplier": 1000
+    },
+    {
+      "panel": "b",
+      "edge_type": "wind_to_humidity",
+      "period": "discovery",
+      "estimate": 0.0185137483897925,
+      "low": 0.0160414145775289,
+      "high": 0.020986082202056,
+      "n_response_times": 29157,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "b",
+      "edge_type": "wind_to_humidity",
+      "period": "evaluation",
+      "estimate": 0.0230953814531633,
+      "low": 0.0178384640344382,
+      "high": 0.0283522988718884,
+      "n_response_times": 5104,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "b",
+      "edge_type": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "estimate": 0.0052565580484409,
+      "low": 0.0030266395605522,
+      "high": 0.0074864765363296,
+      "n_response_times": 29157,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "b",
+      "edge_type": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "estimate": 0.0079235366424959,
+      "low": 0.0021429329914251,
+      "high": 0.0137041402935667,
+      "n_response_times": 5104,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "b",
+      "edge_type": "wind_to_cloud_cover",
+      "period": "discovery",
+      "estimate": -0.0018643205618603,
+      "low": -0.004035854422065,
+      "high": 0.0003072132983444,
+      "n_response_times": 29157,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "b",
+      "edge_type": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "estimate": -0.0067750921331046,
+      "low": -0.0118023715665975,
+      "high": -0.0017478126996116,
+      "n_response_times": 5104,
+      "candidate_pairs": 98,
+      "candidate_lag_pairs": 294
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag0",
+      "period": "discovery",
+      "significant": 173,
+      "tested": 2574,
+      "rate": 0.06721056721056722
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag0",
+      "period": "evaluation",
+      "significant": 4,
+      "tested": 2574,
+      "rate": 0.001554001554001554
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag4",
+      "period": "discovery",
+      "significant": 124,
+      "tested": 2574,
+      "rate": 0.048174048174048176
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag4",
+      "period": "evaluation",
+      "significant": 1,
+      "tested": 2574,
+      "rate": 0.0003885003885003885
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag0",
+      "period": "discovery",
+      "significant": 117,
+      "tested": 2574,
+      "rate": 0.045454545454545456
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag0",
+      "period": "evaluation",
+      "significant": 36,
+      "tested": 2574,
+      "rate": 0.013986013986013986
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag4",
+      "period": "discovery",
+      "significant": 107,
+      "tested": 2574,
+      "rate": 0.04156954156954157
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag4",
+      "period": "evaluation",
+      "significant": 37,
+      "tested": 2574,
+      "rate": 0.014374514374514374
+    },
+    {
+      "panel": "c",
+      "row": "NH_local_winter_minus_summer",
+      "period": "discovery",
+      "significant": 830,
+      "tested": 1287,
+      "rate": 0.6449106449106449
+    },
+    {
+      "panel": "c",
+      "row": "NH_local_winter_minus_summer",
+      "period": "evaluation",
+      "significant": 485,
+      "tested": 1287,
+      "rate": 0.37684537684537683
+    },
+    {
+      "panel": "c",
+      "row": "SH_local_winter_minus_summer",
+      "period": "discovery",
+      "significant": 816,
+      "tested": 1287,
+      "rate": 0.634032634032634
+    },
+    {
+      "panel": "c",
+      "row": "SH_local_winter_minus_summer",
+      "period": "evaluation",
+      "significant": 411,
+      "tested": 1287,
+      "rate": 0.31934731934731936
+    }
+  ],
+  "files": {
+    "pdf": "57693939a0c2e3ad48f6bc77b21b84707333336a7493ddd508be656d79ba3d8c",
+    "svg": "be020cc392abe85113fdabdb8621e4ab5b8113138b50f2f7b022581485a3c83c",
+    "png": "7cc7ff4df4f1e23b481aeb373b0350c9d8551c8c81385fcd3d6d03e640a554b5"
+  }
+}

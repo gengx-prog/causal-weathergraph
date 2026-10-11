@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "scope": "Host/resource metadata and private-path cleanup; no real-data experiments rerun.",
+  "privacy_regression_tests": 4,
+  "simulation_unit_tests": 8,
+  "targeted_pytest_result": "12 passed",
+  "python_files_parsed": 139,
+  "workflow_yaml_and_inline_python_parsed": [
+    "experiment-figures.yml",
+    "experiment-reproduction.yml",
+    "raw-data-check.yml",
+    "reproducibility.yml"
+  ],
+  "historical_json_numeric_fields_preserved": [
+    "artifact-integrity.json",
+    "experiment-reproduction-20261008.json",
+    "experiment-reproduction-20261010.json",
+    "figure-verification-20261010.json",
+    "github-experiments-all-20261008.json",
+    "raw-data-local.json",
+    "release-upload.json",
+    "whec-correction-experiments-20261010.json"
+  ],
+  "historical_junit_outcomes_counts_and_times_preserved": [
+    "experiment-tests-20261010.xml",
+    "raw-data-tests-20261008.xml",
+    "tests-20261008.xml"
+  ],
+  "figure_self_checks": "Both passed without redrawing; CSV and PDF/SVG/PNG bytes preserved.",
+  "export_policy": "CI export sanitizes records after computation; untouched JSON/XML bytes are preserved. Operational frozen plans are sanitized only after a run completes.",
+  "software_collector": "Python version, implementation and allowlisted distribution versions only; no optional package import or host query."
+}

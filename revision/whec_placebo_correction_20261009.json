@@ -1,0 +1,19 @@
+{
+  "correction_id": "WHEC_PLACEBO_TRAIN_ONLY_WARMUP_20261009",
+  "status": "Retrospective implementation correction after leakage was found; neither the correction nor the original held-out data are prospectively blinded.",
+  "original_design_sha256": "0507157c5a8ec0b248a36bca29818af6623ba86b1e19576f57fd743d92beee92",
+  "original_index_manifest_sha256": "452800ba9c36a442d5d97f0c7709bbaab626c7a874668c640a0547ce51e75e31",
+  "original_test_manifest_sha256": "b8062a9cbab01edda3c5f3449aaf77dd6cc03509dc836db849fb319b49b67628",
+  "problem": "Full-record circular shift mapped the first 1460 discovery inputs (1979) to held-out humidity in 2025 and contaminated placebo preprocessing and discovery fits.",
+  "replacement": "Map the first 1460 humidity inputs (1979-01-01 00 through 1979-12-31 18) to 2018-01-01 00 through 2018-12-31 18, entirely inside discovery. For all later inputs use the actual value 365 days earlier. This train-only wrap is a wrong-year control warmup, not a chronological forecasting feature.",
+  "unchanged": [
+    "Sample and period boundaries",
+    "Local WHEC family A",
+    "Remote WHEC family B",
+    "1979-2018 climatology and standardization rule",
+    "Original design.json bytes and SHA-256",
+    "Endpoint definitions, full-model MSE denominator, thresholds and decision rule"
+  ],
+  "rerun_scope": "All A/B/C per-lag, block, frozen-gain, band and CERES-substitution endpoints; only C series and its fitted preprocessing change.",
+  "limitations": "Warmup pairs 1979 winds with later discovery-year humidity; the warmup is intentionally a nonchronological wrong-year control. No held-out humidity may enter any discovery placebo. Full workflow FDR calibration remains unestablished."
+}

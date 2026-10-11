@@ -1,0 +1,118 @@
+{
+  "copied_inputs": [
+    {
+      "relative_copy": "source_data/hemisphere_edge_type_averages.csv",
+      "sha256": "39313963932c5fa23ef22a9997150a4f6a0b2bca72df705fbdd81aee267d3a0c",
+      "source_table": "hemisphere_contrasts/hemisphere_edge_type_averages.csv"
+    },
+    {
+      "relative_copy": "source_data/regime_interaction_summary.csv",
+      "sha256": "d0a39e609267b4a2c300fbbdc85bf75e9741fd5b6c370c8c225fb293312b5bf2",
+      "source_table": "regime_contrasts/regime_interaction_summary.csv"
+    }
+  ],
+  "raw_reconciliation_inputs": [
+    {
+      "path": "hemisphere_contrasts/hemisphere_pair_contrasts.csv",
+      "sha256": "77d8e4cfb3176327694e1ff2025c50d54916d8ab58c6204101687ce0f0522f9e",
+      "purpose": "Independent raw-row reconciliation; not required by renderer"
+    },
+    {
+      "path": "regime_contrasts/regime_interaction_edges.csv",
+      "sha256": "fc1fbe670e610ac481a878bb39cb0ca1b4a2fc06489845f95d7637c929b719fa",
+      "purpose": "Independent raw-row reconciliation; not required by renderer"
+    }
+  ],
+  "raw_pair_rows": 2550,
+  "raw_interaction_rows": 25740,
+  "group_mean_max_absolute_difference": 9.86623976961809e-17,
+  "state_counts": [
+    {
+      "period": "discovery",
+      "contrast": "NH_local_winter_minus_summer",
+      "significant": 830,
+      "tested": 1287,
+      "raw_matches": true
+    },
+    {
+      "period": "discovery",
+      "contrast": "SH_local_winter_minus_summer",
+      "significant": 816,
+      "tested": 1287,
+      "raw_matches": true
+    },
+    {
+      "period": "discovery",
+      "contrast": "cloud_lag0",
+      "significant": 173,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "discovery",
+      "contrast": "cloud_lag4",
+      "significant": 124,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "discovery",
+      "contrast": "humidity_lag0",
+      "significant": 117,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "discovery",
+      "contrast": "humidity_lag4",
+      "significant": 107,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "NH_local_winter_minus_summer",
+      "significant": 485,
+      "tested": 1287,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "SH_local_winter_minus_summer",
+      "significant": 411,
+      "tested": 1287,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "cloud_lag0",
+      "significant": 4,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "cloud_lag4",
+      "significant": 1,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "humidity_lag0",
+      "significant": 36,
+      "tested": 2574,
+      "raw_matches": true
+    },
+    {
+      "period": "evaluation",
+      "contrast": "humidity_lag4",
+      "significant": 37,
+      "tested": 2574,
+      "raw_matches": true
+    }
+  ],
+  "no_missing_aggregate_values": true,
+  "all_checks_pass": true,
+  "note": "Display redesign only; recorded analyses were read and reconciled, not rerun. Packaged summaries are sufficient for rendering; raw reconciliation inputs are identified by relative experimental paths and hashes."
+}

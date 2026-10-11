@@ -1,0 +1,120 @@
+{
+  "status": "passed",
+  "started_utc": "2026-10-11T02:41:53.343727+00:00",
+  "scope": "Experiment figure source integrity, isolated redraw, and numerical/vector self-checks only. No statistical models or meteorological preprocessing are rerun. Automated checks do not repeat a human visual review or establish causal identification.",
+  "python": "3.13.7",
+  "packages": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.0",
+    "matplotlib": "3.10.8",
+    "PyMuPDF": "1.28.2"
+  },
+  "source_root": ".",
+  "output_root": "figures-no-device-verified",
+  "source_inventory_sha256": {
+    "circular_networks": {
+      "circular_networks.pdf": "f82a66522f5859d877c3024231789811669682962a85da966ed79c276946fb7c",
+      "circular_networks.png": "17146a98c6fb61603ebf887fd92469fa7a450e0e070fa1d41a3ccd8d1473aa21",
+      "circular_networks.svg": "d1427f34ab94d6553922c30517afd2f4f9ec3506d3f8ba42a1c7189afe53f99c",
+      "data/analysis_manifest.json": "7c322f58d42a7777822c00985f1a826fa04f0af44a3b981f6fc6484eeb9f79a5",
+      "data/network_pairs_primary.csv": "44034b830c02363dd474c278f71893b0f79cce9c54211d27e3bdfda18fcca396",
+      "data/panel_ab_summary.csv": "efcd6529e590b75b0f76e5dc83d07d1e466fad20210c59d12a6c70ce31e40e34",
+      "data/regions.csv": "c4d0d3a5453ac8224ce37078861bf190a3d8006192528116b02a3c292f6d8351",
+      "data/three_stage_all_candidates.csv": "2be97c4891ad69d981016e10468e4d19e1ee66e7f7ab378a024ad020639c155e",
+      "data/three_stage_summary.csv": "325a74328dd72052b428d86bd9dc9c7dee34014559d0852e7a1dfc677c90cd5f",
+      "preview_6p3in.png": "f2af574ea500918005412d3f364ddef7ef43ceee7ed380b9442f8fe4644bec9a",
+      "provenance.json": "6c2e57fc3677242d8f309d9001d4a3fd762ceb01821ef86e609a7673d5842fd0",
+      "README.txt": "bbaf06ae18bb31fb85512a0cf3dbde7ae6c1a49688695c5fef100101f55f8e2c",
+      "render_networks.py": "bc9b2cc7e5637de60c5d09224c89002a30bb5e3d17429ab683281cf55d1b0979",
+      "validation.json": "ae611c15b20b956eb731d709290997d4cb094c088c8e73888bde750f5fd84b7a",
+      "verify_networks.py": "4b85996882fc8cbc301ddf32ca4717f959236ad87109d9d2fff1bd451a521bf8"
+    },
+    "seasonal_state_contrasts": {
+      "outputs/plotted_values.csv": "d141be8d54375d12adcf09c05b062fe5d204c8db8167e79998a4b186317e1c2b",
+      "outputs/preview_6_3in_150dpi.png": "a6027535c554fc2c8c14d95dd5bf59fdb210526084700d5bfb140a6ea6e78b39",
+      "outputs/seasonal_state_contrasts.pdf": "57693939a0c2e3ad48f6bc77b21b84707333336a7493ddd508be656d79ba3d8c",
+      "outputs/seasonal_state_contrasts.png": "7cc7ff4df4f1e23b481aeb373b0350c9d8551c8c81385fcd3d6d03e640a554b5",
+      "outputs/seasonal_state_contrasts.svg": "be020cc392abe85113fdabdb8621e4ab5b8113138b50f2f7b022581485a3c83c",
+      "outputs/value_audit.json": "20850d14f9ac3d74921f26effbdf10db99967837f3d7b11bdb83c8e3d99155b9",
+      "outputs/verification.json": "314de2393d53dfdf222c80f02c5f34a8c7587d829c0f63066d77c3791f306b8f",
+      "provenance.json": "01f5b27428cb49e66c31dbb08837b1d05891596b7b0d526d43ea45ba5eb02974",
+      "README.md": "404692796809f4985c51996f755d59bda7aea75d43e3c6a65fc5484128867373",
+      "render_state_contrasts.py": "b149bc77768e379b2b6193501cb854d8b93fa1067e1853d4e9f3dd603af973c0",
+      "requirements.txt": "b8b61a802df2f93ab82c585b1182bc91d91bab28e0b4a7e0dc30b76b1d8833f6",
+      "source_data/hemisphere_contrasts_design.json": "38b88302a61d36c6181166817f5acb34cf3b9175cd19d2f0ebc7f54002d9b21a",
+      "source_data/hemisphere_edge_type_averages.csv": "39313963932c5fa23ef22a9997150a4f6a0b2bca72df705fbdd81aee267d3a0c",
+      "source_data/regime_contrasts_design.json": "d5bed44419a0468e0ed08a7632cd9c5db3307095c961ec5b9848cb0190e37f2e",
+      "source_data/regime_interaction_summary.csv": "d0a39e609267b4a2c300fbbdc85bf75e9741fd5b6c370c8c225fb293312b5bf2",
+      "verify_state_contrasts.py": "829246fc6ccceebb5521fc7df83d0c51d2f89bffa134f432d19d5c450fcfd688"
+    }
+  },
+  "comparison_policy": "Source data and numerical/vector assertions; no cross-platform PDF byte comparison.",
+  "human_review_note": "Visual-review prose in the source self-checks describes the author review; this automated job does not repeat it.",
+  "jobs": [
+    {
+      "figure": "circular_networks",
+      "status": "passed",
+      "commands": [
+        {
+          "command": [
+            "python",
+            "render_networks.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 1.915,
+          "log": "circular_networks/render_networks.log"
+        },
+        {
+          "command": [
+            "python",
+            "verify_networks.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.183,
+          "log": "circular_networks/verify_networks.log"
+        }
+      ],
+      "self_check_receipt": "circular_networks/validation.json",
+      "rendered_outputs_sha256": {
+        "circular_networks/circular_networks.pdf": "2b3c706b53ea6e39d38d9ca47e06507fba1c8c83291e6794640d8a522e00d566",
+        "circular_networks/circular_networks.png": "17146a98c6fb61603ebf887fd92469fa7a450e0e070fa1d41a3ccd8d1473aa21",
+        "circular_networks/circular_networks.svg": "96ae6bf282803ea406fe2685b34bda39280df0b1517a2549b1e9aca1b2aee8cb",
+        "circular_networks/preview_6p3in.png": "f2af574ea500918005412d3f364ddef7ef43ceee7ed380b9442f8fe4644bec9a"
+      }
+    },
+    {
+      "figure": "seasonal_state_contrasts",
+      "status": "passed",
+      "commands": [
+        {
+          "command": [
+            "python",
+            "render_state_contrasts.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 1.19,
+          "log": "seasonal_state_contrasts/render_state_contrasts.log"
+        },
+        {
+          "command": [
+            "python",
+            "verify_state_contrasts.py"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.512,
+          "log": "seasonal_state_contrasts/verify_state_contrasts.log"
+        }
+      ],
+      "self_check_receipt": "seasonal_state_contrasts/outputs/verification.json",
+      "rendered_outputs_sha256": {
+        "seasonal_state_contrasts/outputs/preview_6_3in_150dpi.png": "a6027535c554fc2c8c14d95dd5bf59fdb210526084700d5bfb140a6ea6e78b39",
+        "seasonal_state_contrasts/outputs/seasonal_state_contrasts.pdf": "81614629098d0bc36a770b15ea3ebc26a39587787608b172685f0ba75851c30e",
+        "seasonal_state_contrasts/outputs/seasonal_state_contrasts.png": "7cc7ff4df4f1e23b481aeb373b0350c9d8551c8c81385fcd3d6d03e640a554b5",
+        "seasonal_state_contrasts/outputs/seasonal_state_contrasts.svg": "e186534def2bf28e55062b5f703e32ecc46c0e304146a60b542d580395b81d03"
+      }
+    }
+  ],
+  "errors": [],
+  "source_files_unchanged": true,
+  "completed_utc": "2026-10-11T02:41:57.183345+00:00"
+}

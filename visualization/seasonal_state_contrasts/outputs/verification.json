@@ -1,0 +1,258 @@
+{
+  "all_checks_pass": true,
+  "pdf_sha256": "57693939a0c2e3ad48f6bc77b21b84707333336a7493ddd508be656d79ba3d8c",
+  "source_checks": [
+    {
+      "file": "source_data/hemisphere_edge_type_averages.csv",
+      "sha256": "39313963932c5fa23ef22a9997150a4f6a0b2bca72df705fbdd81aee267d3a0c",
+      "matches_original": true
+    },
+    {
+      "file": "source_data/regime_interaction_summary.csv",
+      "sha256": "d0a39e609267b4a2c300fbbdc85bf75e9741fd5b6c370c8c225fb293312b5bf2",
+      "matches_original": true
+    }
+  ],
+  "data_checks": [
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_humidity",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "nh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "a",
+      "row": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": "sh",
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "wind_to_humidity",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "wind_to_humidity",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "humidity_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "humidity_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "wind_to_cloud_cover",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "b",
+      "row": "wind_to_cloud_cover",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag0",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag0",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag4",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "cloud_lag4",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag0",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag0",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag4",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "humidity_lag4",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "NH_local_winter_minus_summer",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "NH_local_winter_minus_summer",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "SH_local_winter_minus_summer",
+      "period": "discovery",
+      "hemisphere": null,
+      "exact_source_match": true
+    },
+    {
+      "panel": "c",
+      "row": "SH_local_winter_minus_summer",
+      "period": "evaluation",
+      "hemisphere": null,
+      "exact_source_match": true
+    }
+  ],
+  "pdf_checks": {
+    "pages": 1,
+    "width_pt": 547.2000122070312,
+    "height_pt": 252.0,
+    "embedded_images": 0,
+    "vector_paths": 579,
+    "minimum_text_font_pt": 10.399999618530273,
+    "all_fonts_embedded": true,
+    "canvas_matches": true,
+    "no_text_clipped": true
+  },
+  "raw_row_reconciliation": {
+    "receipt": "provenance.json",
+    "passed": true,
+    "maximum_seasonal_mean_difference": 9.86623976961809e-17,
+    "all_state_counts_match_raw": true
+  },
+  "visual_review": {
+    "reviewed_at": [
+      "native vector export",
+      "6.3-inch reproduction at 150 dpi"
+    ],
+    "findings": [
+      "Three panels and all 24 circular numeric labels are present.",
+      "Outer edge-type labels are horizontal and separated from the seasonal ring values.",
+      "Signed values and interval bounds remain identifiable without color.",
+      "Colorbars are vector objects; no raster image is embedded in the PDF.",
+      "Ring order, periods, scale multiplier, numerator counts, and denominators are explicit."
+    ]
+  }
+}

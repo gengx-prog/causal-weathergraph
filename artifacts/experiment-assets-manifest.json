@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "release_tag": "revision-20261010",
+  "scope": "Experimental inputs, results and figure code. File hashes verify integrity, not statistical validity.",
+  "assets": [
+    {
+      "name": "experiment-results.zip",
+      "bytes": 49787692,
+      "sha256": "24429491a45ecab9bef39b1dee2f0d59839c0232bfa8c4a9742a093b2c3417d0",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/revision-20261010/experiment-results.zip",
+      "files": [
+        {
+          "path": "MANIFEST.json",
+          "bytes": 3682,
+          "sha256": "3aa5f23bdd909412f205243e0af8d78d2734598fefbfeddfb259d685f40452e9"
+        },
+        {
+          "path": "README.txt",
+          "bytes": 2668,
+          "sha256": "7dbb508e06cc0b3f7c2be430a2ab6bd743fb32c123c6ee6c368bdea3a5ca937f"
+        },
+        {
+          "path": "ceres_platform_sensitivity.zip",
+          "bytes": 13429179,
+          "sha256": "885d140c9e416a32d9fb29421393e4bad61dcac06a4d790614857bbd6a57cc75"
+        },
+        {
+          "path": "ceres_substitution_tests.csv",
+          "bytes": 14308789,
+          "sha256": "2d2de44a59695f22235132145f6a72f2a1f629e74af220fd1c35e4b53be84041"
+        },
+        {
+          "path": "full_pipeline_calibration.zip",
+          "bytes": 449806,
+          "sha256": "e0b2bfbfdc20fc1d328159442d0d7c04ed134e02f74c75b006db7ffefc3615b6"
+        },
+        {
+          "path": "future_validation.zip",
+          "bytes": 7452379,
+          "sha256": "8c0ec004b22bca5e1e9e5ec32a4e8eda224bcf8d248df4e95b7aa9b62229d6c1"
+        },
+        {
+          "path": "matched_method_ablation.zip",
+          "bytes": 3651278,
+          "sha256": "ba5522b22695be0e9ab58c199d2e90ee8c20bf85a3e5587697c4eaac4e88e710"
+        },
+        {
+          "path": "regime_screening_ols_hac.csv",
+          "bytes": 16857057,
+          "sha256": "6dd566fa4cbeb0d4263c6d6d5029241ca6ec33777cf5867b60caa61fd1782e97"
+        },
+        {
+          "path": "regional_unit_metadata_correction.json",
+          "bytes": 898,
+          "sha256": "7e34792e29c73fd3133aee35d5824735c40ea0b34371132146f8023be4a6f353"
+        },
+        {
+          "path": "regions.csv",
+          "bytes": 1554,
+          "sha256": "c4d0d3a5453ac8224ce37078861bf190a3d8006192528116b02a3c292f6d8351"
+        },
+        {
+          "path": "reproducibility_details.zip",
+          "bytes": 10908570,
+          "sha256": "e36e3e981599cad06138b81bf51aaf2f0c04692e70a9d091295a4e2529f5d4a2"
+        },
+        {
+          "path": "symmetric_full_var_discovery.csv",
+          "bytes": 948674,
+          "sha256": "7adeb1a283a506ec947134c3eaa9be285b3d5e2d322254b6574429845f335ddd"
+        },
+        {
+          "path": "symmetric_full_var_eval_all.csv",
+          "bytes": 934644,
+          "sha256": "f80e2418861524bbb8a20314655da2494626e10422686a51f55d69d8b89b2d50"
+        },
+        {
+          "path": "symmetric_full_var_eval_cds.csv",
+          "bytes": 924559,
+          "sha256": "726546091856f924c459caf57e097b6412d58c359681ed45c55191b484cd7823"
+        },
+        {
+          "path": "symmetric_full_var_eval_wb2.csv",
+          "bytes": 926542,
+          "sha256": "aee43fb124f6ba35cbdb4d3118803b87ba49e6f011458744e07c42c0aedf346b"
+        },
+        {
+          "path": "three_stage_all_candidates.csv",
+          "bytes": 3076297,
+          "sha256": "2be97c4891ad69d981016e10468e4d19e1ee66e7f7ab378a024ad020639c155e"
+        },
+        {
+          "path": "wb2_cds_route_regions.csv",
+          "bytes": 27985,
+          "sha256": "33ffa5fb552936f9e9f07f16bad79fa4cf4f34b604f466abb91d2b67c4042fe4"
+        },
+        {
+          "path": "wb2_cds_route_variables.csv",
+          "bytes": 7496,
+          "sha256": "802b1d2a359a125c301215241027bb3ff79fe091d5688dbc278613653f31985e"
+        },
+        {
+          "path": "wb2_native_conservative_route.csv",
+          "bytes": 8589,
+          "sha256": "79dbb02447d9348b4fd22e655c80776f014050b71257087be16953b72e5560a6"
+        },
+        {
+          "path": "whec/correction_amendment.json",
+          "bytes": 1738,
+          "sha256": "cb4c0c0ae192ef4861ecd5b0186cb6c283c0d60f6f32fe9fe1c07da908efcd8f"
+        },
+        {
+          "path": "whec/correction_verification.json",
+          "bytes": 5685,
+          "sha256": "80c5df69e53df49aba4babf3b5439f40869aa83dc1eefef7cd88b329f3a9fcaf"
+        },
+        {
+          "path": "whec/design.json",
+          "bytes": 5033,
+          "sha256": "0507157c5a8ec0b248a36bca29818af6623ba86b1e19576f57fd743d92beee92"
+        },
+        {
+          "path": "whec/whec_band_endpoints.csv",
+          "bytes": 15017,
+          "sha256": "2d3e98a9602890d1915b4c96499d7c81ed72d72271a099d7096df00bbbf32110"
+        },
+        {
+          "path": "whec/whec_block_tests.csv",
+          "bytes": 460380,
+          "sha256": "1ae0798b9c7ddcbbd747c1b05229e20106f54ce827f83c637111fedac19f1cac"
+        },
+        {
+          "path": "whec/whec_ceres_check.csv",
+          "bytes": 465855,
+          "sha256": "6598771cda5ffee01633af1ed9dd08794ad35b9b412db16c0f4a973d7dee9bee"
+        },
+        {
+          "path": "whec/whec_tests_per_lag.csv",
+          "bytes": 1168637,
+          "sha256": "1ae3ad2e6170a970d75f33e19e98d941708829784c1e02d78009832dd7acff20"
+        },
+        {
+          "path": "whec_correction_code.zip",
+          "bytes": 20057,
+          "sha256": "25258f95e9eaa462d31954957d60b0798a1e35e64bbbafd2d4bfce435bce0887"
+        }
+      ]
+    },
+    {
+      "name": "experiment-figures.zip",
+      "bytes": 3011937,
+      "sha256": "25bd056fe26e6e8494f647cbe4f6041f7375e532598b154eda707ec139de6585",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/revision-20261010/experiment-figures.zip",
+      "files": [
+        {
+          "path": "circular_networks/README.txt",
+          "bytes": 2664,
+          "sha256": "bbaf06ae18bb31fb85512a0cf3dbde7ae6c1a49688695c5fef100101f55f8e2c"
+        },
+        {
+          "path": "circular_networks/circular_networks.pdf",
+          "bytes": 73184,
+          "sha256": "f82a66522f5859d877c3024231789811669682962a85da966ed79c276946fb7c"
+        },
+        {
+          "path": "circular_networks/circular_networks.png",
+          "bytes": 630897,
+          "sha256": "17146a98c6fb61603ebf887fd92469fa7a450e0e070fa1d41a3ccd8d1473aa21"
+        },
+        {
+          "path": "circular_networks/circular_networks.svg",
+          "bytes": 221667,
+          "sha256": "d1427f34ab94d6553922c30517afd2f4f9ec3506d3f8ba42a1c7189afe53f99c"
+        },
+        {
+          "path": "circular_networks/data/analysis_manifest.json",
+          "bytes": 2318,
+          "sha256": "7c322f58d42a7777822c00985f1a826fa04f0af44a3b981f6fc6484eeb9f79a5"
+        },
+        {
+          "path": "circular_networks/data/network_pairs_primary.csv",
+          "bytes": 12736,
+          "sha256": "44034b830c02363dd474c278f71893b0f79cce9c54211d27e3bdfda18fcca396"
+        },
+        {
+          "path": "circular_networks/data/panel_ab_summary.csv",
+          "bytes": 2029,
+          "sha256": "efcd6529e590b75b0f76e5dc83d07d1e466fad20210c59d12a6c70ce31e40e34"
+        },
+        {
+          "path": "circular_networks/data/regions.csv",
+          "bytes": 1554,
+          "sha256": "c4d0d3a5453ac8224ce37078861bf190a3d8006192528116b02a3c292f6d8351"
+        },
+        {
+          "path": "circular_networks/data/three_stage_all_candidates.csv",
+          "bytes": 3076297,
+          "sha256": "2be97c4891ad69d981016e10468e4d19e1ee66e7f7ab378a024ad020639c155e"
+        },
+        {
+          "path": "circular_networks/data/three_stage_summary.csv",
+          "bytes": 1758,
+          "sha256": "325a74328dd72052b428d86bd9dc9c7dee34014559d0852e7a1dfc677c90cd5f"
+        },
+        {
+          "path": "circular_networks/preview_6p3in.png",
+          "bytes": 276866,
+          "sha256": "f2af574ea500918005412d3f364ddef7ef43ceee7ed380b9442f8fe4644bec9a"
+        },
+        {
+          "path": "circular_networks/provenance.json",
+          "bytes": 1396,
+          "sha256": "6c2e57fc3677242d8f309d9001d4a3fd762ceb01821ef86e609a7673d5842fd0"
+        },
+        {
+          "path": "circular_networks/render_networks.py",
+          "bytes": 12923,
+          "sha256": "bc9b2cc7e5637de60c5d09224c89002a30bb5e3d17429ab683281cf55d1b0979"
+        },
+        {
+          "path": "circular_networks/validation.json",
+          "bytes": 2014,
+          "sha256": "ae611c15b20b956eb731d709290997d4cb094c088c8e73888bde750f5fd84b7a"
+        },
+        {
+          "path": "circular_networks/verify_networks.py",
+          "bytes": 6730,
+          "sha256": "4b85996882fc8cbc301ddf32ca4717f959236ad87109d9d2fff1bd451a521bf8"
+        },
+        {
+          "path": "seasonal_state_contrasts/README.md",
+          "bytes": 3670,
+          "sha256": "404692796809f4985c51996f755d59bda7aea75d43e3c6a65fc5484128867373"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/plotted_values.csv",
+          "bytes": 2732,
+          "sha256": "d141be8d54375d12adcf09c05b062fe5d204c8db8167e79998a4b186317e1c2b"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/preview_6_3in_150dpi.png",
+          "bytes": 97762,
+          "sha256": "a6027535c554fc2c8c14d95dd5bf59fdb210526084700d5bfb140a6ea6e78b39"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/seasonal_state_contrasts.pdf",
+          "bytes": 48919,
+          "sha256": "57693939a0c2e3ad48f6bc77b21b84707333336a7493ddd508be656d79ba3d8c"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/seasonal_state_contrasts.png",
+          "bytes": 520452,
+          "sha256": "7cc7ff4df4f1e23b481aeb373b0350c9d8551c8c81385fcd3d6d03e640a554b5"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/seasonal_state_contrasts.svg",
+          "bytes": 134840,
+          "sha256": "be020cc392abe85113fdabdb8621e4ab5b8113138b50f2f7b022581485a3c83c"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/value_audit.json",
+          "bytes": 7947,
+          "sha256": "20850d14f9ac3d74921f26effbdf10db99967837f3d7b11bdb83c8e3d99155b9"
+        },
+        {
+          "path": "seasonal_state_contrasts/outputs/verification.json",
+          "bytes": 6545,
+          "sha256": "314de2393d53dfdf222c80f02c5f34a8c7587d829c0f63066d77c3791f306b8f"
+        },
+        {
+          "path": "seasonal_state_contrasts/provenance.json",
+          "bytes": 3330,
+          "sha256": "01f5b27428cb49e66c31dbb08837b1d05891596b7b0d526d43ea45ba5eb02974"
+        },
+        {
+          "path": "seasonal_state_contrasts/render_state_contrasts.py",
+          "bytes": 13851,
+          "sha256": "b149bc77768e379b2b6193501cb854d8b93fa1067e1853d4e9f3dd603af973c0"
+        },
+        {
+          "path": "seasonal_state_contrasts/requirements.txt",
+          "bytes": 32,
+          "sha256": "b8b61a802df2f93ab82c585b1182bc91d91bab28e0b4a7e0dc30b76b1d8833f6"
+        },
+        {
+          "path": "seasonal_state_contrasts/source_data/hemisphere_contrasts_design.json",
+          "bytes": 4534,
+          "sha256": "38b88302a61d36c6181166817f5acb34cf3b9175cd19d2f0ebc7f54002d9b21a"
+        },
+        {
+          "path": "seasonal_state_contrasts/source_data/hemisphere_edge_type_averages.csv",
+          "bytes": 6594,
+          "sha256": "39313963932c5fa23ef22a9997150a4f6a0b2bca72df705fbdd81aee267d3a0c"
+        },
+        {
+          "path": "seasonal_state_contrasts/source_data/regime_contrasts_design.json",
+          "bytes": 853,
+          "sha256": "d5bed44419a0468e0ed08a7632cd9c5db3307095c961ec5b9848cb0190e37f2e"
+        },
+        {
+          "path": "seasonal_state_contrasts/source_data/regime_interaction_summary.csv",
+          "bytes": 8221,
+          "sha256": "d0a39e609267b4a2c300fbbdc85bf75e9741fd5b6c370c8c225fb293312b5bf2"
+        },
+        {
+          "path": "seasonal_state_contrasts/verify_state_contrasts.py",
+          "bytes": 5286,
+          "sha256": "829246fc6ccceebb5521fc7df83d0c51d2f89bffa134f432d19d5c450fcfd688"
+        }
+      ]
+    },
+    {
+      "name": "13_WHEC_amendment_inputs.zip",
+      "bytes": 210066817,
+      "sha256": "bd693fd8f24888fd3478e25bb9f1120755452381c30b5ce7866e9f55a0c0d464",
+      "url": "https://github.com/gengx-prog/causal-weathergraph/releases/download/revision-20261010/13_WHEC_amendment_inputs.zip",
+      "files": [
+        {
+          "path": "whec_index_corrected_20261009/correction_amendment.json",
+          "bytes": 1738,
+          "sha256": "cb4c0c0ae192ef4861ecd5b0186cb6c283c0d60f6f32fe9fe1c07da908efcd8f"
+        },
+        {
+          "path": "whec_index_corrected_20261009/manifest.json",
+          "bytes": 5400,
+          "sha256": "5b0386cd1e210911de33c742c59bd2243f9a0444cca6a706909f45087b001216"
+        },
+        {
+          "path": "whec_index_corrected_20261009/whec_parameters.npz",
+          "bytes": 22082,
+          "sha256": "da76cba21a543d6bc00ecae3ee3021606c5d75bd95fb6a50396fd8b81d04815d"
+        },
+        {
+          "path": "whec_index_corrected_20261009/whec_regional.npz",
+          "bytes": 210078225,
+          "sha256": "410024b59dd38f5cf0414e8a0496844e4b52d16c581c6dd7fa944f5cc0de24bb"
+        }
+      ]
+    }
+  ],
+  "metadata_note": "Host-identifying metadata is omitted and source paths use relative labels. Source/code/design hashes inside historical execution records remain original execution fingerprints, not checksums of edited public snapshots; the asset and member hashes here describe distributed bytes."
+}

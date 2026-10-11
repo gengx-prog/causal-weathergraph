@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "inputs_unchanged_sha256": true,
+  "candidate_rows": 2574,
+  "regions_in_each_network": 66,
+  "stage_counts_and_descriptive_rates_recomputed": true,
+  "networks": {
+    "wind_to_humidity": {
+      "selected_edge_lags": 117,
+      "drawn_unique_pairs": 77,
+      "local_pairs": 45,
+      "cross_region_pairs": 32,
+      "included_old_dateline_omissions_pairs": 4,
+      "included_old_dateline_omissions_edge_lags": 6
+    },
+    "humidity_to_cloud_cover": {
+      "selected_edge_lags": 133,
+      "drawn_unique_pairs": 90,
+      "local_pairs": 46,
+      "cross_region_pairs": 44,
+      "included_old_dateline_omissions_pairs": 5,
+      "included_old_dateline_omissions_edge_lags": 6
+    }
+  },
+  "all_selected_pairs_included": true,
+  "no_top_n_or_effect_threshold_filter": true,
+  "no_independent_binomial_intervals": true,
+  "width_in": 6.3000000847710504,
+  "height_in": 5.3000000847710504,
+  "height_width_ratio": 0.8412698434056701,
+  "pdf_raster_image_count": 0,
+  "pdf_text_outside_canvas": [],
+  "svg_longest_label_characters": 72,
+  "minimum_pdf_text_size_pt": 7.1999993324279785,
+  "svg_region_id_labels": 132,
+  "region_label_size_pt": 7.2,
+  "region_label_placement": "Alternating radial positions with outward-facing, upright labels.",
+  "other_text_minimum_authored_size_pt": 7.5,
+  "visual_review": "Checked preview at 6.3-inch target width. Count labels are outside the networks; pair counts and lag legend occupy separate rows. No curves are hidden with white text masks. All 132 region IDs use 7.2-point outward radial labels, avoiding concatenated tangential numbers; legends and axes use at least 7.5 points.",
+  "outputs_sha256": {
+    "circular_networks.pdf": "f82a66522f5859d877c3024231789811669682962a85da966ed79c276946fb7c",
+    "circular_networks.svg": "d1427f34ab94d6553922c30517afd2f4f9ec3506d3f8ba42a1c7189afe53f99c",
+    "circular_networks.png": "17146a98c6fb61603ebf887fd92469fa7a450e0e070fa1d41a3ccd8d1473aa21"
+  }
+}

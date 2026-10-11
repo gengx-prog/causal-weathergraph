@@ -1,0 +1,29 @@
+{
+  "figure": "Circular regional dependency networks",
+  "inputs": [
+    {
+      "file": "data/regions.csv",
+      "sha256": "c4d0d3a5453ac8224ce37078861bf190a3d8006192528116b02a3c292f6d8351",
+      "origin": "Recorded scientific data; the preserved SHA-256 identifies the exact input bytes."
+    },
+    {
+      "file": "data/three_stage_all_candidates.csv",
+      "sha256": "2be97c4891ad69d981016e10468e4d19e1ee66e7f7ab378a024ad020639c155e",
+      "origin": "Recorded scientific data; the preserved SHA-256 identifies the exact input bytes."
+    },
+    {
+      "file": "data/three_stage_summary.csv",
+      "sha256": "325a74328dd72052b428d86bd9dc9c7dee34014559d0852e7a1dfc677c90cd5f",
+      "origin": "Recorded scientific data; the preserved SHA-256 identifies the exact input bytes."
+    },
+    {
+      "file": "data/analysis_manifest.json",
+      "sha256": "7c322f58d42a7777822c00985f1a826fa04f0af44a3b981f6fc6484eeb9f79a5",
+      "origin": "Recorded scientific data; the preserved SHA-256 identifies the exact input bytes."
+    }
+  ],
+  "no_new_analysis_or_selection": true,
+  "layout": "All primary-period replicated hypotheses, collapsed over lag only for drawing unique region pairs; no top-N selection.",
+  "current_primary_period": "2019-01-01 to 2023-01-10",
+  "encoding_scope": "Descriptive rates, no independent-binomial Wilson intervals; unconfirmed comparison is not known null."
+}

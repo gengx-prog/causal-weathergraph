@@ -1,0 +1,33 @@
+# Local environments, downloads, and generated outputs
+.venv/
+.venv-*/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.build/
+artifacts/data/
+artifacts/downloads/
+raw-data/
+raw-data-downloads/
+outputs/*
+!outputs/.gitkeep
+Thumbs.db
+.DS_Store
+
+# Keep private document sources outside the experiment repository.
+manuscript/
+response/
+*.tex
+*.bib
+*.doc
+*.docx
+*.aux
+*.blg
+*.log
+*.out
+*.spl
+*.synctex.gz
+*.fls
+*.fdb_latexmk
