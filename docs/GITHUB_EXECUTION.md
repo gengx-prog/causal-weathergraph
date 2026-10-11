@@ -5,6 +5,12 @@ historical checks below were recorded in October 2026. They do not automatically
 validate the current checkout or every subsequent experiment. Inspect a new
 Actions run before claiming that the current version passed.
 
+The recorded workflows and configurations are reference examples, not mandatory
+or exclusive conditions for reproduction. A passing run does not promise that
+all devices or environments will execute successfully. See the
+[reference and compatibility notice](COMPATIBILITY.md#reference-status-and-compatibility)
+for the scope of these materials and possible external causes of failure.
+
 Opening a Python file on GitHub does not run it or host the optional estimator.
 Use the [local reproduction commands](REPRODUCING.md) or the configured workflows.
 

@@ -34,8 +34,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3457,
-      "sha256": "8d16f8391ec9e66c32d96014c4b767b308b5f3f1d2c12706dba78b643a026a11"
+      "bytes": 4951,
+      "sha256": "d593838341cc0702247d9171f4db711fec44c4fbf7a26bdeb25e0aa22fb95b0b"
     },
     {
       "path": "artifacts/RAW_SHA256SUMS.txt",
@@ -79,13 +79,13 @@
     },
     {
       "path": "docs/COMPATIBILITY.md",
-      "bytes": 5302,
-      "sha256": "b26d42aaf5f30a5faf1e2cc49fdf6e5f9c4cb4d7d77914bbe30ee2cbfae97ff1"
+      "bytes": 7354,
+      "sha256": "f0c75d34ae9b86f19e1f1b9093f4192729e460c7afcf206080d5085af236a58c"
     },
     {
       "path": "docs/GITHUB_EXECUTION.md",
-      "bytes": 7183,
-      "sha256": "ead4d67e28b8528064a15f9dbf08ab5059f89077862a15d227144070ff993e4d"
+      "bytes": 7569,
+      "sha256": "c08d9c9a44941e8fa64faf2ae491e20e194b23f4d749ce89ae3f127413974649"
     },
     {
       "path": "docs/RAW_DATA.md",
@@ -99,13 +99,13 @@
     },
     {
       "path": "docs/REPRODUCING.md",
-      "bytes": 6267,
-      "sha256": "15127a66686cc8688957d1812cb5196c23760bb22a701753af28748447eda4c9"
+      "bytes": 6813,
+      "sha256": "9c794e03a84e4fe9c521edfb8ec361719b883c8efcbdae80c470b4fc413dda98"
     },
     {
       "path": "docs/SOFTWARE.md",
-      "bytes": 3947,
-      "sha256": "7a4d4547e8202417ad8dadb37b15921c6d1750f8eee02b54c469f86b2cb29fe4"
+      "bytes": 4449,
+      "sha256": "5b9c3de898e28c88c73799c2bb40b6f456999121edcc14b9bcc17d38568b3a75"
     },
     {
       "path": "docs/WHEC_AMENDMENT_20261009.md",

@@ -5,9 +5,32 @@ and reproducibility records for regional wind, humidity, and cloud dependencies.
 The analyses examine lagged observational associations; they do not establish
 interventional causation or physical propagation times.
 
+## Reference-only notice / 参考用途说明
+
+All materials in this repository and its releases are provided for research and
+reference. The documented software versions, configuration examples, commands,
+and execution records are reference setups, not mandatory or exclusive conditions
+for reproduction. An equivalent compatible setup may be used; matching a recorded
+setup does not guarantee successful execution on every device.
+
+A failure in another environment does not, by itself, establish a defect in this
+project. Dependency conflicts, missing inputs or optional models, path and
+permission settings, resource limits, and external download services can prevent
+execution. See the [compatibility guide](docs/COMPATIBILITY.md) for diagnosis.
+Comparison with a reported scientific result still requires the corresponding
+inputs, preprocessing, analysis settings, and numerical checks.
+
+本仓库及 Release 中的全部内容仅供研究与参考。所列软件版本、配置示例、
+运行命令及历史运行记录，不作为复现的强制条件或唯一条件，也不保证在所有
+设备上直接运行成功。其他设备运行失败可能与依赖冲突、数据或模型缺失、
+路径与权限、资源限制或外部下载服务有关，不能仅凭一次失败认定为本项目
+的问题。使用者可采用等效的兼容环境；对照具体实验结果时，仍需匹配相应的
+科学输入、处理方法和验证标准。
+
 ## Run the experiments
 
-Use a fresh Python 3.13.7 environment for the statistical checks:
+The examples use a fresh Python 3.13.7 environment as one reference setup for
+the statistical checks:
 
 ```bash
 python -m venv .venv

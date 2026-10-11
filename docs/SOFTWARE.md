@@ -1,9 +1,17 @@
 # Software installation and dependencies
 
-Use **CPython 3.13.7** and [`requirements-test.txt`](../requirements-test.txt)
-for the portable statistical checks. Create an isolated virtual environment
-without `--system-site-packages`. The unit checks and small synthetic simulation
-do not require meteorological downloads, provider accounts or a GPU.
+The recorded reference profile uses **CPython 3.13.7** and
+[`requirements-test.txt`](../requirements-test.txt) for the portable statistical
+checks. The versions and commands on this page are provided for reference, not
+as mandatory or exclusive conditions for reproduction. Equivalent compatible
+software may be used, with its outputs checked against the relevant experimental
+criteria. The pinned profile is an installation example, not a guarantee that
+every platform can install or run it. See the
+[reference and compatibility notice](COMPATIBILITY.md#reference-status-and-compatibility).
+
+For the example profile, create an isolated virtual environment without
+`--system-site-packages`. The unit checks and small synthetic simulation do not
+require meteorological downloads, provider accounts or a GPU.
 
 ## Dependency records
 

@@ -6,11 +6,20 @@ separate entry points and reference data. The historical 24-table workflow does
 not cover every later experiment. Historical numerical receipts do not replace
 fresh validation of the current checkout.
 
+All materials and commands are supplied for research and reference. The setup
+below is one recorded route, not a mandatory or exclusive reproduction
+environment. An equivalent compatible setup may be used. Reproducing a specified
+result still calls for its corresponding scientific inputs, preprocessing,
+analysis choices, and comparison criteria. See the
+[reference and compatibility notice](COMPATIBILITY.md#reference-status-and-compatibility)
+for conditions that can prevent execution in another environment.
+
 Start here after cloning the repository. Run commands from its root. The
 [software guide](SOFTWARE.md) gives Python/dependency versions and isolated
 installation steps for the supported commands.
-Use CPython 3.13.7 and `python -m pip install -r requirements-test.txt` in a new
-virtual environment. In PowerShell, replace `python` below with
+To follow the reference profile, use CPython 3.13.7 and
+`python -m pip install -r requirements-test.txt` in a new virtual environment.
+In PowerShell, replace `python` below with
 `& .\.venv\Scripts\python.exe` if that environment is not activated.
 
 For GitHub Actions, first read [the execution status and remedies](GITHUB_EXECUTION.md).
