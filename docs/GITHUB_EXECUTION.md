@@ -1,15 +1,10 @@
 # Running experiments on GitHub
 
-This guide separates retained numerical receipts from a new execution. The
-historical checks below were recorded in October 2026. They do not automatically
-validate the current checkout or every subsequent experiment. Inspect a new
-Actions run before claiming that the current version passed.
-
-The recorded workflows and configurations are reference examples, not mandatory
-or exclusive conditions for reproduction. A passing run does not promise that
-all devices or environments will execute successfully. See the
-[reference and compatibility notice](COMPATIBILITY.md#reference-status-and-compatibility)
-for the scope of these materials and possible external causes of failure.
+For the local one-command CPU demo and core comparisons, start with the
+[reviewer quickstart](REVIEWER_QUICKSTART.md). The workflows below provide
+hosted checks with downloadable logs and numerical receipts. Inspect the run
+for the commit you are reviewing; the historical records identify earlier
+executions and their scientific scope.
 
 Opening a Python file on GitHub does not run it or host the optional estimator.
 Use the [local reproduction commands](REPRODUCING.md) or the configured workflows.
@@ -18,7 +13,7 @@ Use the [local reproduction commands](REPRODUCING.md) or the configured workflow
 
 | Task | Recorded result | Receipt and scope |
 | --- | --- | --- |
-| CPU unit/numerical checks | Windows and Ubuntu: 173 passed, 13 model-dependent checks skipped | [Raw-data validation receipt](../validation/raw-data-local.json). The skipped checks require separate trained models. |
+| CPU unit/numerical checks | Recorded Windows and Ubuntu checks; consult the receipt for counts | [Raw-data validation receipt](../validation/raw-data-local.json). Model-dependent skips require separate trained artifacts. Current counts belong to the current run. |
 | Small synthetic simulation | One repetition per scenario; two null scenarios and five graph scenarios | [Clean installation receipt](../environment/validation-clean-20261008.json). This is a command/output smoke test, not full calibration. |
 | Raw-data subset extraction | 85 files verified in the local restore test | [Local raw-data receipt](../validation/raw-data-local.json). It covers the legacy CDS extension, January 2019 CERES pilot and source metadata, not the whole raw archive. |
 | Core + two CERES settings + WHEC from processed inputs | All 24 tables and the WHEC design/period/decision checks passed on the recorded Ubuntu run | [Per-table receipt](../validation/github-experiments-all-20261008.json). Four analysis jobs took about 342 seconds, excluding setup/download. |
@@ -47,9 +42,9 @@ The analysis and unit workflows install the pinned CPU dependencies. The raw
 checksum workflow uses the Python standard library. Archived public downloads
 do not require CDS/NASA credentials. Input checksums must match.
 
-Manual workflow dispatch requires repository write access. Without it, use an
-existing result, run locally, or fork the repository and enable Actions there.
-This permission requirement is separate from whether the experiment code works.
+Manual workflow dispatch requires repository write access. Reviewers can run the
+[local quickstart](REVIEWER_QUICKSTART.md), inspect existing artifacts, or fork
+the repository and enable Actions to execute their own hosted checks.
 
 ## Resource and compatibility limits
 
@@ -60,7 +55,7 @@ This permission requirement is separate from whether the experiment code works.
 | Missing optional cloud estimator | A clean checkout does not include its trained bundle in `../revision_outputs/cloud_simulator_v1/`. This is a CPU scikit-learn prototype; its absence is not a GPU problem. See the recovery route below. |
 | Historical path not found | Some helpers expect a previous workspace layout or sibling data directory. Prefer the portable runner's input/output options. Adapt other helpers in a separate copy and verify their outputs; never overwrite archived results. |
 | Interrupted transfer or checksum mismatch | Follow the downloader's reported error. Resume an interrupted transfer where supported. A completed file with a wrong hash is not accepted as valid scientific input. |
-| Failure on a different machine | Check the command, inputs, dependency versions, memory, disk and error details. These are candidate causes, not proof that the computer is at fault. Reproducible failures may be project defects; report them through the issue tracker. |
+| Failed documented workflow | Preserve the command, commit, environment and error trace. Report the failing stage so maintainers can reproduce and fix problems in code, dependencies or instructions. |
 
 Use the [software guide](SOFTWARE.md) and [compatibility guidance](COMPATIBILITY.md)
 for installation and diagnosis. The graph-analysis checks run on CPU and do not
@@ -89,7 +84,7 @@ python revision/cloud_simulator/app.py --artifacts ../revision_outputs/cloud_sim
 Preserve existing trained artifacts. These tests use the fixed
 `cloud_simulator_v1` path and horizon-0 protocol. Other horizons require separate
 protocols/checks, and changing the training directory does not change that lookup.
-New training is not guaranteed to reproduce historical model bytes or metrics.
+New training needs its own comparison against the historical metrics and protocol.
 The app runs locally; it is not deployed by GitHub Actions.
 
 The [weather-token experiment](../revision/weather_tokens/) needs PyTorch,

@@ -12,11 +12,24 @@ PRIVATE_SUFFIXES = {'.tex', '.bib', '.doc', '.docx', '.csl'}
 PRIVATE_NAMES = re.compile(
     r'(^|[/_ -])(manuscript|reviewers?|submission|highlights)([/_. -]|$)', re.I
 )
+# These exact public execution entry points contain "reviewer" in their name.
+# This does not permit response letters, manuscript sources, or renamed copies.
+PUBLIC_REVIEWER_PATHS = frozenset({
+    '.github/workflows/reviewer-demo.yml',
+    'scripts/reviewer_quickstart.py',
+    'tests/test_reviewer_demo.py',
+    'tests/test_reviewer_quickstart.py',
+    'docs/REVIEWER_QUICKSTART.md',
+})
 
 
 def excluded_path(name: str) -> bool:
     path = PurePosixPath(name.replace('\\', '/'))
-    return path.suffix.lower() in PRIVATE_SUFFIXES or bool(PRIVATE_NAMES.search(path.as_posix()))
+    if path.suffix.lower() in PRIVATE_SUFFIXES:
+        return True
+    if path.as_posix() in PUBLIC_REVIEWER_PATHS:
+        return False
+    return bool(PRIVATE_NAMES.search(path.as_posix()))
 
 
 def check_paths(root: Path, names: list[str]) -> list[str]:

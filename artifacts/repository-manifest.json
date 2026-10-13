@@ -28,14 +28,19 @@
       "sha256": "3e2fd3e1b1832ff4fb2d49de8a2cc6056d3e36ac63fb46490a5fd5a4ba95711e"
     },
     {
+      "path": ".github/workflows/reviewer-demo.yml",
+      "bytes": 885,
+      "sha256": "c78347d4b35dcc8ee8844a844ace8feeff0f247b74c79345345fb1ff708fdc86"
+    },
+    {
       "path": ".gitignore",
       "bytes": 432,
       "sha256": "c83dd740f86414a2a122c41c2cfd7b94257327c8bff363207fe21cb96ab231ff"
     },
     {
       "path": "README.md",
-      "bytes": 4951,
-      "sha256": "d593838341cc0702247d9171f4db711fec44c4fbf7a26bdeb25e0aa22fb95b0b"
+      "bytes": 6140,
+      "sha256": "ebbbdfda1cf4fbdc662c92f49337644b6dac575ca781b4fc7451ae5cbb321d37"
     },
     {
       "path": "artifacts/RAW_SHA256SUMS.txt",
@@ -79,13 +84,18 @@
     },
     {
       "path": "docs/COMPATIBILITY.md",
-      "bytes": 7354,
-      "sha256": "f0c75d34ae9b86f19e1f1b9093f4192729e460c7afcf206080d5085af236a58c"
+      "bytes": 5593,
+      "sha256": "cc668f580473bb1ef5b493a7999fa0b515f2ec2ee3dc7d5fed123ef088457d31"
     },
     {
       "path": "docs/GITHUB_EXECUTION.md",
-      "bytes": 7569,
-      "sha256": "c08d9c9a44941e8fa64faf2ae491e20e194b23f4d749ce89ae3f127413974649"
+      "bytes": 7205,
+      "sha256": "5a6efa9279da6fa5c33e7df131a0d3e4e5abd871096d5b357c306b0ba54ff7ea"
+    },
+    {
+      "path": "docs/QUICKSTART_RELEASE_20261013.md",
+      "bytes": 3596,
+      "sha256": "eb8fbd0d72d45af1bb1926cf8695d176a4e15e7810500f33dbf31a51af30aafa"
     },
     {
       "path": "docs/RAW_DATA.md",
@@ -99,13 +109,18 @@
     },
     {
       "path": "docs/REPRODUCING.md",
-      "bytes": 6813,
-      "sha256": "9c794e03a84e4fe9c521edfb8ec361719b883c8efcbdae80c470b4fc413dda98"
+      "bytes": 6549,
+      "sha256": "5659396c3e69d804197ed3c0fc793d3ca9530d2b3eee14ad504cdb577d304040"
+    },
+    {
+      "path": "docs/REVIEWER_QUICKSTART.md",
+      "bytes": 5270,
+      "sha256": "ddd2176310c25fe449cb120ecdc8e4bddc5109e253dab7464d701c77ff337dbc"
     },
     {
       "path": "docs/SOFTWARE.md",
-      "bytes": 4449,
-      "sha256": "5b9c3de898e28c88c73799c2bb40b6f456999121edcc14b9bcc17d38568b3a75"
+      "bytes": 4153,
+      "sha256": "21f490025d477e8e239b84ce580b1e7a0f9cb059fe1cd605826a62c6327a5f92"
     },
     {
       "path": "docs/WHEC_AMENDMENT_20261009.md",
@@ -128,6 +143,16 @@
       "sha256": "6bf1f23c73ce6641f78cefadd5ea17f12a4211d6d83d968fc3bddc4e09700769"
     },
     {
+      "path": "environment/quickstart-core-installed-20261013.txt",
+      "bytes": 778,
+      "sha256": "d2ef94da89a682f2785940840262b20c7238a3f968071a9f052ced6a9840a7cb"
+    },
+    {
+      "path": "environment/quickstart-demo-installed-20261013.txt",
+      "bytes": 97,
+      "sha256": "e7aa16eafd2fdcaa09788f8f745c18bf08d3f2bd498318f65e1c09e77fbbac6d"
+    },
+    {
       "path": "environment/validation-clean-20261008.json",
       "bytes": 2373,
       "sha256": "5c5d7d06a04b292c767ef9638fd1f5c952ee5982139a9f1ea6c09f2efde192a5"
@@ -136,6 +161,11 @@
       "path": "outputs/.gitkeep",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "requirements-demo.txt",
+      "bytes": 226,
+      "sha256": "356daf93f6407eda0e1f869af4dd53b09e33679c79ef671d326f8d351697c351"
     },
     {
       "path": "requirements-figures.txt",
@@ -659,8 +689,8 @@
     },
     {
       "path": "scripts/check_repository_scope.py",
-      "bytes": 1515,
-      "sha256": "90ee94bb47953ebf012cc98863d7c03873aeaa46d7ada38fa419f0eeca08f005"
+      "bytes": 1999,
+      "sha256": "5948b14e9a2392809624fff4fcf9ed580020eefb1c3e708504bfbac1fe464f87"
     },
     {
       "path": "scripts/collect_environment.py",
@@ -686,6 +716,11 @@
       "path": "scripts/reproduce.py",
       "bytes": 8571,
       "sha256": "535e204d2d3f74d205a4473a140ee53484ae3be0e3916a150f81b85d0268f660"
+    },
+    {
+      "path": "scripts/reviewer_quickstart.py",
+      "bytes": 10779,
+      "sha256": "add5ea8381d3cad9f74d3f410f8d7900847974fa2e65f9021f7f70175b99206b"
     },
     {
       "path": "scripts/run_all.py",
@@ -716,6 +751,11 @@
       "path": "scripts/run_data_time_audit.py",
       "bytes": 7079,
       "sha256": "8b21df0fa4f45b619e36346ac70d09e6449d01cb94df5f7ad82ca6c050bbdadf"
+    },
+    {
+      "path": "scripts/run_demo.py",
+      "bytes": 10504,
+      "sha256": "0180772156a6cbb08f1ad636b9eb4259fdc4f5771e4d3328925860a13e271f47"
     },
     {
       "path": "scripts/run_directionality_controls.py",
@@ -989,13 +1029,23 @@
     },
     {
       "path": "tests/test_repository_scope.py",
-      "bytes": 1130,
-      "sha256": "0681e5c63fa98db4cbf3a295a283687e733ee56c571d11cc399e285a669b5eea"
+      "bytes": 2468,
+      "sha256": "39f1ffa3c5f0f087b526b8f670d9c460956b7604d8ffbdb68899b71a3ab2131e"
     },
     {
       "path": "tests/test_reproduction_receipt.py",
       "bytes": 2506,
       "sha256": "c857ac16a07ac10c05249ef9be831663a50a40e8197bd0863e02d5204fae4226"
+    },
+    {
+      "path": "tests/test_reviewer_demo.py",
+      "bytes": 3712,
+      "sha256": "139eae9043d7c5fb53accea01594aa1765d0c39a34d85be00a314a5d43a6d8c5"
+    },
+    {
+      "path": "tests/test_reviewer_quickstart.py",
+      "bytes": 3771,
+      "sha256": "dcca40d4fea4cd163cf689b0c1ea8f8a1c942eb9dd8b7d1bcc82542ba8bb41e9"
     },
     {
       "path": "tests/test_revision_full_var.py",
@@ -1033,6 +1083,11 @@
       "sha256": "3566ecef0a6add3bf1b69deeb4f0bea5a345decda7c575ef09622eb34a368f80"
     },
     {
+      "path": "validation/artifact-integrity.json",
+      "bytes": 210,
+      "sha256": "fb1afbb055bd6e66f7ca41a3a928ef7f3f7a6e64322d7b718c8415c18d194b3e"
+    },
+    {
       "path": "validation/experiment-reproduction-20261008.json",
       "bytes": 8798,
       "sha256": "d7ead5127d080b47441d905338c3e4fe03a702bfdf6d9cd107a1506cfdb69cd3"
@@ -1056,6 +1111,11 @@
       "path": "validation/github-experiments-all-20261008.json",
       "bytes": 11156,
       "sha256": "5dbaf7aaf2417aaddaa367476e1e5818cb64fc3c3b5f3928461c6cc250e424d3"
+    },
+    {
+      "path": "validation/quickstart-local-20261013.json",
+      "bytes": 5258,
+      "sha256": "a18086a610a577f1fe87a7a5e1f85479bb5c6155e41efed01cc6c0d8795def64"
     },
     {
       "path": "validation/raw-data-local.json",

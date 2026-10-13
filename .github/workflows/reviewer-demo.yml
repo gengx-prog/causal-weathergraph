@@ -1,0 +1,32 @@
+name: Reviewer quick-start
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  demo:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13.7'
+      - name: Run the same fresh-environment entry point shown to reviewers
+        run: python scripts/reviewer_quickstart.py --output outputs/reviewer-ci
+      - name: Retain actual logs and environment records
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reviewer-demo-${{ matrix.os }}
+          path: outputs/reviewer-ci/
+          if-no-files-found: warn
+          retention-days: 14

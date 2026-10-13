@@ -1,0 +1,153 @@
+{
+  "checked_date": "2026-10-13",
+  "date_timezone": "America/Los_Angeles",
+  "base_revision": "c862cd6bf8fe3ea954cc3ce9e74d094967e72d21",
+  "change_status": "Local quickstart changes supplied as source bundle and patch; not yet published to GitHub.",
+  "os": "Windows 11",
+  "python": "CPython 3.13.7",
+  "fresh_isolated_environments": 2,
+  "demo": {
+    "checks_passed": 13,
+    "nodes": 3,
+    "samples": 2048,
+    "total_setup_and_execution_seconds": 30.724,
+    "installation_seconds": 19.812,
+    "demo_process_seconds": 7.077,
+    "metrics": {
+      "own_history": {
+        "tp": 3,
+        "fp": 6,
+        "fn": 0,
+        "tn": 9,
+        "discoveries": 9,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "shd": 6,
+        "fdp": 0.6666666666666666,
+        "any_false_discovery": 1
+      },
+      "all_observed_history": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 0,
+        "tn": 14,
+        "discoveries": 4,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571,
+        "shd": 1,
+        "fdp": 0.25,
+        "any_false_discovery": 1
+      }
+    },
+    "scope": "One synthetic realization using the production calendar-HAC regression code; not paper-result reproduction, neural training, or FDR calibration."
+  },
+  "core": {
+    "reference_tables_passed": 10,
+    "input_files_verified": 16,
+    "public_archive_download_bytes": 144583135,
+    "total_setup_download_and_execution_seconds": 202.884,
+    "analysis_process_seconds": 139.296,
+    "max_absolute_numeric_difference": 1.976829810956815e-11,
+    "tolerances": {
+      "rtol": 1e-07,
+      "atol": 1e-10
+    },
+    "comparisons": [
+      {
+        "file": "stage1_residual_acf_summary.csv",
+        "rows": 8,
+        "columns": 8,
+        "max_absolute_numeric_difference": 2.220446049250313e-16,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_direction_asymmetry.csv",
+        "rows": 12,
+        "columns": 10,
+        "max_absolute_numeric_difference": 1.942890293094024e-14,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_full_var_discovery.csv",
+        "rows": 3816,
+        "columns": 19,
+        "max_absolute_numeric_difference": 7.510658761589184e-14,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_full_var_eval_all.csv",
+        "rows": 3816,
+        "columns": 19,
+        "max_absolute_numeric_difference": 3.938516179857743e-14,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_full_var_eval_cds.csv",
+        "rows": 3816,
+        "columns": 19,
+        "max_absolute_numeric_difference": 4.0967229608668276e-14,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_full_var_eval_wb2.csv",
+        "rows": 3816,
+        "columns": 19,
+        "max_absolute_numeric_difference": 2.7644553313166398e-14,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_full_var_summary.csv",
+        "rows": 24,
+        "columns": 6,
+        "max_absolute_numeric_difference": 2.0122792321330962e-16,
+        "status": "passed"
+      },
+      {
+        "file": "symmetric_matched_pairs.csv",
+        "rows": 7632,
+        "columns": 11,
+        "max_absolute_numeric_difference": 1.3500311979441904e-13,
+        "status": "passed"
+      },
+      {
+        "file": "three_stage_all_candidates.csv",
+        "rows": 2574,
+        "columns": 72,
+        "max_absolute_numeric_difference": 1.976829810956815e-11,
+        "status": "passed"
+      },
+      {
+        "file": "three_stage_summary.csv",
+        "rows": 7,
+        "columns": 29,
+        "max_absolute_numeric_difference": 3.885780586188048e-16,
+        "status": "passed"
+      }
+    ]
+  },
+  "separately_run_test_suite": {
+    "passed": 200,
+    "skipped": 13,
+    "failures": 0,
+    "skip_reason": "Optional separately trained cloud-model artifacts absent."
+  },
+  "source_sha256": {
+    "scripts/reviewer_quickstart.py": "add5ea8381d3cad9f74d3f410f8d7900847974fa2e65f9021f7f70175b99206b",
+    "scripts/run_demo.py": "0180772156a6cbb08f1ad636b9eb4259fdc4f5771e4d3328925860a13e271f47",
+    "requirements-demo.txt": "356daf93f6407eda0e1f869af4dd53b09e33679c79ef671d326f8d351697c351",
+    "requirements-test.txt": "8126e4cfd95c8424dd6d401d30a730cc08911aee94ad6e0d3a77e08c5a7ee6de",
+    "environment/constraints-core-py313.txt": "6bf1f23c73ce6641f78cefadd5ea17f12a4211d6d83d968fc3bddc4e09700769",
+    "revision/simulations.py": "ee49b9beb11616163e429c34a35e6196a40d4dfcb56bfe8556dec85f90364053",
+    "revision/inference.py": "3b05592a6324188f4c73e838da70a52dab1728a345bcbd04ea35b763bd984855",
+    "scripts/reproduce.py": "535e204d2d3f74d205a4473a140ee53484ae3be0e3916a150f81b85d0268f660"
+  },
+  "evidence_bundle": "Reviewer_reproducibility_bundle_20261013.zip",
+  "limitations": [
+    "Fresh environments on the same Windows machine, not an independent machine or collaborator test.",
+    "Package cache was available; setup/runtime are observations, not a universal three-minute promise.",
+    "The new Linux/Windows Actions workflow has not been published or executed on GitHub.",
+    "No Docker image, Colab deployment, full raw-data rerun, all supplementary reruns or optional neural training claimed."
+  ]
+}

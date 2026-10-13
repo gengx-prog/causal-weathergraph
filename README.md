@@ -1,91 +1,122 @@
 # Causal WeatherGraph experiments
 
-Experimental code, atmospheric data, numerical results, visualization tools,
-and reproducibility records for regional wind, humidity, and cloud dependencies.
-The analyses examine lagged observational associations; they do not establish
-interventional causation or physical propagation times.
+Experimental code, atmospheric data, numerical results and reproducibility tools
+for regional wind, humidity and cloud dependencies. The analyses examine lagged
+observational associations; they do not establish interventional causation or
+physical propagation times.
 
-## Reference-only notice / 参考用途说明
+## Start with one command
 
-All materials in this repository and its releases are provided for research and
-reference. The documented software versions, configuration examples, commands,
-and execution records are reference setups, not mandatory or exclusive conditions
-for reproduction. An equivalent compatible setup may be used; matching a recorded
-setup does not guarantee successful execution on every device.
+Download or clone this repository, install **CPython 3.13**, and open a terminal
+in the repository folder. The launcher creates an isolated environment, installs
+the pinned CPU dependencies and runs a small three-node regression experiment
+using the project's scientific code.
 
-A failure in another environment does not, by itself, establish a defect in this
-project. Dependency conflicts, missing inputs or optional models, path and
-permission settings, resource limits, and external download services can prevent
-execution. See the [compatibility guide](docs/COMPATIBILITY.md) for diagnosis.
-Comparison with a reported scientific result still requires the corresponding
-inputs, preprocessing, analysis settings, and numerical checks.
+Windows PowerShell:
 
-本仓库及 Release 中的全部内容仅供研究与参考。所列软件版本、配置示例、
-运行命令及历史运行记录，不作为复现的强制条件或唯一条件，也不保证在所有
-设备上直接运行成功。其他设备运行失败可能与依赖冲突、数据或模型缺失、
-路径与权限、资源限制或外部下载服务有关，不能仅凭一次失败认定为本项目
-的问题。使用者可采用等效的兼容环境；对照具体实验结果时，仍需匹配相应的
-科学输入、处理方法和验证标准。
+~~~powershell
+py -3.13 scripts/reviewer_quickstart.py
+~~~
 
-## Run the experiments
+Linux:
 
-The examples use a fresh Python 3.13.7 environment as one reference setup for
-the statistical checks:
+~~~bash
+python3.13 scripts/reviewer_quickstart.py
+~~~
 
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\Activate.ps1
-# Linux: source .venv/bin/activate
-python -m pip install -r requirements-test.txt
-python scripts/verify_artifacts.py
-python -m pytest tests -q -rs
-python scripts/download_artifacts.py --asset core-inputs.zip
-python scripts/reproduce.py --experiment core --output outputs/core-check
-```
+No environment activation, GPU, CUDA, provider account or atmospheric-data
+download is needed. Initial dependency installation uses the internet.
+Results, logs, installed versions and a verification receipt are preserved in a
+new `outputs/reviewer-demo-*` directory. Installation time is recorded separately
+from computation.
 
-The [reproduction guide](docs/REPRODUCING.md) covers the core, CERES, and WHEC
-analyses. The `all` profile compares 24 reference CSV tables from the October 8
-experimental configuration. The [WHEC correction guide](docs/WHEC_AMENDMENT_20261009.md)
-describes the separate October 9 configuration and its reference comparisons.
-These profiles do not rerun every archived experiment or acquire the full raw data.
+To recompute the **10 core result tables from archived atmospheric inputs**,
+append `--core`:
+
+~~~powershell
+py -3.13 scripts/reviewer_quickstart.py --core
+~~~
+
+On Linux, use `python3.13` in place of `py -3.13`. This option installs the broader
+CPU profile, obtains verified inputs and compares the computed tables with their
+references. The [reviewer quickstart](docs/REVIEWER_QUICKSTART.md) explains the
+outputs, download size and existing-input option.
+
+复现入口自动建立隔离环境、安装依赖并运行小型数值实验，无需 GPU 或 CUDA。
+加上 `--core` 可核对 10 张核心结果表。日志、环境及核对记录保存在新输出目录中。
+
+## Reproduce the other experiments
+
+The [reproduction guide](docs/REPRODUCING.md) covers the core, CERES and historical
+WHEC analyses. Its `all` profile compares 24 tables from the October 8
+configuration. The [WHEC correction guide](docs/WHEC_AMENDMENT_20261009.md)
+documents the separate October 9 temporal-control correction. Each route
+identifies its inputs and scientific scope.
 
 ## Data and results
 
+- [Quickstart release and verified execution bundle (13 October)](https://github.com/gengx-prog/causal-weathergraph/releases/tag/quickstart-20261013)
 - [Processed inputs and experiment evidence](https://github.com/gengx-prog/causal-weathergraph/releases/tag/reproducibility-20261008.1)
-- [Additional experiment results, circular plots, and corrected WHEC inputs](https://github.com/gengx-prog/causal-weathergraph/releases/tag/revision-20261010)
+- [Additional results, circular plots and corrected WHEC inputs](https://github.com/gengx-prog/causal-weathergraph/releases/tag/revision-20261010)
 - [Raw ERA5/WB2 and CERES data](docs/RAW_DATA.md), with [provider and licensing information](docs/RAW_DATA_SOURCES.md)
 - [Artifact inventories and SHA-256 verification](docs/ARTIFACTS.md)
 - [Analysis modules](revision/README.md) and [validation records](validation/README.md)
 
-Raw input archives total approximately 108.69 GB. Select only the datasets needed
-for an experiment; processed inputs provide a smaller starting point.
+Raw archives total approximately 108.69 GB. The demo generates its own input;
+the core option uses the much smaller processed-input archive.
 
-## Software and compatibility
+## Installation and help
 
-See the [software guide](docs/SOFTWARE.md) for Python, dependency constraints
-and isolated installation instructions. The core statistical analyses use the
-CPU; optional neural models have separate PyTorch and input requirements.
-The [compatibility guide](docs/COMPATIBILITY.md) covers missing inputs,
-dependency conflicts and workload resource limits. Reproducible software defects
-should be reported through the issue tracker.
+The [software guide](docs/SOFTWARE.md) explains the dependency profiles.
+The [troubleshooting guide](docs/COMPATIBILITY.md) explains how to locate the
+failing stage and report it. Failures in the documented route should be reported
+so maintainers can investigate the code, dependencies and instructions.
+Optional neural models and trained prototypes have separate setup steps.
 
 ## Visualize experimental results
 
-```bash
+Use the interpreter from your chosen virtual environment:
+
+~~~bash
 python -m pip install -r requirements-figures.txt
 python scripts/verify_experiment_figures.py --output outputs/circular-figure-check
-```
+~~~
 
-The `visualization/` directory contains the source values and renderers for circular
-regional networks and seasonal/state contrast plots. Results are exported as PDF,
-SVG, and PNG, with numerical checks against the recorded source values.
+The `visualization/` directory contains source values and renderers for circular
+regional networks and seasonal/state contrasts, with numerical and vector-export
+checks.
 
 ## Automated checks
 
+- [One-command demo on Windows and Ubuntu](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reviewer-demo.yml)
 - [CPU tests and artifact integrity](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reproducibility.yml)
 - [Experiment reproduction](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/experiment-reproduction.yml)
 - [Experimental figures](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/experiment-figures.yml)
 - [Raw-data checks](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/raw-data-check.yml)
 
-The exploratory pipeline remains available through `scripts/run_all.py` and
-`configs/default.yaml`. Configure the data location before running it.
+See [workflow scope and receipts](docs/GITHUB_EXECUTION.md). The exploratory
+pipeline remains available through `scripts/run_all.py` and
+`configs/default.yaml`; configure its data location before running it.
+
+## Recorded local verification before publication
+
+The [13 October local receipt](validation/quickstart-local-20261013.json)
+records two fresh CPython 3.13.7 environments on Windows 11: the generated-data
+demo passed 13 numerical checks and the public-input core run passed all 10
+reference-table comparisons. A separately run test suite passed 200 tests;
+13 checks requiring optional trained artifacts were skipped. Installed sets
+are retained in [demo](environment/quickstart-demo-installed-20261013.txt) and
+[core](environment/quickstart-core-installed-20261013.txt) inventories.
+
+The [release bundle](https://github.com/gengx-prog/causal-weathergraph/releases/tag/quickstart-20261013)
+preserves the source and full logs exactly as prepared for these local checks.
+Its references to changes not yet being pushed describe that earlier preparation
+stage; the quickstart is now published in this repository. See the
+[publication notes](docs/QUICKSTART_RELEASE_20261013.md) for the bundle hash,
+verification scope and distinction between archived evidence and current source.
+
+Hosted results are reported separately in the
+[Windows/Ubuntu quickstart runs](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reviewer-demo.yml)
+and [CPU test runs](https://github.com/gengx-prog/causal-weathergraph/actions/workflows/reproducibility.yml).
+Inspect the run for the commit being reviewed; the local receipt does not by
+itself establish a hosted or cross-platform pass.
